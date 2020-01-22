@@ -47,8 +47,6 @@ input wire [31:0] a,
 input wire [31:0] b,
 output wire [31:0] s,
 output wire c_out,
-output wire overflow,
-output wire zero_flag
 );
 
 wire [31:0] c_in;

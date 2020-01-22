@@ -101,13 +101,14 @@ module CLA_32
 (
 input wire [31:0] a,
 input wire [31:0] b,
+input wire c_in,
 output wire [31:0] s,
 output wire c_out
 );
 
 genvar genr;
 wire [8:0] c;
-assign c[0] = 1'b0;
+assign c[0] = c_in;
 for (genr = 0; genr < 8; genr = genr + 1) begin
     localparam integer stride = (1 + genr) * 4 - 1;
     CLA_4 cla4(c[genr],a[stride:stride - 3],b[stride:stride - 3],s[stride:stride - 3],c[genr+1]);

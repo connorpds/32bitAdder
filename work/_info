@@ -72,7 +72,7 @@ R9
 !i113 1
 R10
 vand_3
-Z11 !s110 1579736328
+Z11 !s110 1579736606
 !i10b 1
 !s100 `j<cOE]X6joHUoJaX_XAD0
 I579fC2EO3bk^o<?;eW0kM0
@@ -86,7 +86,7 @@ R6
 r1
 !s85 0
 31
-Z16 !s108 1579736328.000000
+Z16 !s108 1579736606.000000
 Z17 !s107 C:\Users\conno\OneDrive\Desktop\362\Adder Work\\lib\xor_gate.v|C:\Users\conno\OneDrive\Desktop\362\Adder Work\\lib\or_gate.v|C:\Users\conno\OneDrive\Desktop\362\Adder Work\\lib\and_gate.v|C:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v|
 Z18 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v|
 !s101 -O0
@@ -200,11 +200,11 @@ R10
 vCLA_32
 R11
 !i10b 1
-!s100 VfdZFRH<TkfcG_=OzF;zb0
-I<ZOL>lfPc]e1EA7d8GoP?0
+!s100 HVh]=MIj[Kea9o=K]>;d31
+I6CbUEf3P`ESTca989PO9U1
 R1
 R12
-Z20 w1579736318
+Z20 w1579736600
 Z21 8C:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v
 Z22 FC:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v
 L0 100
