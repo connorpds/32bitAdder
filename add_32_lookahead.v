@@ -10,7 +10,7 @@ input wire c_in,
 input wire [3:0] a,
 input wire [3:0] b,
 output wire [3:0] s,
-output wire c_out,
+output wire c_out
 );
 
 //gate syntax: gate name(arg1,arg2,out)
@@ -79,7 +79,7 @@ xor_gate prop3(a[3],b[3],p3);
 //G3 = A3 * B2
 and_gate gen3(a[3],b[3],g3);
 //S3 = P3 XOR C3
-xor_gate sum1(p3,c3,s[3]);
+xor_gate sum3(p3,c3,s[3]);
 //C_out = G3 + P3 *  (G2 + P2*(G1 + P1*(G0 + P0*C0)))
 // = G3 + P3*G2 + P3*P2*(G1 + P1*(G0 + P0*C0))
 // = G3 + P3*G2 + P3*P2*G1 + P3*P2*P1*(G0 + P0*C0)
@@ -108,7 +108,7 @@ output wire c_out
 genvar genr;
 wire [8:0] c;
 assign c[0] = 1'b0;
-for (genr = 0; genr < 8, genr = genr + 1) begin
+for (genr = 0; genr < 8; genr = genr + 1) begin
     localparam integer stride = (1 + genr) * 4 - 1;
     CLA_4 cla4(c[genr],a[stride:stride - 3],b[stride:stride - 3],s[stride:stride - 3],c[genr+1]);
 end
