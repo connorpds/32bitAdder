@@ -72,7 +72,7 @@ R9
 !i113 1
 R10
 vand_3
-Z11 !s110 1579736606
+Z11 !s110 1579801018
 !i10b 1
 !s100 `j<cOE]X6joHUoJaX_XAD0
 I579fC2EO3bk^o<?;eW0kM0
@@ -86,7 +86,7 @@ R6
 r1
 !s85 0
 31
-Z16 !s108 1579736606.000000
+Z16 !s108 1579801017.000000
 Z17 !s107 C:\Users\conno\OneDrive\Desktop\362\Adder Work\\lib\xor_gate.v|C:\Users\conno\OneDrive\Desktop\362\Adder Work\\lib\or_gate.v|C:\Users\conno\OneDrive\Desktop\362\Adder Work\\lib\and_gate.v|C:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v|
 Z18 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v|
 !s101 -O0
@@ -200,14 +200,14 @@ R10
 vCLA_32
 R11
 !i10b 1
-!s100 HVh]=MIj[Kea9o=K]>;d31
-I6CbUEf3P`ESTca989PO9U1
+!s100 0Hc9Sl4F=HoA25K_QRiSg0
+I6]mgalANOPUSg;=ea]e;l1
 R1
 R12
-Z20 w1579736600
+Z20 w1579801006
 Z21 8C:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v
 Z22 FC:/Users/conno/OneDrive/Desktop/362/Adder Work/add_32_lookahead.v
-L0 100
+L0 103
 R6
 r1
 !s85 0
@@ -219,11 +219,33 @@ R18
 !i113 1
 R10
 n@c@l@a_32
+vCLA_32_tb
+R11
+!i10b 1
+!s100 zbXIWX0e82ag]e9FHb_Xz0
+IG?dPj6PCR37;T5>3ekN=42
+R1
+R12
+w1579800961
+8C:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_32_tb.v
+FC:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_32_tb.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1579801018.000000
+!s107 C:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_32_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_32_tb.v|
+!s101 -O0
+!i113 1
+R10
+n@c@l@a_32_tb
 vCLA_4
 R11
 !i10b 1
-!s100 eK=X1FJhZ4c7;:<]MT6ae3
-IWMYbn4;d751kO;CkBAHn@3
+!s100 Z1=k:V:Del]9d?NIBKm>I3
+I9=A@bKbLY[J?8DgBBOSC[0
 R1
 R12
 R20
@@ -241,6 +263,28 @@ R18
 !i113 1
 R10
 n@c@l@a_4
+vCLA_4_tb
+!s110 1579801019
+!i10b 1
+!s100 1oOQcN]>n2;Da0Wce57gJ3
+IfL0mH:?O>T<9LgmTPHfIY3
+R1
+R12
+w1579800833
+8C:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_4_tb.v
+FC:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_4_tb.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1579801019.000000
+!s107 C:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_4_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/OneDrive/Desktop/362/Adder Work/CLA_4_tb.v|
+!s101 -O0
+!i113 1
+R10
+n@c@l@a_4_tb
 vfull_adder
 R0
 !i10b 1

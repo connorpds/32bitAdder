@@ -10,7 +10,8 @@ input wire c_in,
 input wire [3:0] a,
 input wire [3:0] b,
 output wire [3:0] s,
-output wire c_out
+output wire c_out,
+output wire c3
 );
 
 //gate syntax: gate name(arg1,arg2,out)
@@ -55,7 +56,7 @@ or_3 c2_or(g1,p1g0,p1p0c0,c2);
 
 
 //ADDER 2
-wire p2, g2, c3;
+wire p2, g2;
 //P2 = A2 XOR B2
 xor_gate prop2(a[2],b[2],p2);
 //G2 = A2*B2
@@ -92,6 +93,8 @@ and_5 and_p3p2p1p0c0(p3,p2,p1,p0,c_in,p3p2p1p0c0);
 or_5 c_out_or(g3,p3g2, p3p2g1, p3p2p1g0, p3p2p1p0c0,c_out);
 
 
+
+
 endmodule
 
 //now with the 4-bit CLA complete, we cascade eight of them to create
@@ -103,19 +106,27 @@ input wire [31:0] a,
 input wire [31:0] b,
 input wire c_in,
 output wire [31:0] s,
-output wire c_out
+output wire c_out,
+output wire overflow
 );
 
 genvar genr;
 wire [8:0] c;
+wire [7:0] c3;
 assign c[0] = c_in;
 
 for (genr = 0; genr < 8; genr = genr + 1) begin
     localparam integer stride = (1 + genr) * 4 - 1;
-    CLA_4 cla4(c[genr],a[stride:stride - 3],b[stride:stride - 3],s[stride:stride - 3],c[genr+1]);
+  //  if (genr < 7)
+    CLA_4 cla4(c[genr],a[stride:stride - 3],b[stride:stride - 3],s[stride:stride - 3],c[genr+1],c3[genr]);
 end
 
 assign c_out = c[8];
+
+
+//For a N-bit ALU: Overflow = CarryIn[N - 1]  XOR  CarryOut[N - 1]
+xor_gate ovrflw(c3[6],c_out,overflow);
+
 
 endmodule
 
