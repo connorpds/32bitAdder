@@ -49,8 +49,8 @@ xor_gate sum1(p1,c1,s[1]);
 // = G1 + P1*G0 + P1*P0*C0
 wire p1g0, p1p0c0;
 and_gate and_p1g0(p1,g0,p1g0);
-and_3 and_p1p0c0(p1,p0,c0,p1p0c0);
-or_3 c2_or(g1,p1g0,p1p0c0);
+and_3 and_p1p0c0(p1,p0,c_in,p1p0c0);
+or_3 c2_or(g1,p1g0,p1p0c0,c2);
 
 
 
@@ -68,8 +68,8 @@ xor_gate sum2(p2,c2,s[2]);
 wire p2g1, p2p1g0, p2p1p0c0;
 and_gate and_p2g1(p2,g1,p2g1);
 and_3 and_p2p1g0(p2,p1,g0,p2p1g0);
-and_4 and_p2p1p0c0(p2,p1,p0,c0,p2p1p0c0);
-or_4 c3_or(p2g1,p2p1g0,p2p1p0c0,c3);
+and_4 and_p2p1p0c0(p2,p1,p0,c_in,p2p1p0c0);
+or_4 c3_or(g2,p2g1,p2p1g0,p2p1p0c0,c3);
 
 
 //ADDER 3
@@ -88,7 +88,7 @@ wire p3g2, p3p2g1, p3p2p1g0, p3p2p1p0c0;
 and_gate and_p3g2(p3,g2,p3g2);
 and_3 and_p3p2g1(p3,p2,g1,p3p2g1);
 and_4 and_p3p2p1g0(p3,p2,p1,g0,p3p2p1g0);
-and_5 and_p3p2p1p0c0(p3,p2,p1,p0,c0,p3p2p1p0c0);
+and_5 and_p3p2p1p0c0(p3,p2,p1,p0,c_in,p3p2p1p0c0);
 or_5 c_out_or(g2,p3g2, p3p2g1, p3p2p1g0, p3p2p1p0c0,c_out);
 
 
