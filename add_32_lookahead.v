@@ -89,7 +89,7 @@ and_gate and_p3g2(p3,g2,p3g2);
 and_3 and_p3p2g1(p3,p2,g1,p3p2g1);
 and_4 and_p3p2p1g0(p3,p2,p1,g0,p3p2p1g0);
 and_5 and_p3p2p1p0c0(p3,p2,p1,p0,c_in,p3p2p1p0c0);
-or_5 c_out_or(g2,p3g2, p3p2g1, p3p2p1g0, p3p2p1p0c0,c_out);
+or_5 c_out_or(g3,p3g2, p3p2g1, p3p2p1g0, p3p2p1p0c0,c_out);
 
 
 endmodule
@@ -109,10 +109,13 @@ output wire c_out
 genvar genr;
 wire [8:0] c;
 assign c[0] = c_in;
+
 for (genr = 0; genr < 8; genr = genr + 1) begin
     localparam integer stride = (1 + genr) * 4 - 1;
     CLA_4 cla4(c[genr],a[stride:stride - 3],b[stride:stride - 3],s[stride:stride - 3],c[genr+1]);
 end
+
+assign c_out = c[8];
 
 endmodule
 
