@@ -46,21 +46,21 @@ xor_gate_32 xorfunc(.x(A), .y(B), .z(xor_out));
 //MUX at the end for op selection, based off of DLX ALU func codes
 always @ ( A OR B OR opcode )
 	case (opcode)
-		6'b100 : out = sll_out //SLL
-		6'b110 : out = srl_out //SRL
-		6'b111 : out = sra_out //SRA
-		6'b100000 : out = adder_out; //ADD
-		6'b100010 : out = adder_out; //SUB
-		6'b100100 : out = and_out; //AND
-		6'b100101 : out = or_out; //OR
-		6'b100110 : out = xor_out; //XOR
-		6'b101000 : out = //SEQ
-		6'b101001 : out = //SNE
-		6'b101010 : out = //SLT
-		6'b101011 : out = //SGT
-		6'b101100 : out = //SLE
-		6'b101101 : out = //SGE
-		//6'b001110 : out = //MUL
+		6'b000100 : out = sll_out //SLL, 0x4
+		6'b000110 : out = srl_out //SRL, 0x6
+		6'b000111 : out = sra_out //SRA, 0x7
+		6'b100000 : out = adder_out; //ADD 0x20
+		6'b100010 : out = adder_out; //SUB 0x22
+		6'b100100 : out = and_out; //AND 0x24
+		6'b100101 : out = or_out; //OR 0x25
+		6'b100110 : out = xor_out; //XOR 0x26
+		6'b101000 : out = //SEQ 0x28
+		6'b101001 : out = //SNE 0x29
+		6'b101010 : out = //SLT 0x2a
+		6'b101011 : out = //SGT 0x2b
+		6'b101100 : out = //SLE 0x2c
+		6'b101101 : out = //SGE 0x2d
+		//6'b001110 : out = //MUL 0x0e
 	endcase
 end module		
 		
