@@ -7,17 +7,21 @@ module zero_check
 
 
 
-    wire [32:0] orwire;
+    wire [31:0] orwire;
     assign orwire[0] = 1'b0;
 
 
 //can't treat the same wire as input and output for a gate
 genvar g1;
 for (g1 = 0; g1 < 32; g1 = g1 + 1) begin
-    or_gate o1(value[g1],orwire[g1], orwire[g1 + 1]);
+    if (g1 < 31)
+      or_gate o1(value[g1],orwire[g1], orwire[g1 + 1]);
+    else
+      or_gate o1(value[g1],orwire[g1], zero_flag);
+
+
 end
 
-assign zero_flag = orwire[32];
 
 
 
