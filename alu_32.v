@@ -50,11 +50,11 @@ or_gate_32 orfunc(.x(A), .y(B), .z(or_out));
 xor_gate_32 xorfunc(.x(A), .y(B), .z(xor_out));
 
 //Set-ifs
-seq seq_op(.a(adder_out), .seq(seq_out));
-sne sne_op(.a(adder_out), .sne(sne_out));
+seq seq_op(.zf(zero_flag), .seq(seq_out));
+sne sne_op(.nz(not_zero_flag), .sne(sne_out));
 slt slt_op(.a(adder_out), .slt(slt_out));
-sgt sgt_op(.a(adder_out), .sgt(sgt_out));
-sle	sle_op(.a(adder_out), .sle(sle_out));
+sgt sgt_op(.nz(not_zero_flag),.a(adder_out), .sgt(sgt_out));
+sle	sle_op(.zf(zero_flag), .a(adder_out), .sle(sle_out));
 sge sge_op(.a(adder_out), .sge(sge_out));
 
 //MUX at the end for op selection, based off of DLX ALU func codes

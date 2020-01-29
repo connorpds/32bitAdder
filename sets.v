@@ -57,6 +57,7 @@ module sle(
   input wire [31:0] a,
   input wire zf,
   output wire [31:0] sle
+<<<<<<< HEAD
   );
 wire [31:0] slt_out;
 slt slt0(a,slt_out);
@@ -65,6 +66,16 @@ or_gate(zf,slt_out[0],sle[0]);
 
   assign sle[31:1] = {31{1'b0}};
 
+=======
+  ):
+wire [31:0] slt_out;
+slt slt0(a,slt_out);
+or_gate(zf,slt_out[0],sle[0]);
+
+always @* begin
+  sle[31:1] = {31{1'b0}};
+end
+>>>>>>> refs/remotes/origin/master
 endmodule
 
 module sge(
