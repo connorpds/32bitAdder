@@ -1,6 +1,6 @@
 module mux_n (sel, src0, src1, z);
   parameter n;
-  input [n-1:0] sel;
+  input sel;
   input [n-1:0] src0;
   input [n-1:0] src1;
   output reg [n-1:0] z;
