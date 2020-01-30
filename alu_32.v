@@ -1,6 +1,13 @@
+`include "/sets.v"
+`include "/xnor_gate_6to1.v"
+`include "/lib/mux_32.v"
+`include "/lib/not_gate_32.v"
+`include "/lib/and_gate_32.v"
+`include "/lib/xor_gate_32.v"
+`include "/lib/or_gate_32.v"
 
 module alu_32(
-	input wire [31:0] A, 
+	input wire [31:0] A,
 	input wire [31:0] B,
 	input wire [5:0] opcode,
 	output reg [31:0] out
@@ -29,7 +36,7 @@ wire add_opcode;
 wire overflow;
 
 //Determine inputs to the adder
-xnor_gate_6to1 determine_add(.x(opcode), .y(6b'100000), .z(add_opcode));
+xnor_gate_6to1 determine_add(.x(opcode), .y(6'b100000), .z(add_opcode));
 not_gate_32 b_inverter(.x(B), .z(B_inv));
 mux_32 b_mux(.sel(add_opcode), .src0(B_inv), .src1(B), .z(B_adder));
 mux c_in_mux(.sel(add_opcode), .src0(1'b1), .src1(1'b0), .z(c_in));
@@ -58,11 +65,11 @@ sle	sle_op(.zf(zero_flag), .a(adder_out), .sle(sle_out));
 sge sge_op(.a(adder_out), .sge(sge_out));
 
 //MUX at the end for op selection, based off of DLX ALU func codes
-always @ ( A OR B OR opcode )
+always @ ( A or B or opcode )
 	case (opcode)
-		6'b000100 : out = sll_out //SLL, 0x4
-		6'b000110 : out = srl_out //SRL, 0x6
-		6'b000111 : out = sra_out //SRA, 0x7
+		6'b000100 : out = sll_out; //SLL, 0x4
+		6'b000110 : out = srl_out; //SRL, 0x6
+		6'b000111 : out = sra_out; //SRA, 0x7
 		6'b100000 : out = adder_out; //ADD 0x20
 		6'b100010 : out = adder_out; //SUB 0x22
 		6'b100100 : out = and_out; //AND 0x24
@@ -74,9 +81,7 @@ always @ ( A OR B OR opcode )
 		6'b101011 : out = sgt_out; //SGT 0x2b
 		6'b101100 : out = sle_out; //SLE 0x2c
 		6'b101101 : out = sge_out; //SGE 0x2d
+		default		: out = adder_out;
 		//6'b001110 : out = //MUL 0x0e
 	endcase
-end module		
-		
-
-	
+endmodule
