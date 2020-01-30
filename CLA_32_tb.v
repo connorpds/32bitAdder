@@ -234,6 +234,12 @@ module CLA_32_tb;
 		if (Cout != 1) begin
 			$finish(1);
 		end
+		#100
+		A = 32'h80000000;
+		B = 32'h00000001;
+		Cin = 0;
+		#100
+		Cin = 0;
 
 	end
 endmodule

@@ -1,10 +1,12 @@
 `include "/sets.v"
 `include "/xnor_gate_6to1.v"
 `include "/lib/mux_32.v"
+`include "/lib/mux.v"
 `include "/lib/not_gate_32.v"
 `include "/lib/and_gate_32.v"
 `include "/lib/xor_gate_32.v"
 `include "/lib/or_gate_32.v"
+`include "/shift_ops.v"
 
 module alu_32(
 	input wire [31:0] A,
@@ -15,6 +17,7 @@ module alu_32(
 
 wire[31:0] B_inv;
 wire[31:0] B_adder;
+wire[31:0] adder_out;
 wire[31:0] and_out;
 wire[31:0] or_out;
 wire[31:0] xor_out;
@@ -37,6 +40,7 @@ wire overflow;
 
 //Determine inputs to the adder
 xnor_gate_6to1 determine_add(.x(opcode), .y(6'b100000), .z(add_opcode));
+
 not_gate_32 b_inverter(.x(B), .z(B_inv));
 mux_32 b_mux(.sel(add_opcode), .src0(B_inv), .src1(B), .z(B_adder));
 mux c_in_mux(.sel(add_opcode), .src0(1'b1), .src1(1'b0), .z(c_in));
@@ -44,7 +48,7 @@ mux c_in_mux(.sel(add_opcode), .src0(1'b1), .src1(1'b0), .z(c_in));
 //Perform add/subtract
 CLA_32 adder(.a(A), .b(B_adder), .c_in(c_in), .s(adder_out), .c_out(c_out), .overflow(overflow));
 zero_check zero(.value(adder_out), .zero_flag(zero_flag));
-and_gate not_zero(.x(zero_flag), .z(not_zero_flag));
+not_gate not_zero(.x(zero_flag), .z(not_zero_flag));
 
 //Shifters
 sll_32 sll(.A(A), .B(B), .out(sll_out));
@@ -65,7 +69,7 @@ sle	sle_op(.zf(zero_flag), .a(adder_out), .sle(sle_out));
 sge sge_op(.a(adder_out), .sge(sge_out));
 
 //MUX at the end for op selection, based off of DLX ALU func codes
-always @ ( A or B or opcode )
+always @*
 	case (opcode)
 		6'b000100 : out = sll_out; //SLL, 0x4
 		6'b000110 : out = srl_out; //SRL, 0x6
