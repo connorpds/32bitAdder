@@ -10,7 +10,7 @@ end
 
 endmodule
 
-module slr_32(
+module srl_32(
 	input wire [31:0] A,
 	input wire [31:0] B,
 	output reg [31:0] out
@@ -23,7 +23,7 @@ end
 endmodule
 
 module sra_32(
-	input wire [31:0] A,
+	input wire signed [31:0] A,
 	input wire [31:0] B,
 	output reg [31:0] out
 );

@@ -1,3 +1,5 @@
+`include "lib/xnor_gate_n.v"
+`include "lib/and_gate.v"
 module xnor_gate_6to1(
 	input wire[5:0] x,
 	input wire[5:0] y,
@@ -10,7 +12,7 @@ wire and_1;
 wire and_2;
 wire and_3;
 
-xnor_gate_n #(6) xnor_comp(.x(x), .y(y), .z(z));
+xnor_gate_n #(6) xnor_comp(.x(x), .y(y), .z(xnor_out));
 and_gate and0(.x(xnor_out[5]), .y(xnor_out[4]), .z(and_0));
 and_gate and1(.x(and_0), .y(xnor_out[3]), .z(and_1));
 and_gate and2(.x(and_1), .y(xnor_out[2]), .z(and_2));
