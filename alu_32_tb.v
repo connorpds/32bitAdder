@@ -4,7 +4,7 @@ module alu_32_tb;
 	reg [5:0] opcode;
 	reg [31:0] out;
 	
-	alu_32 alu(.A(a), .B(B), .opcode(opcode), .out(out))
+	alu_32 alu(.A(a), .B(B), .opcode(opcode), .out(out));
 	
 	initial begin
 		$monitor("A=%b B=%b, opcode=%b -> out=%b", A, B, opcode, out);
@@ -148,3 +148,5 @@ module alu_32_tb;
 		if (out != 32'b1) begin
 			$finish(1);
 		end
+	end
+endmodule
