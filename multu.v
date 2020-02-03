@@ -2,10 +2,10 @@
 `include "/shift_ops.v"
 
 module multu(
-	reg [31:0] A;
-	reg [31:0] B;
-	reg clk;
-	wire [31:0] Out;
+	input reg [31:0] A;
+	input reg [31:0] B;
+	input reg clk;
+	output wire [31:0] Out;
 );
 
 wire [31:0] mp_out; // Multiplicand out
@@ -15,16 +15,16 @@ wire [31:0] adder_in;
 wire [63:0] shifted_prod;
 wire [63:0] add_shift_out;
 wire [63:0] prod_in;
-wire add0;
-wire a_s;
-wire prod_en;
+wire add0; // add0=1 -> add 0 to product reg 
+wire a_s; // a_s = 0 -> perform add, otherwise shift
+wire prod_en; // enable product register loading from outside world
 
 // Map control
 multu_cont control(.add0(add0), .a_s(a_s), .prod_en(prod_en))
 
 // Perform add 
-mux_32 det_adder_in(.sel(add0), .src1(32'b0), .src0(mp_out), .z(adder_in));
-CLA_32 adder(.A(mp_out), .B(prod_out[63:32]), .c_in(1'b0), .s(adder_out), .c_out(0), .overflow(1'b0));
+mux_32 det_adder_in(.sel(add0), .src0(mp_out), .src1(32'b0), .z(adder_in));
+CLA_32 adder(.A(adder_in), .B(prod_out[63:32]), .c_in(1'b0), .s(adder_out), .c_out(1'b0), .overflow(1'b0));
 
 // Determine input to product reg
 srl_64 shifted_prod(.A(prod_out), .B(64'b1), .out(shifted_prod));
