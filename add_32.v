@@ -46,7 +46,7 @@ module add_32
 input wire [31:0] a,
 input wire [31:0] b,
 output wire [31:0] s,
-output wire c_out,
+output wire c_out
 );
 
 wire [31:0] c_in;
@@ -79,7 +79,7 @@ module add_5
 input wire [4:0] a,
 input wire [4:0] b,
 output wire [4:0] s,
-output wire c_out,
+output wire c_out
 );
 
 wire [4:0] c_in;

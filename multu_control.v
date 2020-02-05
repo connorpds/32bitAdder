@@ -1,4 +1,10 @@
 //multu Control logic module
+`include "/lib/mux.v"
+`include "/lib/and_gate.v"
+`include "/lib/or_gate.v"
+`include "/lib/not_gate.v"
+`include "/register_n.v"
+`include "/add_32.v"
 module multu_control
 (
   input wire doMult,
@@ -14,7 +20,7 @@ module multu_control
   //-need memory to remember if it's been intialized. starts at 0. DONEZO
   //-need memory to count how many shifts have occurred ---basically done
   //-need memory to remember what last thing was
-wire doing_mult;
+reg doing_mult;
  //just for now
 
 //initialization: when doMult goes high, we decide to initialize. We will
@@ -36,9 +42,6 @@ wire doing_mult;
   wire [4:0] out5;
   wire next_op;
   wire a_s0; //a_s for internal use
-  assign zero4[3:0] = 4'b0000;
-  wire zero;
-  assign zero = 0;
   wire mult_done;
 
   //memory to keep track of which op to perform
@@ -49,7 +52,7 @@ wire doing_mult;
 //ALTERNATE SOLN. 32 BIT ALL HIGH START REGISTER, KEEP RIGHT shifting
 //UNTIL LSB IS 0, THEN WE'VE SHIFTED A FULL 32 TIMES
   register_n #(5) reg5(.clk(clk), .reset(combined_reset),.wr_en(a_s),.d(out5),.q(reg5out));
-  add_5 incr(.a(reg5out),.b({zero4,a_s}),.s(out5);
+  add_5 incr(.a(reg5out),.b({4'b0000,a_s}),.s(out5));
   //checking if the register is all 1s, implying 32 shifts have occurred
   and_5 add5maxed(reg5out[0],reg5out[1],reg5out[2],reg5out[3],reg5out[4],mult_done);
 
@@ -58,3 +61,5 @@ wire doing_mult;
 
   not_gate stop_doing(mult_done, doing_mult); //turns doing_mult off
   mux mltdone_add_only(mult_done,a_s0,zero,a_s);
+
+  endmodule
