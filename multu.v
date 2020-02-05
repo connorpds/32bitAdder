@@ -5,6 +5,9 @@ module multu(
 	input reg [31:0] A;
 	input reg [31:0] B;
 	input reg clk;
+	//Control inputs
+	input reg doMult;
+	input reg reset;
 	output wire [31:0] Out;
 );
 
@@ -20,7 +23,7 @@ wire a_s; // a_s = 0 -> perform add, otherwise shift
 wire prod_en; // enable product register loading from outside world
 
 // Map control
-multu_cont control(.add0(add0), .a_s(a_s), .prod_en(prod_en))
+multu_cont control(.doMult(doMult), .sysClk(clk), .mClk(clk), .reset(reset), .add0(add0), .a_s(a_s), .combined_reset(prod_en))
 
 // Perform add
 mux_32 det_adder_in(.sel(add0), .src0(mp_out), .src1(32'b0), .z(adder_in));
@@ -33,6 +36,6 @@ mux_n #(64) (.sel(prod_en), .src0(add_shift_out), .src1({32'b0, B}), .z(prod_in)
 
 //Registers
 register_n #(64) product_reg( .clk(clk), .reset(1'b0), .wr_en(1'b1), .d(prod_out), .q(prod_in) );
-register_n #(32) mp_reg( .clk(clk), .reset(1'b0), .wr_en(1'b1), .d(A), .q(mp_out));
+register_n #(32) mp_reg( .clk(clk), .reset(1'b0), .wr_en(prod_en), .d(A), .q(mp_out));
 
 endmodule
