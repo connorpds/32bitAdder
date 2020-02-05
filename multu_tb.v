@@ -12,14 +12,14 @@ module CLA_32_tb;
 
 	initial begin
 		$monitor("A=%b B=%b, clk=%b -> doMult=%b, reset=%b, Out=%b, mult_done=%b", A, B, clk, doMult, reset, Out, mult_done);
-		A = 32'b1
-		B = 32'b101
-		reset=1'b1
-		clk=1'b1
+		A = 32'b1;
+		B = 32'b101;
+		reset=1'b1;
+		clk=1'b1;
 		#4
-		doMult = 1'b1
+		doMult = 1'b1;
 		#4
-		doMult = 1'b0
+		doMult = 1'b0;
 		#256
 		//should now be done
 		#4
@@ -28,7 +28,7 @@ module CLA_32_tb;
 	
 	always
 	begin
-		#2 clk = ~clk
+		#2 clk = ~clk;
 	end
 
 endmodule
