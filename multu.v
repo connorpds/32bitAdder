@@ -15,14 +15,14 @@ wire [31:0] adder_in;
 wire [63:0] shifted_prod;
 wire [63:0] add_shift_out;
 wire [63:0] prod_in;
-wire add0; // add0=1 -> add 0 to product reg 
+wire add0; // add0=1 -> add 0 to product reg
 wire a_s; // a_s = 0 -> perform add, otherwise shift
 wire prod_en; // enable product register loading from outside world
 
 // Map control
 multu_cont control(.add0(add0), .a_s(a_s), .prod_en(prod_en))
 
-// Perform add 
+// Perform add
 mux_32 det_adder_in(.sel(add0), .src0(mp_out), .src1(32'b0), .z(adder_in));
 CLA_32 adder(.A(adder_in), .B(prod_out[63:32]), .c_in(1'b0), .s(adder_out), .c_out(1'b0), .overflow(1'b0));
 
