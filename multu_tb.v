@@ -26,6 +26,18 @@ module multu_tb;
 		//should now be done
 		dummy = 1'b0;
 
+		A = 32'h03;
+		B = 32'h69;
+		clk=1'b1;
+		#4
+		doMult = 1'b1;
+		#4
+		doMult = 1'b0;
+		#256
+		//should now be done
+		dummy = 1'b0;
+
+
 	end
 
 	always

@@ -42,12 +42,13 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
       ctrl_reset = 0;
     end
 
-//5 bit register and counter, adds 0 when add_count is 0, adds 1 when add_count is 1
-  wire [4:0] reg5out;
-  wire [4:0] out5;
+//6 bit register and counter, adds 0 when add_count is 0, adds 1 when add_count is 1
+  wire [5:0] reg6out;
+  wire [5:0] out6;
   wire next_op;
   wire a_s0; //a_s for internal use
   wire add_c_out;
+  wire mult_inter;
 
   //memory to keep track of which op to perform
   not_gate not_a_s(a_s0,next_op); //e
@@ -56,10 +57,10 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
 //ALTERNATE SOLN. 32 BIT ALL HIGH START REGISTER, KEEP RIGHT shifting
 //UNTIL LSB IS 0, THEN WE'VE SHIFTED A FULL 32 TIMES
-  register_n #(5) counter_reg(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(out5),.q(reg5out));
-  add_5 incr(.a(reg5out),.b({4'b0000,a_s}),.s(out5),.c_out(add_c_out));
+  register_n #(6) counter_reg(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(out6),.q(reg6out));
+  add_6 incr(.a(reg6out),.b({5'b00000,a_s}),.s(out6),.c_out(add_c_out));
   //checking if the register is all 1s, implying 32 shifts have occurred
-  and_5 add5maxed(reg5out[0],reg5out[1],reg5out[2],reg5out[3],reg5out[4],mult_done);
+  assign mult_done = reg6out[5];
 
 
 

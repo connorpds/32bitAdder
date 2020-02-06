@@ -74,18 +74,18 @@ zero_check z5(s, zero_flag);
 
 endmodule
 
-module add_5
+module add_6
 (
-input wire [4:0] a,
-input wire [4:0] b,
-output wire [4:0] s,
+input wire [5:0] a,
+input wire [5:0] b,
+output wire [5:0] s,
 output wire c_out
 );
 
-wire [4:0] c_in;
+wire [5:0] c_in;
 genvar g1;
 
-for (g1 = 0; g1 < 5; g1 = g1 + 1) begin
+for (g1 = 0; g1 < 6; g1 = g1 + 1) begin
 
 		if (g1 == 0)
 			half_adder half_add(a[0],b[0],s[0],c_in[0]);
@@ -95,7 +95,7 @@ for (g1 = 0; g1 < 5; g1 = g1 + 1) begin
 end
 
 
-assign c_out = c_in[4];
+assign c_out = c_in[5];
 
 
 endmodule
