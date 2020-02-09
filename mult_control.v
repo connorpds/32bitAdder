@@ -5,7 +5,7 @@
 `include "/lib/not_gate.v"
 `include "/register_n.v"
 `include "/add_32.v"
-module multu_control
+module mult_control
 (
   input wire doMult,
   input wire sysClk,
