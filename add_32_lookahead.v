@@ -130,14 +130,3 @@ xor_gate ovrflw(c3[6],c_out,overflow);
 
 
 endmodule
-
-
-
-/*module add_4_lookahead
-(
-input wire c_in,
-input wire [3:0] a,
-input wire [3:0] b,
-output wire [3:0] s,
-output wire c_out,
-);*/

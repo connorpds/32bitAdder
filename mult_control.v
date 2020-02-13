@@ -3,6 +3,7 @@
 `include "/lib/and_gate.v"
 `include "/lib/or_gate.v"
 `include "/lib/not_gate.v"
+`include "/lib/nor_gate.v"
 `include "/register_n.v"
 `include "/add_32.v"
 module mult_control
@@ -13,6 +14,7 @@ module mult_control
   input wire reset, //high, reset all the things
   input wire prod_LSB, //product LSB
   output wire add0, //0 is adding multiplicand, 1 is adding 0
+  output wire doSub, //0 is do addition, 1 is do subtraction
   output wire a_s, //add or shift. 0 is add, 1 is shift
   output wire combined_reset, //0 is product[31:0] not updated externally, 1: product[31:0] is B
   output wire mult_done
@@ -24,8 +26,6 @@ module mult_control
 wire doing_mult;
 reg ctrl_reset;
 
-//add0 is just !LSB
-not_gate notLSB(prod_LSB,add0);
 
 or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
@@ -67,5 +67,24 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
   not_gate stop_doing(mult_done, doing_mult); //turns doing_mult off
   mux mltdone_add_only(mult_done,a_s0,1'b0,a_s);
+
+  wire prev_LSB;
+  wire prev_LSB_en;
+  and_gate plsb_doing(next_op,doing_mult,prev_LSB_en);
+  register_n #(1) prev_LSB_(.clk(mClk), .reset(combined_reset),.wr_en(doing_mult),.d(prod_LSB),.q(prev_LSB));
+
+
+
+
+  //T0D0 LIST:
+  //-MEMORY FOR PREVIOUS LSB DONEZERINO
+  //-CHANGE ADD0
+  //-ADD/SUBTRACT OUTPUT (doSub, 0 for add, 1 for sub)
+
+  //add0 and doSub truth table
+  nor_gate add0_(prev_LSB,prod_LSB,add0);
+  wire n_prev;
+  not_gate nprev(prev_LSB,n_prev);
+  and_gate doSub_(prod_LSB,n_prev,doSub);
 
 endmodule
