@@ -35,7 +35,7 @@ multu_control control(.doMult(doMult), .sysClk(clk), .mClk(clk), .reset(reset), 
 not_gate_32 mp_not(.x(mp_out), .z(mp_out_not));
 mux_32 det_addorsub(.sel(doSub), .src0(mp_out), .src1(mp_out_not), .z(potential_adder_in));
 mux_32 det_adder_in(.sel(add0), .src0(potential_adder_in), .src1(32'b0), .z(adder_in));
-mux_32 det_cin(.sel(doSub), .src0(1'b0), .src1(.1'b1), .z(cin))
+mux_32 det_cin(.sel(doSub), .src0(1'b0), .src1(1'b1), .z(cin));
 
 //Do add
 CLA_32 adder(.a(adder_in), .b(prod_out[63:32]), .c_in(cin), .s(adder_out), .c_out(), .overflow());

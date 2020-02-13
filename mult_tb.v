@@ -36,9 +36,9 @@ module mult_tb;
 		#256
 		//should now be done
 		dummy = 1'b0;
-		
+
 		A = 32'hFFFFFFFF;
-		B = 32'h2s;
+		B = 32'h2;
 		clk=1'b1;
 		#4
 		doMult = 1'b1;
@@ -58,7 +58,7 @@ module mult_tb;
 		#256
 		//should now be done
 		dummy = 1'b0;
-		
+
 		//This one is primarily out of interest for what will happen
 		A = 32'hF0000000;
 		B = 32'hF0000000;
