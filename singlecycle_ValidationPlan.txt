@@ -1,0 +1,5 @@
+
+
+Testing of sub-components:
+-Decoder_3to8, decoder_5to32: exhaustive testing
+-Inst_fetch: tested for self-incrementing over time, and capability to do branches/jumps
