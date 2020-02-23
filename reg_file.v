@@ -1,3 +1,8 @@
+`include "/decoder_3to8.v"
+`include "/register_n.v"
+`include "/lib/mux_n.v"
+`include "/lib/and_32.v"
+
 module reg_file(
 	input reg [4:0] rs,
 	input reg [4:0] rs2,
@@ -25,9 +30,9 @@ wire rw;
 mux_n #(5) det_dest(.sel(r_type), .src0(rs2), .src1(rd), .z(rw));
 
 //Decoding of register addresses
-//decoder_3to8 decode_src1(.in(rs), .out(source1));
-//decoder_3to8 decode_src2(.in(rs2), .out(source2));
-decoder_3to8 decode_dest(.in(rw), .out(dest));
+//decoder_5to32 decode_src1(.in(rs), .out(source1));
+//decoder_5to32 decode_src2(.in(rs2), .out(source2));
+decoder_5to32 decode_dest(.in(rw), .out(dest));
 and_32 check_wr_en(.x({32{wr_en}}), .y(dest), .z(dest_wr_en));
 
 //Instantiation of registers

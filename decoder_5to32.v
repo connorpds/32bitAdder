@@ -1,3 +1,5 @@
+`include "/decoder_3to8.v"
+
 module decoder_5to32(
 	input reg [4:0] in,
 	//Control inputs

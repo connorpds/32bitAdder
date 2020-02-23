@@ -1,3 +1,8 @@
+`include "/add_32_lookahead.v"
+`include "/register_n.v"
+`include "/lib/mux_n.v"
+`include "/lib/mux_32.v"
+
 module inst_fetch(
 	input reg [31:0] a,
 	input reg [15:0] imm16,
