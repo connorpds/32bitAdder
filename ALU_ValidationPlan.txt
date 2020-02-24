@@ -1,8 +1,0 @@
-A large amount of the ALU consists of basic Verilog operations (logical and shifting). These we take at face
-value, making sure they at least function in the ALU.
-
-Testing the set-if units was done by testing for negative, positive, and zero values of the adder out. This 
-determines the zero flags and sign bits used by set-ifs for their decisions.
-
-Then, with all sub-modules tested, the ALU can be tested simply to make sure opcode selection and wiring are
-correct. This is done by testing each opcode once.

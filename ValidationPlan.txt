@@ -1,7 +1,0 @@
-There are only two modules in our adder; the adder itself, and the 4-bit carry look-ahead adders it is made of.
-
-For testing the 4-bit CLAs, we simply use for-loops to iterate through all 512 possible inputs, and exit the test
-prematurely with exit code 1 should there be a discrepancy between the sum calculated and the behavioral reference.
-
-Then, we can test the 32-bit adder with the assumption that the 4-bit adders themselves work; so we only need to 
-test the boundaries between each 4-bit CLA. 

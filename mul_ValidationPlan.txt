@@ -1,4 +1,0 @@
-Due to the iterative nature of the design, we believe if it runs to completion on a given test case, there
-aren't actually many more things to test.
-
-As such, we test pos*pos, pos*neg, neg*neg, and max_neg*max_neg, to check for functionality, negative handling, and overflow respectively.
