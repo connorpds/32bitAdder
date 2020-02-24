@@ -1,7 +1,7 @@
 //execute for single cycle
 //essentially just combines mult and alu with common in and out
-include "/alu_32.v"
-include "/mult.v" //not actually using rn but whatever
+`include "/alu_32.v"
+`include "/mult.v" //not actually using rn but whatever
 
 module execute(
   input wire [31:0] A,
@@ -16,7 +16,7 @@ module execute(
 
   always @*
     case (opcode)
-      6'b111111 : begin
+      6'h0e : begin
                   out_sel = 1;
                   doMult = 1;
                   end

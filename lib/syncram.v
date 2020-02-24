@@ -2,9 +2,9 @@ module syncram(clk,cs,oe,we,addr,din,dout);
 
   parameter mem_file;
   input clk;
-  input cs;
-  input oe;
-  input we;
+  input cs; //chip enable?
+  input oe; //output enable
+  input we; //write enable
   input [31:0] addr;
   input [31:0] din;
   output reg [31:0] dout;
