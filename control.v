@@ -3,22 +3,28 @@
 `include "lib/mux_n.v"
 `include "lib/mux_32.v"
 
-//Probably new signals needed
-// -sign extend on load for signed / unsigned
-// -jump on register
-// - func on branches?
+//Things that need to be modified for datapath:
+//-support of jmp_r
+//-support of lhi (probably needs another control signal)
+//-support of load_zero_extend
+//-branch logic
+//-jump-and-link (probably needs another control signal)
+
 module control(
 	//input reg [31:0] a,
 	input wire [31:0] inst,
 	output reg mem_wr,
 	output reg reg_wr,
 	output reg r_type,
-	output reg branch_inst,
+	output reg branch_z,
+	output reg branch_nz,
 	output reg jmp,
+	output reg jmp_r,
 	output reg imm_inst, //should ALU use imm or register busB
-	output reg zero_extend, //need to zero extend i-type logical functions
+	output reg imm_zero_extend, //need to zero extend i-type logical functions
+	output reg load_zero_extend, //because we can load sub-word unsigned, need to be able to not sign extend
 	output reg mem_to_reg,
-	output reg func_code, //needs to be over-rideable
+	output reg [5:0] func_code //needs to be set for imm operationss
 );
 
 //Setting mem_wr
@@ -33,14 +39,14 @@ always @ *
 //Setting reg_wr
 always @ *
 	case(inst[31:26])
-		5'h2: jmp=1'b1; //J
-		//5'h3: jmp=1'b1; //JAL -- pretty sure the "link" part requires writing to reg
+		5'h2: reg_wr=1'b0; //J
+		//5'h3: reg_wr=1'b0; //JAL -- pretty sure the "link" part requires writing to reg
 		6'h4: reg_wr = 1'b0; //BEQZ
 		6'h5: reg_wr = 1'b0; //BNEZ
 		6'h28: reg_wr = 1'b0; //SB
 		6'h29: reg_wr = 1'b0; //SH
 		6'h2b: reg_wr = 1'b0; //SW
-		default: reg_wr = 1'b0;
+		default: reg_wr = 1'b1;
 	endcase
 		
 //Setting r_type
@@ -51,12 +57,18 @@ always @ *
 		default: r_type = 1'b0;
 	endcase
 
-//Setting branch_inst
+//Setting branch_z
 always @ *
 	case(inst[31:26])
-		6'h4: branch_inst = 1'b1; //BEQZ
-		6'h5: branch_inst = 1'b1; //BNEZ
-		default: branch_inst = 1'b0;
+		6'h4: branch_z = 1'b1; //BEQZ
+		default: branch_z = 1'b0;
+	endcase
+
+//Setting branch_z
+always @ *
+	case(inst[31:26])
+		6'h5: branch_nz = 1'b1; //BNEZ
+		default: branch_nz = 1'b0;
 	endcase
 
 //Setting jmp
@@ -65,6 +77,14 @@ always @ *
 		5'h2: jmp=1'b1; //J
 		5'h3: jmp=1'b1; //JAL
 		default: jmp=1'b0;
+	endcase
+
+//Setting jmp_r
+always @ *
+	case(inst[31:26])
+		5'h12: jmp_r=1'b1; //JR
+		5'h13: jmp_r=1'b1; //JALR
+		default: jmp_r=1'b0;
 	endcase
 	
 //Setting imm_inst
@@ -75,13 +95,13 @@ always @ *
 		default: r_type = 1'b1;
 	endcase
 	
-//Setting zero_extend
+//Setting imm_zero_extend
 always @ * 
 	case(inst[31:26])
-		6'hc: zero_extend=1'b1; //ANDI
-		6'hd: zero_extend=1'b1; //ORI
-		6'he: zero_extend=1'b1; //XORI
-		default: zero_extend=1'b0;
+		6'hc: imm_zero_extend=1'b1; //ANDI
+		6'hd: imm_zero_extend=1'b1; //ORI
+		6'he: imm_zero_extend=1'b1; //XORI
+		default: imm_zero_extend=1'b0;
 	endcase
 	
 //Setting mem_to_reg
@@ -93,6 +113,14 @@ always @ *
 		6'h24: mem_to_reg=1'b1; //LBU
 		6'h25: mem_to_reg=1'b1; //LHU
 		default: mem_to_reg=1'b0;
+	endcase
+
+//Setting load_zero_extend
+always @ *
+	case(inst[31:26])
+		6'h24: load_zero_extend=1'b1; //LBU
+		6'h25: load_zero_extend=1'b1; //LHU
+		default: load_zero_extend=1'b0;
 	endcase
 
 //setting func_code
@@ -114,5 +142,5 @@ always @ *
 		6'h1b: func_code = 6'h2b; //SGTI
 		6'h1c: func_code = 6'h2c; //SLEI
 		6'h1d: func_code = 6'h2d; //SGEI
-	default: func_code = 6'h22; //Performing subtraction by default
+	default: func_code = inst[5:0];
 endmodule
