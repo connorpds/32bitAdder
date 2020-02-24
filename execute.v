@@ -1,7 +1,7 @@
 //execute for single cycle
 //essentially just combines mult and alu with common in and out
 include "/alu_32.v"
-include "mult.v" //not actually using rn but whatever
+include "/mult.v" //not actually using rn but whatever
 
 module execute(
   input wire [31:0] A,
