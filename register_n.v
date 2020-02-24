@@ -1,4 +1,7 @@
-`include "/lib/dffr.v"
+`include "lib/dffr.v"
+`include "lib/and_gate.v"
+`include "lib/or_gate.v"
+
 //n-bit register with write enable and synchronous reset
 module register_n
 #(
