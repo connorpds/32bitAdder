@@ -142,5 +142,6 @@ always @ *
 		6'h1b: func_code = 6'h2b; //SGTI
 		6'h1c: func_code = 6'h2c; //SLEI
 		6'h1d: func_code = 6'h2d; //SGEI
-	default: func_code = inst[5:0];
+		default: func_code = inst[5:0];
+	endcase
 endmodule
