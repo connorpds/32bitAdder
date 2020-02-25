@@ -4,9 +4,7 @@
 `include "lib/mux_32.v"
 
 //Things that need to be modified for datapath:
-//-support of jmp_r
 //-support of lhi (probably needs another control signal)
-//-support of load_zero_extend
 //-branch logic
 //-jump-and-link (probably needs another control signal)
 
@@ -20,6 +18,7 @@ module control(
 	output reg branch_nz,
 	output reg jmp,
 	output reg jmp_r,
+	output reg link,
 	output reg imm_inst, //should ALU use imm or register busB
 	output reg imm_extend, //need to zero extend i-type logical functions
 	output reg load_extend, //because we can load sub-word unsigned, need to be able to not sign extend
@@ -92,7 +91,7 @@ always @ *
 	case(inst[31:26])
 		6'h0: imm_inst = 1'b0; //ALU op
 		6'h1: imm_inst = 1'b0; //FP op
-		default: r_type = 1'b1;
+		default: imm_inst = 1'b1;
 	endcase
 	
 //Setting imm_extend
