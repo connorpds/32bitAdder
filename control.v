@@ -5,8 +5,7 @@
 
 //Things that need to be modified for datapath:
 //-support of lhi (probably needs another control signal)
-//-branch logic
-//-jump-and-link (probably needs another control signal)
+//-ACTUALLY ASSIGNING link, sb, sh, lb, lh, lhi
 
 module control(
 	//input reg [31:0] a,
@@ -23,6 +22,11 @@ module control(
 	output reg imm_extend, //need to zero extend i-type logical functions
 	output reg load_extend, //because we can load sub-word unsigned, need to be able to not sign extend
 	output reg mem_to_reg,
+	output reg sb,
+	output reg sh,
+	output reg lb,
+	output reg lh,
+	output reg lhi,
 	output reg [5:0] func_code //needs to be set for imm operationss
 );
 
