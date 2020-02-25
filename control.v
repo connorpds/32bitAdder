@@ -51,9 +51,9 @@ always @ *
 		6'h2b: reg_wr = 1'b0; //SW
 		default: reg_wr = 1'b1;
 	endcase
-		
+
 //Setting r_type
-always @ * 
+always @ *
 	case(inst[31:26])
 		6'h0: r_type = 1'b1; //ALU op
 		6'h1: r_type = 1'b1; //FP op
@@ -89,24 +89,24 @@ always @ *
 		5'h13: jmp_r=1'b1; //JALR
 		default: jmp_r=1'b0;
 	endcase
-	
+
 //Setting imm_inst
-always @ * 
+always @ *
 	case(inst[31:26])
 		6'h0: imm_inst = 1'b0; //ALU op
 		6'h1: imm_inst = 1'b0; //FP op
 		default: imm_inst = 1'b1;
 	endcase
-	
+
 //Setting imm_extend
-always @ * 
+always @ *
 	case(inst[31:26])
 		6'hc: imm_extend=1'b0; //ANDI
 		6'hd: imm_extend=1'b0; //ORI
 		6'he: imm_extend=1'b0; //XORI
 		default: imm_extend=1'b1;
 	endcase
-	
+
 //Setting mem_to_reg
 always @ *
 	case(inst[31:26])
