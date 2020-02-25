@@ -21,8 +21,8 @@ module control(
 	output reg jmp,
 	output reg jmp_r,
 	output reg imm_inst, //should ALU use imm or register busB
-	output reg imm_zero_extend, //need to zero extend i-type logical functions
-	output reg load_zero_extend, //because we can load sub-word unsigned, need to be able to not sign extend
+	output reg imm_extend, //need to zero extend i-type logical functions
+	output reg load_extend, //because we can load sub-word unsigned, need to be able to not sign extend
 	output reg mem_to_reg,
 	output reg [5:0] func_code //needs to be set for imm operationss
 );
@@ -95,13 +95,13 @@ always @ *
 		default: r_type = 1'b1;
 	endcase
 	
-//Setting imm_zero_extend
+//Setting imm_extend
 always @ * 
 	case(inst[31:26])
-		6'hc: imm_zero_extend=1'b1; //ANDI
-		6'hd: imm_zero_extend=1'b1; //ORI
-		6'he: imm_zero_extend=1'b1; //XORI
-		default: imm_zero_extend=1'b0;
+		6'hc: imm_extend=1'b0; //ANDI
+		6'hd: imm_extend=1'b0; //ORI
+		6'he: imm_extend=1'b0; //XORI
+		default: imm_extend=1'b1;
 	endcase
 	
 //Setting mem_to_reg
@@ -115,12 +115,12 @@ always @ *
 		default: mem_to_reg=1'b0;
 	endcase
 
-//Setting load_zero_extend
+//Setting load_extend
 always @ *
 	case(inst[31:26])
-		6'h24: load_zero_extend=1'b1; //LBU
-		6'h25: load_zero_extend=1'b1; //LHU
-		default: load_zero_extend=1'b0;
+		6'h24: load_extend=1'b0; //LBU
+		6'h25: load_extend=1'b0; //LHU
+		default: load_extend=1'b1;
 	endcase
 
 //setting func_code
