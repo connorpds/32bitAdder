@@ -13,18 +13,18 @@
 module control(
 	//input reg [31:0] a,
 	input wire [31:0] inst,
-	output reg mem_wr,
-	output reg reg_wr,
-	output reg r_type,
-	output reg branch_z,
-	output reg branch_nz,
-	output reg jmp,
-	output reg jmp_r,
-	output reg imm_inst, //should ALU use imm or register busB
+	output reg mem_wr, //mem write enable
+	output reg reg_wr, //register write enable
+	output reg r_type, //is the instruction r-type? used to determine destination register
+	output reg branch_z, //high on a bez command (AND with output of register file to actually determine if branching)
+	output reg branch_nz, //high on bnz command
+	output reg jmp, //we have a jmp
+	output reg jmp_r, //we have a jmp to register
+	output reg imm_inst, //should ALU use imm or register busB (ALUsrc)
 	output reg imm_zero_extend, //need to zero extend i-type logical functions
 	output reg load_zero_extend, //because we can load sub-word unsigned, need to be able to not sign extend
-	output reg mem_to_reg,
-	output reg [5:0] func_code //needs to be set for imm operationss
+	output reg mem_to_reg, //is register file input from ALU, or memory?
+	output reg [5:0] func_code //needs to be set for imm operationss (ALU_ctr)
 );
 
 //Setting mem_wr
@@ -48,9 +48,9 @@ always @ *
 		6'h2b: reg_wr = 1'b0; //SW
 		default: reg_wr = 1'b1;
 	endcase
-		
+
 //Setting r_type
-always @ * 
+always @ *
 	case(inst[31:26])
 		6'h0: r_type = 1'b1; //ALU op
 		6'h1: r_type = 1'b1; //FP op
@@ -86,24 +86,24 @@ always @ *
 		5'h13: jmp_r=1'b1; //JALR
 		default: jmp_r=1'b0;
 	endcase
-	
+
 //Setting imm_inst
-always @ * 
+always @ *
 	case(inst[31:26])
 		6'h0: imm_inst = 1'b0; //ALU op
 		6'h1: imm_inst = 1'b0; //FP op
 		default: r_type = 1'b1;
 	endcase
-	
+
 //Setting imm_zero_extend
-always @ * 
+always @ *
 	case(inst[31:26])
 		6'hc: imm_zero_extend=1'b1; //ANDI
 		6'hd: imm_zero_extend=1'b1; //ORI
 		6'he: imm_zero_extend=1'b1; //XORI
 		default: imm_zero_extend=1'b0;
 	endcase
-	
+
 //Setting mem_to_reg
 always @ *
 	case(inst[31:26])
