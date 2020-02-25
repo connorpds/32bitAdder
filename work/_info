@@ -72,33 +72,33 @@ R9
 !i113 1
 R10
 valu_32
-Z14 !s110 1580353151
+Z14 !s110 1582666218
 !i10b 1
 !s100 Tn4_6KA?DBKT?GlQk55aY2
-ID`OCC9dK<7j<dlA;2UDc20
+I4AHHflUR>?O@[`_[9hC`Z0
 R1
-Z15 dC:/Users/conno/Desktop/362/32bitAdder
+Z15 dC:/Users/conno/Desktop/362/single_cycle
 w1580352656
-8C:/Users/conno/Desktop/362/32bitAdder/alu_32.v
-FC:/Users/conno/Desktop/362/32bitAdder/alu_32.v
+8C:\Users\conno\Desktop\362\single_cycle\\alu_32.v
+FC:\Users\conno\Desktop\362\single_cycle\\alu_32.v
 Z16 L0 11
 R6
 r1
 !s85 0
 31
-Z17 !s108 1580353150.000000
-Z18 !s107 C:\Users\conno\Desktop\362\32bitAdder\\shift_ops.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\or_gate_32.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\xor_gate_32.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\and_gate_32.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\not_gate_32.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\mux.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\mux_32.v|lib/and_gate.v|lib/xnor_gate_n.v|C:\Users\conno\Desktop\362\32bitAdder\\xnor_gate_6to1.v|C:\Users\conno\Desktop\362\32bitAdder\\\lib\not_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\\lib\xor_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\\lib\or_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\\lib\and_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\sets.v|C:/Users/conno/Desktop/362/32bitAdder/alu_32.v|
-Z19 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/32bitAdder/alu_32.v|
+Z17 !s108 1582666217.000000
+Z18 !s107 C:\Users\conno\Desktop\362\single_cycle\\\lib\mux_n.v|C:\Users\conno\Desktop\362\single_cycle\\mult.v|C:\Users\conno\Desktop\362\single_cycle\\\shift_ops.v|C:\Users\conno\Desktop\362\single_cycle\\\lib\or_gate_32.v|C:\Users\conno\Desktop\362\single_cycle\\\lib\xor_gate_32.v|C:\Users\conno\Desktop\362\single_cycle\\\lib\and_gate_32.v|C:\Users\conno\Desktop\362\single_cycle\\\lib\not_gate_32.v|C:\Users\conno\Desktop\362\single_cycle\\\lib\mux.v|C:\Users\conno\Desktop\362\single_cycle\\\lib\mux_32.v|lib/and_gate.v|lib/xnor_gate_n.v|C:\Users\conno\Desktop\362\single_cycle\\\xnor_gate_6to1.v|C:\Users\conno\Desktop\362\single_cycle\\\\lib\not_gate.v|C:\Users\conno\Desktop\362\single_cycle\\\\lib\xor_gate.v|C:\Users\conno\Desktop\362\single_cycle\\\\lib\or_gate.v|C:\Users\conno\Desktop\362\single_cycle\\\\lib\and_gate.v|C:\Users\conno\Desktop\362\single_cycle\\\sets.v|C:\Users\conno\Desktop\362\single_cycle\\alu_32.v|C:\Users\conno\Desktop\362\single_cycle\execute.v|
+Z19 !s90 -reportprogress|300|-work|work|-stats=none|C:\Users\conno\Desktop\362\single_cycle\execute.v|
 !s101 -O0
 !i113 1
 R10
 valu_32_tb
-R14
+Z20 !s110 1580353151
 !i10b 1
 !s100 z>`^d1SPhaVFISH[[fQzb2
 IC45XFG^h0Ih<M4]E=7ZP23
 R1
-R15
+Z21 dC:/Users/conno/Desktop/362/32bitAdder
 w1580349880
 8C:/Users/conno/Desktop/362/32bitAdder/alu_32_tb.v
 FC:/Users/conno/Desktop/362/32bitAdder/alu_32_tb.v
@@ -107,40 +107,40 @@ R6
 r1
 !s85 0
 31
-Z20 !s108 1580353151.000000
+Z22 !s108 1580353151.000000
 !s107 C:/Users/conno/Desktop/362/32bitAdder/alu_32_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/32bitAdder/alu_32_tb.v|
 !s101 -O0
 !i113 1
 R10
 vand_3
-R0
+R14
 !i10b 1
 !s100 `j<cOE]X6joHUoJaX_XAD0
-I60Rffbn@MgAR07X:PHI:M0
+I_ibGZ45^9YnPZIjBa:S070
 R1
-R2
-Z21 w1579750052
-Z22 8C:\Users\conno\Desktop\362\alu_32\\\lib\and_gate.v
-Z23 FC:\Users\conno\Desktop\362\alu_32\\\lib\and_gate.v
+R15
+Z23 w1579750052
+Z24 8lib/and_gate.v
+Z25 Flib/and_gate.v
 R16
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vand_32
-Z24 !s110 1572496984
+Z26 !s110 1572496984
 !i10b 1
 !s100 2]LA@I`Z]a7J@>8b2fiZg3
 I8F9UZh;Uk9of9:4F9P5me0
 R1
-Z25 dC:/Users/conno/Desktop/ECE 360 Project 1
+Z27 dC:/Users/conno/Desktop/ECE 360 Project 1
 w1572472659
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v
@@ -149,72 +149,72 @@ R6
 r1
 !s85 0
 31
-Z26 !s108 1572496984.000000
-Z27 !s107 C:\Users\conno\Desktop\ECE 360 Project 1\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\srl_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux_n.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sll_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\alu_32.v|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
-Z28 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
+Z28 !s108 1572496984.000000
+Z29 !s107 C:\Users\conno\Desktop\ECE 360 Project 1\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\srl_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux_n.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sll_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\alu_32.v|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
+Z30 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
 !s101 -O0
 !i113 1
 R10
 vand_4
-R0
+R14
 !i10b 1
 !s100 YL]Q9dOE5X_HV;zL?bgi00
-I@<eagSeV=1?MV=>RBTIc]2
+IhF@>:<T^g4znVGdU<eTJ=2
 R1
-R2
-R21
-R22
+R15
 R23
+R24
+R25
 L0 20
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vand_5
-R0
+R14
 !i10b 1
 !s100 DWC0F@kP0k9UBk3S;bV^k1
-Ii76KOcdZ2a]O;j1E0gO=72
+ICVNiad?PPK]GI_6jOEj;U0
 R1
-R2
-R21
-R22
+R15
 R23
-Z29 L0 30
+R24
+R25
+Z31 L0 30
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vand_gate
-R0
+R14
 !i10b 1
 !s100 NLZe9@@iT^HHj]<Q3`I=H2
-IDTemK29gZM4cfR<BUW_@G1
+I<eE4Na47Q7;6`Ja1;HGAl2
 R1
-R2
-R21
-R22
+R15
 R23
+R24
+R25
 L0 1
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -222,12 +222,12 @@ vand_gate_32
 R14
 !i10b 1
 !s100 @b``jmKZ0[7jJ`ZWbYKGQ2
-IHI6C9Xge2khDE9j;TR7km3
+I=Z`OzR?PG;ii;6@MJN7kZ1
 R1
 R15
-R21
-8C:\Users\conno\Desktop\362\32bitAdder\\lib\and_gate_32.v
-FC:\Users\conno\Desktop\362\32bitAdder\\lib\and_gate_32.v
+R23
+8C:\Users\conno\Desktop\362\single_cycle\\\lib\and_gate_32.v
+FC:\Users\conno\Desktop\362\single_cycle\\\lib\and_gate_32.v
 L0 1
 R6
 r1
@@ -240,23 +240,23 @@ R19
 !i113 1
 R10
 vCLA_32
-Z30 !s110 1580353150
+Z32 !s110 1580353150
 !i10b 1
 !s100 0Hc9Sl4F=HoA25K_QRiSg0
 I=m9Xe[fEaER`194Wc6:Qo1
 R1
-R15
-Z31 w1580089951
-Z32 8C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v
-Z33 FC:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v
+R21
+Z33 w1580089951
+Z34 8C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v
+Z35 FC:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v
 L0 103
 R6
 r1
 !s85 0
 31
-R17
-Z34 !s107 C:\Users\conno\Desktop\362\32bitAdder\\lib\xor_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\or_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\and_gate.v|C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v|
-Z35 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v|
+Z36 !s108 1580353150.000000
+Z37 !s107 C:\Users\conno\Desktop\362\32bitAdder\\lib\xor_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\or_gate.v|C:\Users\conno\Desktop\362\32bitAdder\\lib\and_gate.v|C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v|
+Z38 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v|
 !s101 -O0
 !i113 1
 R10
@@ -269,49 +269,49 @@ IB0CZG;b5@YBban5>JgC=n0
 R1
 R2
 w1580945551
-Z36 8C:/Users/conno/Desktop/362/alu_32/multu_tb.v
-Z37 FC:/Users/conno/Desktop/362/alu_32/multu_tb.v
+Z39 8C:/Users/conno/Desktop/362/alu_32/multu_tb.v
+Z40 FC:/Users/conno/Desktop/362/alu_32/multu_tb.v
 L0 1
 R6
 r1
 !s85 0
 31
 !s108 1580945727.000000
-Z38 !s107 C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
-Z39 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
+Z41 !s107 C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
+Z42 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
 !s101 -O0
 !i113 1
 R10
 n@c@l@a_32_tb
 vCLA_4
-R30
+R32
 !i10b 1
 !s100 Z1=k:V:Del]9d?NIBKm>I3
 I^dlgWoPKDA`l?_Y:0Y<I<1
 R1
-R15
-R31
-R32
+R21
 R33
+R34
+R35
 L0 7
 R6
 r1
 !s85 0
 31
-R17
-R34
-R35
+R36
+R37
+R38
 !s101 -O0
 !i113 1
 R10
 n@c@l@a_4
 vCLA_4_tb
-R30
+R32
 !i10b 1
 !s100 1oOQcN]>n2;Da0Wce57gJ3
 IE[QTk>[dUQ5?lnPAXhS[K3
 R1
-R15
+R21
 w1579807904
 8C:/Users/conno/Desktop/362/32bitAdder/CLA_4_tb.v
 FC:/Users/conno/Desktop/362/32bitAdder/CLA_4_tb.v
@@ -320,7 +320,7 @@ R6
 r1
 !s85 0
 31
-R17
+R36
 !s107 C:/Users/conno/Desktop/362/32bitAdder/CLA_4_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/32bitAdder/CLA_4_tb.v|
 !s101 -O0
@@ -334,7 +334,7 @@ R0
 IM^blY49DRIgi;cEfN3AhM2
 R1
 R2
-Z40 w1580942621
+Z43 w1580942621
 8C:\Users\conno\Desktop\362\alu_32\\\lib\dffr.v
 FC:\Users\conno\Desktop\362\alu_32\\\lib\dffr.v
 L0 1
@@ -345,6 +345,27 @@ r1
 R7
 R8
 R9
+!s101 -O0
+!i113 1
+R10
+vexecute
+R14
+!i10b 1
+!s100 BiAiTkfReeUk;982DhI7j2
+IL5o7mbC>^d1bjW^CX44C@1
+R1
+R15
+w1582666207
+8C:\Users\conno\Desktop\362\single_cycle\execute.v
+FC:\Users\conno\Desktop\362\single_cycle\execute.v
+L0 6
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -379,7 +400,7 @@ R2
 R3
 R4
 R5
-R29
+R31
 R6
 r1
 !s85 0
@@ -390,24 +411,45 @@ R9
 !s101 -O0
 !i113 1
 R10
+vmem_access
+Z44 !s110 1582665809
+!i10b 1
+!s100 gPREo8@DlN:^]@Cz92:6c2
+IY9CbbA5[UeRI=jOm62Imi3
+R1
+R15
+w1582665795
+8C:/Users/conno/Desktop/362/single_cycle/mem_access.v
+FC:/Users/conno/Desktop/362/single_cycle/mem_access.v
+L0 4
+R6
+r1
+!s85 0
+31
+Z45 !s108 1582665808.000000
+Z46 !s107 C:\Users\conno\Desktop\362\single_cycle\\lib\syncram.v|C:/Users/conno/Desktop/362/single_cycle/mem_access.v|
+Z47 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/single_cycle/mem_access.v|
+!s101 -O0
+!i113 1
+R10
 vmult
-Z41 !s110 1581560688
+R14
 !i10b 1
 !s100 ]g5E3KBmoFOd@MUOdK0HN3
-I>nOaf[a08fG943m;I2;FG0
+Idi5aXa_V?RV9Z[3dgmSfl3
 R1
-R2
+R15
 w1581560682
-8C:/Users/conno/Desktop/362/alu_32/mult.v
-FC:/Users/conno/Desktop/362/alu_32/mult.v
+8C:\Users\conno\Desktop\362\single_cycle\\mult.v
+FC:\Users\conno\Desktop\362\single_cycle\\mult.v
 L0 5
 R6
 r1
 !s85 0
 31
-Z42 !s108 1581560688.000000
-Z43 !s107 C:\Users\conno\Desktop\362\alu_32\\lib\mux_n.v|C:\Users\conno\Desktop\362\alu_32\\shift_ops.v|C:\Users\conno\Desktop\362\alu_32\\lib\mux_32.v|C:/Users/conno/Desktop/362/alu_32/mult.v|
-Z44 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/alu_32/mult.v|
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -454,7 +496,7 @@ r1
 !i113 1
 R10
 vmultu
-Z45 !s110 1580950490
+Z48 !s110 1580950490
 !i10b 1
 !s100 XnJZh<l6m[DUQ>V0=:^_21
 IjODP:0l93Hfl2b82MLOOY2
@@ -468,14 +510,14 @@ R6
 r1
 !s85 0
 31
-Z46 !s108 1580950490.000000
+Z49 !s108 1580950490.000000
 !s107 C:\Users\conno\Desktop\362\alu_32\\lib\mux_n.v|C:\Users\conno\Desktop\362\alu_32\\shift_ops.v|C:\Users\conno\Desktop\362\alu_32\\lib\mux_32.v|C:/Users/conno/Desktop/362/alu_32/multu.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/alu_32/multu.v|
 !s101 -O0
 !i113 1
 R10
 vmultu_control
-R45
+R48
 !i10b 1
 !s100 <X9B]VY?Wdk6T<_:_CIkX1
 IozX9I?<X0QN@cncaW]W;;2
@@ -496,149 +538,149 @@ R13
 !i113 1
 R10
 vmultu_tb
-R45
+R48
 !i10b 1
 !s100 hRjFJPBdc3moW1XS4kS@C3
 I;3VHe@WzFn`TUN`@MgHW53
 R1
 R2
 w1580950485
-R36
-R37
+R39
+R40
 L0 1
 R6
 r1
 !s85 0
 31
-R46
-R38
-R39
+R49
+R41
+R42
 !s101 -O0
 !i113 1
 R10
 vmux
-R0
+R14
 !i10b 1
 !s100 0f3Tg3e9AC4j0zgA[7E[]2
-Io[n2NW_:zi4ORoo`LdJ@S3
+In>?Eo13Do8<[[RiMP7XO`3
 R1
-R2
-R21
-8C:\Users\conno\Desktop\362\alu_32\\lib\mux.v
-FC:\Users\conno\Desktop\362\alu_32\\lib\mux.v
+R15
+R23
+8C:\Users\conno\Desktop\362\single_cycle\\\lib\mux.v
+FC:\Users\conno\Desktop\362\single_cycle\\\lib\mux.v
 L0 1
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vmux16
-Z47 !s110 1572496983
+Z50 !s110 1572496983
 !i10b 1
 !s100 ^TfHAlgQnJ<5hB5En@OcC0
 IX_`L[[Fja^h0^AQlPP1H;0
 R1
-R25
-Z48 w1572442488
-Z49 8C:/Users/conno/Desktop/ECE 360 Project 1/mux16.v
-Z50 FC:/Users/conno/Desktop/ECE 360 Project 1/mux16.v
-Z51 L0 32
+R27
+Z51 w1572442488
+Z52 8C:/Users/conno/Desktop/ECE 360 Project 1/mux16.v
+Z53 FC:/Users/conno/Desktop/ECE 360 Project 1/mux16.v
+Z54 L0 32
 R6
 r1
 !s85 0
 31
-Z52 !s108 1572496983.000000
-Z53 !s107 C:\Users\conno\Desktop\ECE 360 Project 1\\lib\mux.v|C:/Users/conno/Desktop/ECE 360 Project 1/mux16.v|
-Z54 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/ECE 360 Project 1/mux16.v|
+Z55 !s108 1572496983.000000
+Z56 !s107 C:\Users\conno\Desktop\ECE 360 Project 1\\lib\mux.v|C:/Users/conno/Desktop/ECE 360 Project 1/mux16.v|
+Z57 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/ECE 360 Project 1/mux16.v|
 !s101 -O0
 !i113 1
 R10
 vmux4
-R47
+R50
 !i10b 1
 !s100 ZjKbMU`7gnV5D00bLAUX>3
 IZ7bYMhB:T2GhOz0n<m<CV3
 R1
-R25
-R48
-R49
-R50
+R27
+R51
+R52
+R53
 L0 2
 R6
 r1
 !s85 0
 31
-R52
-R53
-R54
+R55
+R56
+R57
 !s101 -O0
 !i113 1
 R10
 vmux8
-R47
+R50
 !i10b 1
 !s100 6R4QGeB03Ao8M?e`I_NE42
 I__DXG`QD06ec83h^__Nl51
 R1
-R25
-R48
-R49
-R50
+R27
+R51
+R52
+R53
 L0 18
 R6
 r1
 !s85 0
 31
-R52
-R53
-R54
+R55
+R56
+R57
 !s101 -O0
 !i113 1
 R10
 vmux_32
-R41
+R14
 !i10b 1
 !s100 ?693lSfA]TCg`<oO]K;CA1
-IBBgHb<2;Fg>06PTkd`ED^3
+Io_l;IY:1Fam2MZYXkhz3e1
 R1
-R2
+R15
 w1580352667
-8C:\Users\conno\Desktop\362\alu_32\\lib\mux_32.v
-FC:\Users\conno\Desktop\362\alu_32\\lib\mux_32.v
+8C:\Users\conno\Desktop\362\single_cycle\\\lib\mux_32.v
+FC:\Users\conno\Desktop\362\single_cycle\\\lib\mux_32.v
 L0 1
 R6
 r1
 !s85 0
 31
-R42
-R43
-R44
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vmux_n
-R41
+R14
 !i10b 1
-!s100 @65]MQLg4^V^F9V>JmI?`2
-ImmDCKHmZ:VMgh>E9PcnUB0
+!s100 lcYmBSFWTzg<==Pje6Rz_3
+ILW1l4fKe2>GYoPYNie^283
 R1
-R2
-w1580353473
-8C:\Users\conno\Desktop\362\alu_32\\lib\mux_n.v
-FC:\Users\conno\Desktop\362\alu_32\\lib\mux_n.v
+R15
+w1582513710
+8C:\Users\conno\Desktop\362\single_cycle\\\lib\mux_n.v
+FC:\Users\conno\Desktop\362\single_cycle\\\lib\mux_n.v
 L0 1
 R6
 r1
 !s85 0
 31
-R42
-R43
-R44
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -649,7 +691,7 @@ R0
 I?SI1kLFaWa`m:FczLCNT?1
 R1
 R2
-R21
+R23
 8C:\Users\conno\Desktop\362\alu_32\\lib\nor_gate.v
 FC:\Users\conno\Desktop\362\alu_32\\lib\nor_gate.v
 L0 1
@@ -664,23 +706,23 @@ R9
 !i113 1
 R10
 vnot_gate
-R0
+R14
 !i10b 1
 !s100 @FX]SQ9[SLV5C@AHXzLLB1
-I[4z3a_3SY1fB17o1EX`<L2
+Ib`ID3Wa=C2jVC8llJa4z?0
 R1
-R2
-R21
-8C:\Users\conno\Desktop\362\alu_32\\lib\not_gate.v
-FC:\Users\conno\Desktop\362\alu_32\\lib\not_gate.v
+R15
+R23
+8C:\Users\conno\Desktop\362\single_cycle\\\\lib\not_gate.v
+FC:\Users\conno\Desktop\362\single_cycle\\\\lib\not_gate.v
 L0 1
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -688,12 +730,12 @@ vnot_gate_32
 R14
 !i10b 1
 !s100 f<;0OK5OGnD61<kJ[1fIO0
-I7LQE0b:mae3:]8zK26d501
+I2@5>enAUflWcW5KY@B@cP3
 R1
 R15
-R21
-8C:\Users\conno\Desktop\362\32bitAdder\\lib\not_gate_32.v
-FC:\Users\conno\Desktop\362\32bitAdder\\lib\not_gate_32.v
+R23
+8C:\Users\conno\Desktop\362\single_cycle\\\lib\not_gate_32.v
+FC:\Users\conno\Desktop\362\single_cycle\\\lib\not_gate_32.v
 L0 1
 R6
 r1
@@ -706,33 +748,33 @@ R19
 !i113 1
 R10
 vor_3
-R0
+R14
 !i10b 1
 !s100 P5kK1PKBnbii3S1nfJPY43
-I`3^<ez>iLOZ7i]Y2GJ<8l2
+IaXFbOEiR_JjM4S1omPcS;3
 R1
-R2
-R21
-Z55 8C:\Users\conno\Desktop\362\alu_32\\\lib\or_gate.v
-Z56 FC:\Users\conno\Desktop\362\alu_32\\\lib\or_gate.v
-Z57 L0 13
+R15
+R23
+Z58 8C:\Users\conno\Desktop\362\single_cycle\\\\lib\or_gate.v
+Z59 FC:\Users\conno\Desktop\362\single_cycle\\\\lib\or_gate.v
+Z60 L0 13
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vor_32
-R24
+R26
 !i10b 1
 !s100 dck]cZPBD?WC;cY92]kkJ0
 IG`kZ9bQCm1bD=3O?@O75G1
 R1
-R25
+R27
 w1572472684
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v
@@ -741,72 +783,72 @@ R6
 r1
 !s85 0
 31
-R26
-R27
 R28
+R29
+R30
 !s101 -O0
 !i113 1
 R10
 vor_4
-R0
+R14
 !i10b 1
 !s100 zNb@DEF4nTFN01d3=@44M3
-I][m1o>gDUd9:nS>jn]I0k1
+IP?C>MIDB4BM8_IE@JSzLn2
 R1
-R2
-R21
-R55
-R56
+R15
+R23
+R58
+R59
 L0 22
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vor_5
-R0
+R14
 !i10b 1
 !s100 HlUOmc2Ad6D>C9M`Ym7EP2
-ISmTRT3oUzhl9hhXco]X4i0
+IcogPB0MnRjABcPAMRNDLP2
 R1
-R2
-R21
-R55
-R56
-R51
+R15
+R23
+R58
+R59
+R54
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vor_gate
-R0
+R14
 !i10b 1
 !s100 =m;HIk4P2jzbSRL^Rba_90
-I>Gzg>ca4oQ:;:zWW:@[;z2
+IJXjOP^Zk4fGWUW<JULbW50
 R1
-R2
-R21
-R55
-R56
+R15
+R23
+R58
+R59
 L0 1
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -814,12 +856,12 @@ vor_gate_32
 R14
 !i10b 1
 !s100 O;5RWJ2ceGSb^1m9T3S_a0
-ID6oUMOKX;GkCmzG6_T5O63
+If47lg<_id@3`:91No<0Co3
 R1
 R15
-R21
-8C:\Users\conno\Desktop\362\32bitAdder\\lib\or_gate_32.v
-FC:\Users\conno\Desktop\362\32bitAdder\\lib\or_gate_32.v
+R23
+8C:\Users\conno\Desktop\362\single_cycle\\\lib\or_gate_32.v
+FC:\Users\conno\Desktop\362\single_cycle\\\lib\or_gate_32.v
 L0 1
 R6
 r1
@@ -856,12 +898,12 @@ vseq
 R14
 !i10b 1
 !s100 Bl;?HjmVa7SYHe6;37Z?]1
-IBGKh^lT_HJRCPjLE6oAGP1
+Imgd@6T@KaOYzE2EcGjEQM2
 R1
 R15
-Z58 w1580345765
-Z59 8C:\Users\conno\Desktop\362\32bitAdder\\sets.v
-Z60 FC:\Users\conno\Desktop\362\32bitAdder\\sets.v
+Z61 w1580345765
+Z62 8C:\Users\conno\Desktop\362\single_cycle\\\sets.v
+Z63 FC:\Users\conno\Desktop\362\single_cycle\\\sets.v
 L0 19
 R6
 r1
@@ -874,12 +916,12 @@ R19
 !i113 1
 R10
 vsets_tb
-R14
+R20
 !i10b 1
 !s100 C=hc_2@[Aa4cRWY]`3oNT3
 IHRMBP>hj^^KRde0D]_IGY3
 R1
-R15
+R21
 w1580346703
 8C:/Users/conno/Desktop/362/32bitAdder/sets_tb.v
 FC:/Users/conno/Desktop/362/32bitAdder/sets_tb.v
@@ -888,7 +930,7 @@ R6
 r1
 !s85 0
 31
-R20
+R22
 !s107 C:/Users/conno/Desktop/362/32bitAdder/sets_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/32bitAdder/sets_tb.v|
 !s101 -O0
@@ -898,12 +940,12 @@ vsge
 R14
 !i10b 1
 !s100 mzB<2I<3<RUI<TX_jiOSW2
-I@hB:CO;EJ]V0ZUjbVQT^V3
+IZFogC=loYkRDM[zUTE`5d0
 R1
 R15
-R58
-R59
-R60
+R61
+R62
+R63
 L0 71
 R6
 r1
@@ -919,12 +961,12 @@ vsgt
 R14
 !i10b 1
 !s100 a0?GMbO0zGKVaGOEg_I`Q1
-Ioz?J?HTQ:ik867kianb`63
+IF?@<D^4iKbF0lPJ[kHDTA1
 R1
 R15
-R58
-R59
-R60
+R61
+R62
+R63
 L0 40
 R6
 r1
@@ -940,13 +982,13 @@ vsle
 R14
 !i10b 1
 !s100 BGzDV2ed`zW^i3eNSm]lX1
-Ia@zH41aL4P=gH3D>`B<g_0
+I=gNFS0RWz0]^2zSI9<I@]1
 R1
 R15
-R58
-R59
-R60
-Z61 L0 56
+R61
+R62
+R63
+Z64 L0 56
 R6
 r1
 !s85 0
@@ -958,23 +1000,23 @@ R19
 !i113 1
 R10
 vsll_32
-R41
+R14
 !i10b 1
 !s100 SCHaP3^CXP>``^z1>^OfI1
-Ig`OY1cY4NLi9Gdj2bLHiX2
+I@<ERIDI8gEP1jJ5DD=gb?0
 R1
-R2
-R40
-Z62 8C:\Users\conno\Desktop\362\alu_32\\shift_ops.v
-Z63 FC:\Users\conno\Desktop\362\alu_32\\shift_ops.v
+R15
+R43
+Z65 8C:\Users\conno\Desktop\362\single_cycle\\\shift_ops.v
+Z66 FC:\Users\conno\Desktop\362\single_cycle\\\shift_ops.v
 L0 1
 R6
 r1
 !s85 0
 31
-R42
-R43
-R44
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -984,11 +1026,11 @@ vslr_32
 !s100 o[kbcfo4EKJ<C[^;[6Qh33
 IAOXLj>[M?D4T66c[5]]LS0
 R1
-R15
+R21
 w1580340283
 8C:\Users\conno\Desktop\362\32bitAdder\\shift_ops.v
 FC:\Users\conno\Desktop\362\32bitAdder\\shift_ops.v
-R57
+R60
 R6
 r1
 !s85 0
@@ -1003,12 +1045,12 @@ vslt
 R14
 !i10b 1
 !s100 :AgO@E^1[GN[V^kl1k0M82
-I=in6k]d3jSn739]J=<Io_2
+I>2CPHkLC_kCHe^HN_6Vmz2
 R1
 R15
-R58
-R59
-R60
+R61
+R62
+R63
 L0 9
 R6
 r1
@@ -1021,12 +1063,12 @@ R19
 !i113 1
 R10
 vslt_32
-R24
+R26
 !i10b 1
 !s100 AcV5fPYUTC;S@Ag3BIS<k3
 Ioj<g39eK5N3_Ag1K0j`mV2
 R1
-R25
+R27
 w1572495172
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v
@@ -1035,9 +1077,9 @@ R6
 r1
 !s85 0
 31
-R26
-R27
 R28
+R29
+R30
 !s101 -O0
 !i113 1
 R10
@@ -1047,11 +1089,11 @@ vslte
 !s100 G7gDMbY[R53jbaj;LfSBk0
 Ic]UYPk[Th@e36j=`5kESO0
 R1
-R15
+R21
 w1580341300
 8C:/Users/conno/Desktop/362/32bitAdder/sets.v
 FC:/Users/conno/Desktop/362/32bitAdder/sets.v
-R61
+R64
 R6
 r1
 !s85 0
@@ -1063,12 +1105,12 @@ r1
 !i113 1
 R10
 vsltu_32
-R24
+R26
 !i10b 1
 !s100 kgZO5hgB4J>Gh?^<IYVE<0
 ILKBBS`R`Mf;`HOJMTS7gk1
 R1
-R25
+R27
 w1572496408
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v
@@ -1077,9 +1119,9 @@ R6
 r1
 !s85 0
 31
-R26
-R27
 R28
+R29
+R30
 !s101 -O0
 !i113 1
 R10
@@ -1087,13 +1129,13 @@ vsne
 R14
 !i10b 1
 !s100 HkY2^Jco=f?ocF9[O8MjC0
-IXa`7;I_ORE:DSXheBA@[M0
+IbRezcAIF_ODjmYFKgGZTm3
 R1
 R15
-R58
-R59
-R60
-R29
+R61
+R62
+R63
+R31
 R6
 r1
 !s85 0
@@ -1105,75 +1147,75 @@ R19
 !i113 1
 R10
 vsra_32
-R41
+R14
 !i10b 1
 !s100 Xm<`IKnb[9oSL4CfDn5<`1
-I?C:T`mQLd=W?;0g]?H5AC2
+I1L;cnDeIURh]`c_MbbOFi0
 R1
-R2
-R40
-R62
-R63
+R15
+R43
+R65
+R66
 L0 37
 R6
 r1
 !s85 0
 31
-R42
-R43
-R44
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vsrl_32
-R41
+R14
 !i10b 1
 !s100 7b_2_3B_K48FQ^8HN9;C33
-I:_f9_7RLEhGN3MPO@aB0z1
+I<b2`T7]eLGM9<[_6GnDCR3
 R1
-R2
-R40
-R62
-R63
-R57
+R15
+R43
+R65
+R66
+R60
 R6
 r1
 !s85 0
 31
-R42
-R43
-R44
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vsrl_64
-R41
+R14
 !i10b 1
 !s100 MPI7b<ZVDo8JJ]cn1TI=]0
-IS3U>Gz>Si3Nl@Xm[IoI3h3
+Ij6RCZPbaHc9MJH@Rlo^[:2
 R1
-R2
-R40
-R62
-R63
+R15
+R43
+R65
+R66
 L0 25
 R6
 r1
 !s85 0
 31
-R42
-R43
-R44
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
 vsub_32
-R24
+R26
 !i10b 1
 !s100 hhiIQ<OHOJUO16YUz[Hzb0
 If4_9AORiT;=MlCTE1X3Pe2
 R1
-R25
+R27
 w1572472844
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v
@@ -1182,9 +1224,30 @@ R6
 r1
 !s85 0
 31
-R26
-R27
 R28
+R29
+R30
+!s101 -O0
+!i113 1
+R10
+vsyncram
+R44
+!i10b 1
+!s100 De3[=GZjbK]gT19[^mgbQ2
+I4jY@jAXjO<@Q0J_H0CnWg0
+R1
+R15
+w1582511397
+8C:\Users\conno\Desktop\362\single_cycle\\lib\syncram.v
+FC:\Users\conno\Desktop\362\single_cycle\\lib\syncram.v
+L0 1
+R6
+r1
+!s85 0
+31
+R45
+R46
+R47
 !s101 -O0
 !i113 1
 R10
@@ -1194,7 +1257,7 @@ vxnor_gate
 !s100 eAXgDW6UIj`mIUOcm?Q]z1
 IL3nGT@W^:996hJYA20oMT2
 R1
-R25
+R27
 w1538517586
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xnor_gate.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xnor_gate.v
@@ -1205,7 +1268,7 @@ r1
 31
 !s108 1572494404.000000
 !s107 C:\Users\conno\Desktop\ECE 360 Project 1\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xnor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\nor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\srl_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux_n.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sll_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\alu_32.v|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
-R28
+R30
 !s101 -O0
 !i113 1
 R10
@@ -1213,12 +1276,12 @@ vxnor_gate_6to1
 R14
 !i10b 1
 !s100 gocAK_h;@25:4I=Uck==83
-INb5a_7mMlNYNJBCbVICd91
+I3c^f<6X[Go<lE6bI;X];E2
 R1
 R15
 w1580352103
-8C:\Users\conno\Desktop\362\32bitAdder\\xnor_gate_6to1.v
-FC:\Users\conno\Desktop\362\32bitAdder\\xnor_gate_6to1.v
+8C:\Users\conno\Desktop\362\single_cycle\\\xnor_gate_6to1.v
+FC:\Users\conno\Desktop\362\single_cycle\\\xnor_gate_6to1.v
 L0 3
 R6
 r1
@@ -1237,7 +1300,7 @@ R14
 IcO7D72Uoe8eY>K7fgZLH=2
 R1
 R15
-R21
+R23
 8lib/xnor_gate_n.v
 Flib/xnor_gate_n.v
 L0 1
@@ -1252,12 +1315,12 @@ R19
 !i113 1
 R10
 vxor_32
-R24
+R26
 !i10b 1
 !s100 4C;P<]bVkZhT07h7;;9_41
 I?VkSnbbhc_gl>_h@=]=DO1
 R1
-R25
+R27
 w1572472671
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v
@@ -1266,30 +1329,30 @@ R6
 r1
 !s85 0
 31
-R26
-R27
 R28
+R29
+R30
 !s101 -O0
 !i113 1
 R10
 vxor_gate
-R0
+R14
 !i10b 1
 !s100 lc]@oT^8<6TG2DYGjjPFd1
-IB`5Kkll587;D=We5Xf7^J0
+IC<8;QAdY<EcNF>R;V>_gF1
 R1
-R2
-R21
-8C:\Users\conno\Desktop\362\alu_32\\\lib\xor_gate.v
-FC:\Users\conno\Desktop\362\alu_32\\\lib\xor_gate.v
+R15
+R23
+8C:\Users\conno\Desktop\362\single_cycle\\\\lib\xor_gate.v
+FC:\Users\conno\Desktop\362\single_cycle\\\\lib\xor_gate.v
 L0 1
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R17
+R18
+R19
 !s101 -O0
 !i113 1
 R10
@@ -1297,12 +1360,12 @@ vxor_gate_32
 R14
 !i10b 1
 !s100 a5:^1Um:En_4^74O>Sk>a0
-IT4iK`5FFHjDm2R9>2fRc40
+I:80=I5?NN[?@2XWG4>UTC3
 R1
 R15
-R21
-8C:\Users\conno\Desktop\362\32bitAdder\\lib\xor_gate_32.v
-FC:\Users\conno\Desktop\362\32bitAdder\\lib\xor_gate_32.v
+R23
+8C:\Users\conno\Desktop\362\single_cycle\\\lib\xor_gate_32.v
+FC:\Users\conno\Desktop\362\single_cycle\\\lib\xor_gate_32.v
 L0 1
 R6
 r1
@@ -1315,12 +1378,12 @@ R19
 !i113 1
 R10
 vzero_check
-R30
+R32
 !i10b 1
 !s100 `cIZH3j8Fhl<GOa8D0>2?2
 Ija4AU7MdDh;ee<2Da1Ym02
 R1
-R15
+R21
 w1580353134
 8C:/Users/conno/Desktop/362/32bitAdder/zero_check.v
 FC:/Users/conno/Desktop/362/32bitAdder/zero_check.v
@@ -1329,7 +1392,7 @@ R6
 r1
 !s85 0
 31
-R17
+R36
 !s107 C:\Users\conno\Desktop\362\32bitAdder\\lib\and_gate.v|C:/Users/conno/Desktop/362/32bitAdder/zero_check.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/32bitAdder/zero_check.v|
 !s101 -O0

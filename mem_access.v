@@ -18,3 +18,4 @@ parameter mem_path;//path to the memory file
 
 
 syncram #(mem_path) data_memory(.clk(clk),.cs(1'b1),.oe(1'b1),.we(wr_en),.addr(address),.din(data_in),.dout(contents));
+endmodule 
