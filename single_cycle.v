@@ -51,12 +51,23 @@ wire [31:0] busB;
 //OTHER WIRES:
 wire comb_branch; //combined branch_z and branch_nz with the conditions they deal with.
                   //used for final branch determination.
+wire busB_0; //if busB is 0, high, else, low
+zero_check is_busB_0(busB, busB_0);
+
+//now we find comb_branch
+//comb_branch = branch_nz * !busB_0  + branch_z * busB_0
+wire bnz_comb;
+wire busB_1;
+not_gate nzbusB(busB_0,busB_1);
+and_gate bnz(branch_nz,busB_1,bnz_comb);
+wire bz_comb;
+and_gate bz(branch_z, busB_0, bz_comb);
+or_gate combine_branch_signals(bz_comb, bnz_comb,comb_branch);
 
 
 //PLAN: CONNECT IN ORDER OF PIPELINE STAGES. YES, WE KNOW IT'S A SINGLE CYCLE CPU
 
 //Instruction Fetch:
-//TO-DO FOR IF: ACTUALLY DETERMINE COMB_BRANCH USING REGISTER busA OUTPUT AND CTRL SIGNALS
 inst_fetch IF(.imm16(instruction[15:0]),.jmp_imm26(instruction[25:0]),.reg_imm32(busA),.clk(clk),.branch(comb_branch),.jmp(jmp),.jmp_r(jmp_r),.reset(reset),.pc(PC));
 
 //Instruction Decode (control...     ugh):
