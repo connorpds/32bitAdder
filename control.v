@@ -152,6 +152,7 @@ always @ *
 always @ *
 	case(inst[31:26])
 		6'h20: lb = 1'b1; //LB
+		6'h24: lb = 1'b1; //LBU
 		default: lb = 1'b0;
 	endcase
 	
@@ -159,21 +160,8 @@ always @ *
 always @ *
 	case(inst[31:26])
 		6'h21: lh = 1'b1; //LH
+		6'h25: lh = 1'b1; //LHU
 		default: lh = 1'b0;
-	endcase
-	
-//setting lbu
-always @ *
-	case(inst[31:26])
-		6'h24: lbu = 1'b1; //LBU
-		default: lbu = 1'b0;
-	endcase
-	
-//setting lhu
-always @ *
-	case(inst[31:26])
-		6'h25: lhu = 1'b1; //LHU
-		default: lhu = 1'b0;
 	endcase
 	
 //setting sb
