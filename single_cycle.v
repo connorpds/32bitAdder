@@ -12,4 +12,14 @@ module single_cycle
   input wire [31:0] mem_contents,
   output wire [31:0] mem_addr,
   output wire [31:0] PC
-  )
+  );
+
+
+//instruction [25:21]
+
+
+
+
+
+
+  endmodule
