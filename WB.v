@@ -2,7 +2,7 @@
 `include "lib/mux_32.v"
 `include "lib/and_gate.v"
 
-module WB(
+module write_back(
 	input wire [31:0] mem_out,
 	input wire [31:0] ALU_out,
 	input wire [31:0] PC,
@@ -13,7 +13,7 @@ module WB(
 	input wire lb,
 	input wire lh,
 	input wire load_extend,
-	output reg WB_out
+	output reg [31:0] WB_out
 );
 
 wire [31:0] mem_out_lb;
@@ -40,5 +40,5 @@ mux_32 det_imm16(.sel(lhi), .src0(det_PC_out), .src1( { imm16, 16'b0} ), .z(WB_o
 
 always @ *
 	WB_out = WB_out_temp;
-	
+
 endmodule
