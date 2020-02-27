@@ -55,17 +55,17 @@ reg_file registers(.rs(instruction[25:21]),.rs2(instruction[20:16]),.rd(instruct
 //OTHER WIRES:
 wire comb_branch; //combined branch_z and branch_nz with the conditions they deal with.
                   //used for final branch determination.
-wire busB_0; //if busB is 0, high, else, low
-zero_check is_busB_0(busB, busB_0);
+wire busA_0; //if busB is 0, high, else, low
+zero_check is_busA_0(busA, busA_0);
 
 //now we find comb_branch
 //comb_branch = branch_nz * !busB_0  + branch_z * busB_0
 wire bnz_comb;
-wire busB_1;
-not_gate nzbusB(busB_0,busB_1);
-and_gate bnz(branch_nz,busB_1,bnz_comb);
+wire busA_1;
+not_gate nzbusA(busA_0,busA_1);
+and_gate bnz(branch_nz,busA_1,bnz_comb);
 wire bz_comb;
-and_gate bz(branch_z, busB_0, bz_comb);
+and_gate bz(branch_z, busA_0, bz_comb);
 or_gate combine_branch_signals(bz_comb, bnz_comb,comb_branch);
 
 
