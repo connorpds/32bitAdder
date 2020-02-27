@@ -7,7 +7,7 @@ module inst_fetch(
 	//input reg [31:0] a,
 	input wire [15:0] imm16,
 	input wire [25:0] jmp_imm26,
-	input wire [32:0] reg_imm32, //value from register file
+	input wire [31:0] reg_imm32, //value from register file
 	input wire clk,
 	//Control inputs
 	input wire branch,

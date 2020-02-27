@@ -3,6 +3,8 @@
 `include "/control.v"
 `include "/inst_fetch.v"
 `include "/WB.v"
+`include "/store_filter.v"
+`include "/reg_file.v"
 //single cycle CPU datapath.
 //components are pipeline stages and control module
 module single_cycle
@@ -26,7 +28,6 @@ module single_cycle
 
 
 //WIRES COMING OUT OF CONTROL (THESE WILL BE USED IN BASICALLY EVERY STAGE)
-wire mem_wr;
 wire reg_wr;
 wire r_type;
 wire branch_z;
@@ -48,6 +49,8 @@ wire [5:0] func_code; //needs to be set for imm operationss
 //REGISTER WIRES:
 wire [31:0] busA;
 wire [31:0] busB;
+wire [31:0] WB_out;
+reg_file registers(.rs(instruction[25:21]),.rs2(instruction[20:16]),.rd(instruction[15:11]),.busW(WB_out),.clk(clk),.r_type(r_type),.reg_wr(reg_wr),.reset(reset),.busA(busA),.busB(busB));
 
 //OTHER WIRES:
 wire comb_branch; //combined branch_z and branch_nz with the conditions they deal with.
@@ -77,7 +80,7 @@ control ID(.inst(instruction),.mem_wr(mem_wr),.reg_wr(reg_wr),.r_type(r_type),.b
 //Execute:
 wire [31:0] EX_out;
 execute EX(.busA(busA),.busB(busB),.ALU_ctr(func_code),.ext_op(imm_extend),.ALUsrc(imm_inst),.imm16(instruction[15:0]),.out(EX_out));
-
+assign mem_addr = EX_out;
 //Memory:
 //note that most memory operations are happening outside synthesized design via cpu outputs
 //this prepares the mem_write data of the correct size.
@@ -85,7 +88,6 @@ store_filter MEM(.busB(busB),.sb(sb),.sh(sh),.mem_write_data(mem_write_data));
 
 
 //Write Back:
-wire [31:0] WB_out;
 write_back WB(.mem_out(mem_read_data),.ALU_out(EX_out),.PC(PC),.imm16(instruction[15:0]),.mem_to_reg(mem_to_reg),.lhi(lhi),.link(link),.lb(lb),.lh(lh),.load_extend(load_extend),.WB_out(WB_out));
 
 

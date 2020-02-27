@@ -32,16 +32,16 @@ module execute(
 
 
   //extend imm16 as appropriate
-  reg [31:0] imm32;
+  wire [31:0] imm32;
   extend ext_imm(.ext_op(ext_op),.in(imm16),.out(imm32));
 
   //select between busB: 0, and imm32: 1, for input to mult and alu
-  reg [31:0] input_B;
+  wire [31:0] input_B;
   mux_32 busB_imm32(.sel(ALUsrc),.src0(busB),.src1(imm32),.z(input_B));
 
   //get ALU result
   wire [31:0] inter_alu_res;
-  alu_32 exec_alu(.A(busA),.B(input_B),.opcode(func_code),.out(inter_alu_res));
+  alu_32 exec_alu(.A(busA),.B(input_B),.opcode(ALU_ctr),.out(inter_alu_res));
 
   //get mult result
   reg [31:0] inter_mult_result;
