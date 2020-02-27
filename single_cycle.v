@@ -13,7 +13,8 @@ module single_cycle
   input wire [31:0] mem_read_data,
   output wire [31:0] mem_addr,
   output wire [31:0] mem_write_data,
-  output wire [31:0] PC
+  output wire [31:0] PC,
+  output wire mem_wr
   );
 
 
