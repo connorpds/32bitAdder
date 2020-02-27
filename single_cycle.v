@@ -1,10 +1,5 @@
-`include "/mem_access.v"
-`include "/execute.v"
-`include "/control.v"
-`include "/inst_fetch.v"
-`include "/WB.v"
-`include "/store_filter.v"
-`include "/reg_file.v"
+`include "dependencies.v"
+
 //single cycle CPU datapath.
 //components are pipeline stages and control module
 module single_cycle
