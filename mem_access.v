@@ -9,7 +9,7 @@ module mem_access(
   output wire [31:0] contents
 );
 
-parameter mem_path;//path to the memory file
+parameter mem_path = "";//path to the memory file
 
 //two situations here:
 //1. We read contents at address

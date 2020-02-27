@@ -39,7 +39,7 @@ begin
 		end
 	else
 		begin
-			out[31:0] = 32'b0;
+			out[7:0] = 8'b0;
 		end
 end
 endmodule

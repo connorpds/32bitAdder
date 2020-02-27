@@ -1,4 +1,6 @@
 `include "/lib/sram.v"
+`include "/lib/syncram.v"
+
 module single_cycle_tb;
   reg reset;
   reg clk;

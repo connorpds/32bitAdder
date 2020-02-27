@@ -2,7 +2,7 @@
 //n-bit register with write enable and synchronous reset
 module register_n
 #(
-	parameter integer n = 32
+	parameter n = 32
 )
 (
 	input wire clk,

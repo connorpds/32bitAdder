@@ -1,11 +1,11 @@
 
 module mult(
-	input reg [31:0] a,
-	input reg [31:0] b,
-	input reg clk,
+	input wire [31:0] a,
+	input wire [31:0] b,
+	input wire clk,
 	//Control inputs
-	input reg doMult,
-	input reg reset,
+	input wire doMult,
+	input wire reset,
 	output wire [31:0] out,
 	output wire mult_done
 );
@@ -26,13 +26,13 @@ wire prod_en; // enable product register loading from outside world
 wire doSub; // dosub == 0 -> perform add, otherwise subtract
 
 // Map control
-multu_control control(.doMult(doMult), .sysClk(clk), .mClk(clk), .reset(reset), .add0(add0), .a_s(a_s), .doSub(doSub), .combined_reset(prod_en), .mult_done(mult_done), .prod_LSB(prod_out[0]));
+mult_control control(.doMult(doMult), .sysClk(clk), .mClk(clk), .reset(reset), .add0(add0), .a_s(a_s), .doSub(doSub), .combined_reset(prod_en), .mult_done(mult_done), .prod_LSB(prod_out[0]));
 
 // setup for add
 not_gate_32 mp_not(.x(mp_out), .z(mp_out_not));
 mux_32 det_addorsub(.sel(doSub), .src0(mp_out), .src1(mp_out_not), .z(potential_adder_in));
 mux_32 det_adder_in(.sel(add0), .src0(potential_adder_in), .src1(32'b0), .z(adder_in));
-mux_32 det_cin(.sel(doSub), .src0(1'b0), .src1(1'b1), .z(cin));
+mux det_cin(.sel(doSub), .src0(1'b0), .src1(1'b1), .z(cin));
 
 //Do add
 CLA_32 adder(.a(adder_in), .b(prod_out[63:32]), .c_in(cin), .s(adder_out), .c_out(), .overflow());

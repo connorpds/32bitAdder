@@ -1,4 +1,4 @@
-`include "/dependencies_ms.v"
+`include "dependencies.v"
 
 //single cycle CPU datapath.
 //components are pipeline stages and control module
@@ -47,7 +47,7 @@ wire [31:0] busB;
 wire [31:0] WB_out;
 
 wire [4:0] into_rs2;
-mux_32 link_rs2_pick(link, instruction[20:16],5'b11111,into_rs2);
+mux_n #(5) link_rs2_pick(link, instruction[20:16],5'b11111,into_rs2);
 reg_file registers(.rs(instruction[25:21]),.rs2(into_rs2),.rd(instruction[15:11]),.busW(WB_out),.clk(clk),.r_type(r_type),.reg_wr(reg_wr),.reset(reset),.busA(busA),.busB(busB));
 
 //OTHER WIRES:

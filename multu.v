@@ -1,11 +1,11 @@
 
 module multu(
-	input reg [31:0] a,
-	input reg [31:0] b,
-	input reg clk,
+	input wire [31:0] a,
+	input wire [31:0] b,
+	input wire clk,
 	//Control inputs
-	input reg doMult,
-	input reg reset,
+	input wire doMult,
+	input wire reset,
 	output wire [31:0] out,
 	output wire mult_done
 );
