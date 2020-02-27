@@ -1,4 +1,4 @@
-`include "/lib/mux.v"
+
 module mux4
 (
     input wire [1:0] sel,

@@ -1,10 +1,5 @@
 //multu Control logic module
-`include "/lib/mux.v"
-`include "/lib/and_gate.v"
-`include "/lib/or_gate.v"
-`include "/lib/not_gate.v"
-`include "/register_n.v"
-`include "/add_32.v"
+
 module multu_control
 (
   input wire doMult,

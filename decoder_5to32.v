@@ -1,4 +1,3 @@
-`include "decoder_3to8.v"
 
 module decoder_5to32(
 	input wire [4:0] in,

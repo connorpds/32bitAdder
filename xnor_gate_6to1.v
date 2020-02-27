@@ -1,5 +1,4 @@
-`include "lib/xnor_gate_n.v"
-`include "lib/and_gate.v"
+
 module xnor_gate_6to1(
 	input wire[5:0] x,
 	input wire[5:0] y,

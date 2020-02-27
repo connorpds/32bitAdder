@@ -1,13 +1,3 @@
-`include "/sets.v"
-`include "/xnor_gate_6to1.v"
-`include "/lib/mux_32.v"
-`include "/lib/mux.v"
-`include "/lib/not_gate_32.v"
-`include "/lib/and_gate_32.v"
-`include "/lib/xor_gate_32.v"
-`include "/lib/or_gate_32.v"
-`include "/shift_ops.v"
-
 module alu_32(
 	input wire [31:0] A,
 	input wire [31:0] B,

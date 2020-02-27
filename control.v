@@ -1,7 +1,3 @@
-`include "add_32_lookahead.v"
-`include "register_n.v"
-`include "lib/mux_n.v"
-`include "lib/mux_32.v"
 
 //Things that need to be modified for datapath:
 //-support of lhi (probably needs another control signal)
@@ -147,7 +143,7 @@ always @ *
 		6'h1d: func_code = 6'h2d; //SGEI
 		default: func_code = inst[5:0];
 	endcase
-	
+
 //setting lb
 always @ *
 	case(inst[31:26])
@@ -155,7 +151,7 @@ always @ *
 		6'h24: lb = 1'b1; //LBU
 		default: lb = 1'b0;
 	endcase
-	
+
 //setting lh
 always @ *
 	case(inst[31:26])
@@ -163,28 +159,28 @@ always @ *
 		6'h25: lh = 1'b1; //LHU
 		default: lh = 1'b0;
 	endcase
-	
+
 //setting sb
 always @ *
 	case(inst[31:26])
 		6'h28: sb = 1'b1; //SB
 		default: sb = 1'b0;
 	endcase
-	
+
 //setting sh
 always @ *
 	case(inst[31:26])
 		6'h29: sh = 1'b1; //SH
 		default: sh = 1'b0;
 	endcase
-	
+
 //setting lhi
 always @ *
 	case(inst[31:26])
 		6'hf: lhi = 1'b1; //LHI
 		default: lhi = 1'b0;
 	endcase
-	
+
 //setting link
 always @ *
 	case(inst[31:26])
@@ -192,5 +188,5 @@ always @ *
 		6'h13: link = 1'b1; //JALR
 		default: link = 1'b0;
 	endcase
-	
+
 endmodule

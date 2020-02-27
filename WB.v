@@ -1,6 +1,3 @@
-`include "extend.v"
-`include "lib/mux_32.v"
-`include "lib/and_gate.v"
 
 module write_back(
 	input wire [31:0] mem_out,

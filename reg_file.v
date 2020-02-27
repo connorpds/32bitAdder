@@ -1,7 +1,3 @@
-`include "decoder_5to32.v"
-`include "register_n.v"
-`include "lib/mux_n.v"
-`include "lib/and_gate_32.v"
 
 module reg_file(
 	input wire [4:0] rs,
@@ -80,7 +76,7 @@ always @ *
 		5'b11111: busA = reg_out[1023:992];
 		default: busA = reg_out[31:0];
 	endcase
-	
+
 always @ *
 	case(rs2)
 		5'b00000: busB = reg_out[31:0];
@@ -119,5 +115,3 @@ always @ *
 	endcase
 
 endmodule
-		
-		

@@ -1,8 +1,3 @@
-`include "/lib/and_gate.v"
-`include "/lib/or_gate.v"
-`include "/lib/xor_gate.v"
-`include "/lib/not_gate.v"
-
 
 //input A is 32-bit input, coming from adder/subtractor
 //set less than

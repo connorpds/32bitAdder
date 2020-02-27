@@ -1,6 +1,3 @@
-`include "/lib/mux_32.v"
-`include "/shift_ops.v"
-`include "/lib/mux_n.v"
 
 module mult(
 	input reg [31:0] a,

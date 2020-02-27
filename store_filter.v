@@ -1,5 +1,3 @@
-`include "lib/mux_32.v"
-`include "lib/and_gate.v"
 
 module store_filter(
 	input wire [31:0] busB,
@@ -16,5 +14,5 @@ mux_32 det_sh(.sel(sh), .src0(det_sb_out), .src1({16'b0, busB[15:0]}), .z(mem_wr
 
 always @ *
 	mem_write_data = mem_write_data_out;
-	
+
 endmodule

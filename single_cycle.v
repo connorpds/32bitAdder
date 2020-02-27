@@ -1,4 +1,4 @@
-`include "dependencies.v"
+`include "/dependencies_ms.v"
 
 //single cycle CPU datapath.
 //components are pipeline stages and control module

@@ -1,6 +1,5 @@
 //mem_access for single cycle
 // writes to/reads from a memaddress
-`include "/lib/syncram.v"
 module mem_access(
   input wire enable,
   input wire wr_en,

@@ -1,4 +1,3 @@
-`include "lib/mux_n.v"
 //ext_op = 0 for unsigned, 1 for signed
 module extend(ext_op,in,out);
   parameter integer n = 16; //number of bits in immediate

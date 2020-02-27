@@ -1,4 +1,4 @@
-`include "/lib/and_gate.v"
+
 module zero_check
 (
   input wire [31:0] value,
