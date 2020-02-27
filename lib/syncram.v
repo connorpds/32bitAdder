@@ -1,6 +1,6 @@
 module syncram(clk,cs,oe,we,addr,din,dout);
 
-  parameter mem_file;
+  parameter mem_file = "";
   input clk;
   input cs; //chip enable?
   input oe; //output enable

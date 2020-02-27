@@ -1,9 +1,9 @@
 module dec_n (src , z);
-  parameter n;
+  parameter integer n = 32;
   input [n-1:0] src;
   output reg [((2**n)-1):0] z;
   integer i;
-  
+
   always @(src)
       begin
         for (i = 0; i < 2**n; i = i+1) begin
@@ -13,6 +13,3 @@ module dec_n (src , z);
           end
       end
 endmodule
-  
-  
-  
