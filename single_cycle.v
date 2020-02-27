@@ -50,7 +50,10 @@ wire [5:0] func_code; //needs to be set for imm operationss
 wire [31:0] busA;
 wire [31:0] busB;
 wire [31:0] WB_out;
-reg_file registers(.rs(instruction[25:21]),.rs2(instruction[20:16]),.rd(instruction[15:11]),.busW(WB_out),.clk(clk),.r_type(r_type),.reg_wr(reg_wr),.reset(reset),.busA(busA),.busB(busB));
+
+wire [4:0] into_rs2;
+mux_32 link_rs2_pick(link, instruction[20:16],5'b11111,into_rs2);
+reg_file registers(.rs(instruction[25:21]),.rs2(into_rs2),.rd(instruction[15:11]),.busW(WB_out),.clk(clk),.r_type(r_type),.reg_wr(reg_wr),.reset(reset),.busA(busA),.busB(busB));
 
 //OTHER WIRES:
 wire comb_branch; //combined branch_z and branch_nz with the conditions they deal with.
