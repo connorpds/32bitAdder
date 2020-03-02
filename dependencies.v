@@ -48,6 +48,7 @@
 `include "mux16.v"
 `include "register_n.v"
 `include "reg_file.v"
+`include "reg_file_pipe.v"
 `include "sets.v"
 `include "shift_ops.v"
 `include "store_filter.v"
