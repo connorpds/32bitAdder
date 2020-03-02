@@ -5,6 +5,8 @@ module syncram(clk,cs,oe,we,addr,din,dout);
   input cs; //chip enable?
   input oe; //output enable
   input we; //write enable
+  input sh;
+  input sb;
   input [31:0] addr;
   input [31:0] din;
   output reg [31:0] dout;
@@ -22,6 +24,7 @@ module syncram(clk,cs,oe,we,addr,din,dout);
   integer initNeeded = 1;
   integer check_sram = 0;
   integer addr_found = 1;
+  integer addr_offset = 0;
 
   reg [3:0] slash;
   reg [31:0] addr_value;
@@ -129,18 +132,48 @@ module syncram(clk,cs,oe,we,addr,din,dout);
       task writeRAM;
         input [31:0] addr;
         input [31:0] data;
+		input store_byte;
+		input store_half;
 
         begin
+		  if ((store_byte == 1) || (store_half ==1) begin
+		    addr_offset = addr % 32;
+			addr = addr - addr_offset;
+		  end
           for (c=0; c<49 ; c=c+1) begin
             if (mem[c][0] == addr) begin
-              $display ("WRITE Addr FOUND!: %h" , mem[c][0]);
-              mem[c][1] = data;
+              $display ("WRITE Addr FOUND!: %h" , mem[c][0
+			  
+              if (store_byte == 1) begin
+				mem[c][1][addr_offset+3:addr_offset] = data[3:0]
+			  end
+			  else if (store_half == 1) begin
+				mem[c][1][addr_offset+15:addr_offset] = data[15:0]
+			  end
+			  else
+				mem[c][1] = data;
+			  end
+			  
               addr_found = 1;
+			  
             end
           end
           if (addr_found==0) begin // new addition to RAM
             mem[ram_size][0] = addr;
-            mem[ram_size][1] = data;
+			addr_value = 32'b0;
+			
+			if (store_byte == 1) begin
+			  addr_value[addr_offset+3:addr_offset] = data[3:0]
+			  mem[ram_size][1] = addr_value;
+			end
+			else if (store_half == 1) begin
+			  addr_value[addr_offset+15:addr_offset] = data[15:0]
+			  mem[ram_size][1] = addr_value;
+			end
+			else
+			  mem[ram_size][1] = data;
+			end
+			
             ram_size = ram_size+1;
             addr_found = 1;
           end
@@ -183,7 +216,7 @@ module syncram(clk,cs,oe,we,addr,din,dout);
       if ((initNeeded==0) && (cs==1)) begin
         if (we==1) begin
           addr_found = 0;
-          writeRAM(addr , din);
+          writeRAM(addr , din, sb, sh);
         end
         if (oe==1) begin
           readRAM(addr , dbuf);
