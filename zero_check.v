@@ -14,7 +14,8 @@ module zero_check
 
 //can't treat the same wire as input and output for a gate
 genvar g1;
-for (g1 = 0; g1 < 32; g1 = g1 + 1) begin
+generate
+for (g1 = 0; g1 < 32; g1 = g1 + 1) begin:testZcheck
     if (g1 < 31)
       or_gate o1(value[g1],orwire[g1], orwire[g1 + 1]);
     else
@@ -24,7 +25,7 @@ for (g1 = 0; g1 < 32; g1 = g1 + 1) begin
     not_gate nnz(not_zf,zero_flag);
 
 end
-
+endgenerate
 
 
 

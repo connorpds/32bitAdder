@@ -34,7 +34,7 @@ and_gate_32 check_wr_en(.x({1'b0, {31{reg_wr}}}), .y(dest), .z(dest_wr_en));
 //Instantiation of registers
 genvar i;
 generate
-	for (i=0; i < 32; i = i + 1) begin
+	for (i=0; i < 32; i = i + 1) begin:genRegFile
 		register_n register(.clk(clk), .reset(reset), .wr_en(dest_wr_en[i]), .d(busW), .q(reg_out[((32*(i+1))-1):32*i]));
 	end
 endgenerate

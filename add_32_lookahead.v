@@ -109,12 +109,14 @@ genvar genr;
 wire [8:0] c;
 wire [7:0] c3;
 assign c[0] = c_in;
-
-for (genr = 0; genr < 8; genr = genr + 1) begin
-    localparam integer stride = (1 + genr) * 4 - 1;
+generate
+for (genr = 0; genr < 8; genr = genr + 1) begin:genercla
+    // stride = (1 + genr) * 4 - 1;
+    //replaced strides for to compile better
   //  if (genr < 7)
-    CLA_4 cla4(c[genr],a[stride:stride - 3],b[stride:stride - 3],s[stride:stride - 3],c[genr+1],c3[genr]);
+    CLA_4 cla4(c[genr],a[ (1 + genr) * 4 - 1: (1 + genr) * 4 - 1 - 3],b[ (1 + genr) * 4 - 1: (1 + genr) * 4 - 1 - 3],s[ (1 + genr) * 4 - 1: (1 + genr) * 4 - 1 - 3],c[genr+1],c3[genr]);
 end
+endgenerate
 
 assign c_out = c[8];
 

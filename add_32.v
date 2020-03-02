@@ -48,16 +48,15 @@ output wire c_out
 
 wire [31:0] c_in;
 genvar g1;
-
-for (g1 = 0; g1 < 32; g1 = g1 + 1) begin
+generate
+for (g1 = 0; g1 < 32; g1 = g1 + 1) begin:genRPC
 
 		if (g1 == 0)
 			half_adder half_add(a[0],b[0],s[0],c_in[0]);
 		else
 			full_adder _add(a[g1],b[g1],c_in[g1-1],s[g1],c_in[g1]);
-
 end
-
+endgenerate
 
 assign c_out = c_in[31];
 
@@ -65,8 +64,8 @@ wire axnb, sxa;
 xnor_gate xn1(a[31],b[31],axnb);
 xor_gate xo1(a[31],s[31],sxa);
 
-and_gate n5(axnb,sxa,overflow);
-zero_check z5(s, zero_flag);
+//and_gate n5(axnb,sxa,overflow);
+//zero_check z5(s, zero_flag);
 
 
 endmodule
@@ -81,8 +80,8 @@ output wire c_out
 
 wire [5:0] c_in;
 genvar g1;
-
-for (g1 = 0; g1 < 6; g1 = g1 + 1) begin
+generate
+for (g1 = 0; g1 < 6; g1 = g1 + 1) begin:genRPCsix
 
 		if (g1 == 0)
 			half_adder half_add(a[0],b[0],s[0],c_in[0]);
@@ -90,7 +89,7 @@ for (g1 = 0; g1 < 6; g1 = g1 + 1) begin
 			full_adder _add(a[g1],b[g1],c_in[g1-1],s[g1],c_in[g1]);
 
 end
-
+endgenerate
 
 assign c_out = c_in[5];
 

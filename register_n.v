@@ -19,7 +19,8 @@ wire [n-1:0] data_in;
 wire [n-1:0] clk_0, clk_1, clk_in;
 
 genvar i;
-for(i = 0; i < n; i = i + 1) begin
+generate
+for(i = 0; i < n; i = i + 1) begin:genRegn
 
 	//Assign the data in line
 	and_gate and1(d[i], !reset, data_in[i]);
@@ -35,7 +36,7 @@ for(i = 0; i < n; i = i + 1) begin
 	dffr d0(clk_in[i], data_in[i], q[i]);
 
 end
-
+endgenerate
 
 
 
