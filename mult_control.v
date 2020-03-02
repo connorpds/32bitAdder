@@ -17,7 +17,8 @@ module mult_control
   //-need memory to count how many shifts have occurred ---basically done
   //-need memory to remember what last thing was
 wire doing_mult;
-reg ctrl_reset;
+wire ctrl_reset;
+assign ctrl_reset = doMult;
 
 
 or_gate comb_rst(ctrl_reset,reset,combined_reset);
@@ -25,7 +26,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
 //initialization: when doMult goes high, we decide to initialize. We will
 //probably do some resetting here, too.
-  always@ (posedge doMult)
+/*  always@ (posedge doMult)
     begin
       ctrl_reset = 1;
     end
@@ -33,7 +34,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   always@ (negedge doMult)
     begin
       ctrl_reset = 0;
-    end
+    end*/
 
 //6 bit register and counter, adds 0 when add_count is 0, adds 1 when add_count is 1
   wire [5:0] reg6out;
