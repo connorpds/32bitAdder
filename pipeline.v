@@ -95,10 +95,20 @@ register_n #(64) IF_ID(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({instru
 register_n #(147) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ctrl_sig, func_code,busB,busA,IF_to_ID}), .q(ID_to_EX));
 
 //EX to MEM
-register_n #(139) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[138:129], EX_out, ID_to_EX[127:96],ID_to_EX[63:0]}),.q(EX_to_MEM));
+
+//selecting proper rd field [47:43]
+//rs2 is [52:48]
+//(rd and rs2 indices are invariant between registers)
+//rtype = 0, mux selects rs2 (rtype is ID_to_EX[145])
+//rtype = 1, mux selects rd
+wire [4:0] rd_in;
+mux_n #(5) rdsel(ID_to_EX[145],ID_to_EX[52:48], ID_to_EX[47:43],rd_in);
+register_n #(139) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[138:129], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
+
+
 
 //MEM to WB
-register_n #(136) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[138:131], mem_read_data, EX_out, EX_to_MEM[64:0]}),.q(MEM_to_WB));
+register_n #(136) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[138:131], mem_read_data, EX_out, EX_to_MEM[63:0]}),.q(MEM_to_WB));
 
 
 
@@ -129,6 +139,15 @@ or_gate combine_branch_signals(bz_comb, bnz_comb,comb_branch);
 //Execute //////////////
 ////////////////////
 
+//Forwarding:
+wire [1:0] A_sel;
+wire [1:0] B_sel;
+wire [31:0] ex_busA;
+wire [31:0] ex_busB;
+//busA_0 = ID_to_EX[95:64]
+//busB_0 = ID_to_EX[127:96]
+
+forwarding forward(.ex_mem_wr(EX_to_MEM[136]),.mem_wb_wr(EX_to_MEM[136]),.id_ex_rs(ID_to_EX[57:53]),.id_ex_rs2(ID_to_EX[52:48]),.ex_mem_rd(EX_to_MEM[47:43]),.mem_wb_rd(MEM_to_WB[47:43]),.A_sel(A_sel),.B_sel(B_sel));
 execute EX(.busA(ID_to_EX[95:64]),.busB(ID_to_EX[127:96]),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]),.imm16(ID_to_EX[63:48]),.out(EX_out));
 
 
