@@ -1,5 +1,6 @@
 module mux_n (sel, src0, src1, z);
-  parameter integer n = 32;
+// synopsys template
+  parameter n = 32;
   input sel;
   input [n-1:0] src0;
   input [n-1:0] src1;
