@@ -31,8 +31,8 @@ and_gate ex_a_fwd_det(ex_en_check, ex_reg_eq_a, ex_A_FWD);
 //EX_B_FWD
 wire ex_reg_eq_b;
 wire ex_B_FWD;
-reg_eq_check a_reg_eq(ex_mem_rd,id_ex_rs2,ex_reg_eq_b);
-and_gate ex_a_fwd_det(ex_en_check, ex_reg_eq_b, ex_B_FWD);
+reg_eq_check b_reg_eq(ex_mem_rd,id_ex_rs2,ex_reg_eq_b);
+and_gate ex_b_fwd_det(ex_en_check, ex_reg_eq_b, ex_B_FWD);
 //when true, B_sel = 10
 
 /////////////////////////
@@ -66,7 +66,7 @@ not_gate nexB(ex_B_FWD, Nex_B_FWD);
 reg_eq_check memb_reg_eq(mem_wb_rd, id_ex_rs2, mem_reg_eq_b);
 and_gate eq_b_nex_b(Nex_B_FWD, mem_reg_eq_b, intermemB);
 and_gate memBFWD(intermemB, mem_en_check, Nex_B_FWD);
-//when true, B_sel = 00
+//when true, B_sel = 01
 
 
 //A_sel = {ex_A_FWD,mem_A_FWD}

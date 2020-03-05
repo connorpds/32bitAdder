@@ -1,6 +1,6 @@
 
 //n-bit register with write enable and synchronous reset
-module register_n
+module register_n_pipe
 #(
 	parameter n = 32
 )

@@ -146,9 +146,13 @@ wire [31:0] ex_busA;
 wire [31:0] ex_busB;
 //busA_0 = ID_to_EX[95:64]
 //busB_0 = ID_to_EX[127:96]
-
+//ALU_out EX_to_MEM : [127:96]
+//MEM_out MEM_to_WB : [127:96]
 forwarding forward(.ex_mem_wr(EX_to_MEM[136]),.mem_wb_wr(EX_to_MEM[136]),.id_ex_rs(ID_to_EX[57:53]),.id_ex_rs2(ID_to_EX[52:48]),.ex_mem_rd(EX_to_MEM[47:43]),.mem_wb_rd(MEM_to_WB[47:43]),.A_sel(A_sel),.B_sel(B_sel));
-execute EX(.busA(ID_to_EX[95:64]),.busB(ID_to_EX[127:96]),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]),.imm16(ID_to_EX[63:48]),.out(EX_out));
+//selecting between non forwarded and various forwarded values
+mux_4to1_32 sel_A(A_sel,ID_to_EX[95:64],MEM_to_WB[127:96],EX_to_MEM[127:96],32'hFFFFFFFF,ex_busA);
+mux_4to1_32 sel_B(B_sel,ID_to_EX[127:96],MEM_to_WB[127:96],EX_to_MEM[127:96],32'hFFFFFFFF,ex_busB);
+execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]),.imm16(ID_to_EX[63:48]),.out(EX_out));
 
 
 /////////////////////////////
