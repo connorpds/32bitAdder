@@ -2,7 +2,7 @@
 module xnor_gate_6to1(
 	input wire[5:0] x,
 	input wire[5:0] y,
-	input wire z
+	output wire z
 );
 
 wire [5:0] xnor_out;

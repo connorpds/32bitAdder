@@ -11,7 +11,10 @@ module single_cycle
   output wire [31:0] mem_addr,
   output wire [31:0] mem_write_data,
   output wire [31:0] PC,
-  output wire mem_wr
+  output wire [31:0] busA_probe,
+  output wire mem_wr,
+  output wire sh_out,
+  output wire sb_out
   );
 
 
@@ -49,7 +52,7 @@ wire [31:0] WB_out;
 wire [4:0] into_rs2;
 mux_n #(5) link_rs2_pick(link, instruction[20:16],5'b11111,into_rs2);
 reg_file registers(.rs(instruction[25:21]),.rs2(into_rs2),.rd(instruction[15:11]),.busW(WB_out),.clk(clk),.r_type(r_type),.reg_wr(reg_wr),.reset(reset),.busA(busA),.busB(busB));
-
+assign busA_probe = busA;
 //OTHER WIRES:
 wire comb_branch; //combined branch_z and branch_nz with the conditions they deal with.
                   //used for final branch determination.
@@ -74,7 +77,8 @@ inst_fetch IF(.imm16(instruction[15:0]),.jmp_imm26(instruction[25:0]),.reg_imm32
 
 //Instruction Decode (control...     ugh):
 control ID(.inst(instruction),.mem_wr(mem_wr),.reg_wr(reg_wr),.r_type(r_type),.branch_z(branch_z),.branch_nz(branch_nz),.jmp(jmp),.jmp_r(jmp_r),.link(link),.imm_inst(imm_inst),.imm_extend(imm_extend),.load_extend(load_extend),.mem_to_reg(mem_to_reg),.sb(sb),.sh(sh),.lb(lb),.lh(lh),.lhi(lhi),.func_code(func_code));
-
+assign sb_out = sb;
+assign sh_out = sh;
 //Execute:
 wire [31:0] EX_out;
 execute EX(.busA(busA),.busB(busB),.ALU_ctr(func_code),.ext_op(imm_extend),.ALUsrc(imm_inst),.imm16(instruction[15:0]),.out(EX_out));
