@@ -136,21 +136,21 @@ module syncram(clk,cs,oe,we,addr,din,dout);
 		input store_half;
 
         begin
-		  if ((store_byte == 1) || (store_half ==1) begin
+		  if ((store_byte == 1) || (store_half ==1)) begin
 		    addr_offset = addr % 32;
 			addr = addr - addr_offset;
 		  end
           for (c=0; c<49 ; c=c+1) begin
             if (mem[c][0] == addr) begin
-              $display ("WRITE Addr FOUND!: %h" , mem[c][0
+              //$display ("WRITE Addr FOUND!: %h" , mem[c][0
 			  
               if (store_byte == 1) begin
-				mem[c][1][addr_offset+3:addr_offset] = data[3:0]
+				//mem[c][1][addr_offset+3:addr_offset] = data[3:0];
 			  end
 			  else if (store_half == 1) begin
-				mem[c][1][addr_offset+15:addr_offset] = data[15:0]
+				//mem[c][1][addr_offset+15:addr_offset] = data[15:0];
 			  end
-			  else
+			  else begin
 				mem[c][1] = data;
 			  end
 			  
@@ -163,14 +163,14 @@ module syncram(clk,cs,oe,we,addr,din,dout);
 			addr_value = 32'b0;
 			
 			if (store_byte == 1) begin
-			  addr_value[addr_offset+3:addr_offset] = data[3:0]
+			  //addr_value[addr_offset+3:addr_offset] = data[3:0];
 			  mem[ram_size][1] = addr_value;
 			end
 			else if (store_half == 1) begin
-			  addr_value[addr_offset+15:addr_offset] = data[15:0]
+			  //addr_value[addr_offset+15:addr_offset] = data[15:0];
 			  mem[ram_size][1] = addr_value;
 			end
-			else
+			else begin
 			  mem[ram_size][1] = data;
 			end
 			
