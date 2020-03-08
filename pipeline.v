@@ -11,6 +11,9 @@ module pipeline
   output wire [31:0] mem_addr,
   output wire [31:0] mem_write_data,
   output wire [31:0] PC,
+  output wire [31:0] busA_probe, //for testing, comes from register file
+  output wire mem_sb,
+  output wire mem_sh,
   output wire mem_wr
   );
 
@@ -85,7 +88,7 @@ assign pipe_reg_en = 1'b1; //THIS WILL CHANGE LATER WITH STALLS
 //REGISTER FILE ///
 /////////////////
 reg_file_pipe registers(.rs(IF_to_ID[57:53]),.rs2(IF_to_ID[52:48]),.rd_wb(MEM_to_WB[47:43]),.rs2_wb(MEM_to_WB[52:48]),.busW(WB_out),.clk(clk),.r_type(MEM_to_WB[134]),.reg_wr(MEM_to_WB[133]) ,.reset(reset),.busA(busA),.busB(busB));
-
+assign busA_probe = busA; //FOR TESTING
 ///////////////////////////////
 //PIPELINE REGISTERS ////
 ////////////////////
@@ -168,7 +171,10 @@ execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_
 //Memory ////////////////
 /////////////////////
 
-store_filter MEM(.busB(EX_to_MEM[95:64]),.sb(EX_to_MEM[129]),.sh(EX_to_MEM[130]),.mem_write_data(mem_write_data)); //prepares correct data size
+
+assign mem_sb = EX_to_MEM[129]; //FOR TESTING!
+assign mem_sh = EX_to_MEM[130]; //FOR TESTING!
+//store_filter MEM(.busB(EX_to_MEM[95:64]),.sb(EX_to_MEM[129]),.sh(EX_to_MEM[130]),.mem_write_data(mem_write_data)); //prepares correct data size
 assign mem_wr = EX_to_MEM[128];
 assign mem_addr = EX_to_MEM[127:96];
 

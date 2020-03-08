@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/James Williams/Google Drive/Northwestern/Fall Quarter 2019/ECE 355 FPGA and ASIC Design/Lab 2/modelsim
 vadd_32
-Z0 !s110 1583709947
+Z0 !s110 1583710555
 !i10b 1
 !s100 W?c>L_Ib5<@:omZF;QXCA0
 IAZ01P@`2?o]1cEoEQa9O62
@@ -23,7 +23,7 @@ Z6 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z7 !s108 1583709947.000000
+Z7 !s108 1583710555.000000
 Z8 !s107 hazard_detect.v|forwarding.v|zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file_pipe.v|reg_file.v|register_n_pipe.v|register_n.v|reg_eq_check.v|mux_4to1_32.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 !s101 -O0
@@ -242,11 +242,11 @@ R10
 vand_gate_n
 R0
 !i10b 1
-!s100 fJhj_cQTkAAkI[<PU;CID0
-IQlMTi@=IWC7kGdjWMS<Ja3
+!s100 Hal8khdRz1LO_e<MjFCh90
+Ii?GR1=eD9KT=m9HieZUGn3
 R1
 R2
-Z23 w1583111585
+Z23 w1583710028
 8lib/and_gate_n.v
 Flib/and_gate_n.v
 L0 1
@@ -370,13 +370,13 @@ R9
 !i113 1
 R10
 vdecoder_3to8
-Z31 !s110 1583709948
+R0
 !i10b 1
 !s100 W@<41ma1_4ebQU=e?_5IO0
 I[PEdMaK=LkmK5YfV3hl661
 R1
 R2
-R23
+Z31 w1583111585
 8decoder_3to8.v
 Fdecoder_3to8.v
 L0 1
@@ -391,7 +391,7 @@ R9
 !i113 1
 R10
 vdecoder_5to32
-R31
+R0
 !i10b 1
 !s100 ]@F21VHn??H7<`5Kb=ON@1
 IYa_=DSi;III^7GAER>?G70
@@ -454,7 +454,7 @@ R9
 !i113 1
 R10
 vexecute
-R31
+R0
 !i10b 1
 !s100 jif0`SngU=eS^hUCn]MJJ0
 I[ILFF9S>B8V1bKNI>:blT0
@@ -475,7 +475,7 @@ R9
 !i113 1
 R10
 vextend
-R31
+R0
 !i10b 1
 !s100 BEWfAUV>QUZjmzAL;lO;>3
 I?N03Z3Ui@2>VOzzAPEhHb1
@@ -496,7 +496,7 @@ R9
 !i113 1
 R10
 vforwarding
-R31
+R0
 !i10b 1
 !s100 bFR6Xha=S1VWO]R_PznHK1
 IUKg028PBKaY^8SoVkkaRH0
@@ -559,7 +559,7 @@ R9
 !i113 1
 R10
 vhazard_detect
-R31
+R0
 !i10b 1
 !s100 5ZhIZ4f7`hWTahYjIDXJi3
 I6Ygh9UW2;=Xj2MS?oBHfO2
@@ -580,13 +580,13 @@ R9
 !i113 1
 R10
 vinst_fetch
-R31
+R0
 !i10b 1
-!s100 i?PaLlPKVKX8GMSH6X8@M0
-ITU61UYBCoL6gPKJ<mSR6j2
+!s100 c@U9jYKm]jQ7IOgUi8aTH1
+I5IigM@F_FD70o;I9[QiEh1
 R1
 R2
-w1582779659
+R23
 8inst_fetch.v
 Finst_fetch.v
 L0 2
@@ -643,13 +643,13 @@ Z35 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/s
 !i113 1
 R10
 vmult
-R31
+R0
 !i10b 1
 !s100 DkPHgBF3Com>=oB>18SU31
 Ihc[DnSfbzmo91aFV8bHCJ0
 R1
 R2
-R23
+R31
 8mult.v
 Fmult.v
 L0 2
@@ -664,7 +664,7 @@ R9
 !i113 1
 R10
 vmult_control
-R31
+R0
 !i10b 1
 !s100 M<JL9R^oz<ATo]Zn]mmz63
 I;^Tl>i]@:@JkNY[bLQ:O43
@@ -706,13 +706,13 @@ r1
 !i113 1
 R10
 vmultu
-R31
+R0
 !i10b 1
 !s100 OLDlaM=UN10KTCl<lDTIB1
 IFVdmM66z6emlToRh5CNiK0
 R1
 R2
-R23
+R31
 8multu.v
 Fmultu.v
 L0 2
@@ -727,7 +727,7 @@ R9
 !i113 1
 R10
 vmultu_control
-R31
+R0
 !i10b 1
 !s100 ^Tknolg6ObGb4jnni^U;A3
 IIU<emYgzJ2W43?i?^L_YM3
@@ -790,7 +790,7 @@ R9
 !i113 1
 R10
 vmux16
-R31
+R0
 !i10b 1
 !s100 ^TfHAlgQnJ<5hB5En@OcC0
 Imf5X7BASbAR@:I8VAZUE[1
@@ -811,7 +811,7 @@ R9
 !i113 1
 R10
 vmux4
-R31
+R0
 !i10b 1
 !s100 ZjKbMU`7gnV5D00bLAUX>3
 I5c6j2`Qj5fFgZ`TZRg_::1
@@ -832,7 +832,7 @@ R9
 !i113 1
 R10
 vmux8
-R31
+R0
 !i10b 1
 !s100 6R4QGeB03Ao8M?e`I_NE42
 IIlzjWZK]]neh:86o:0JXo2
@@ -874,7 +874,7 @@ R9
 !i113 1
 R10
 vmux_4to1_32
-R31
+R0
 !i10b 1
 !s100 nH3?XgK`Lle^_NRmFP@aK0
 I@0D9DVXzdJi5efJ3E>Q^]1
@@ -960,11 +960,11 @@ R10
 vnand_gate_n
 R0
 !i10b 1
-!s100 <c;PX]2Kk`:Y?HRgk7hdR2
-IIj@haPGY[@?gi]hWOUhzO0
+!s100 ?Dj=zZ_]9Q]7J?LILzSlz0
+Ia=SjFW<mOzUBFZaHmX_o?3
 R1
 R2
-w1582779182
+R23
 8lib/nand_gate_n.v
 Flib/nand_gate_n.v
 L0 1
@@ -1023,11 +1023,11 @@ R10
 vnor_gate_n
 R0
 !i10b 1
-!s100 <WiMJkZdk8b:I=]5IO;V`2
-I5Q66QSW]M;Z6mF>9>HV2@2
+!s100 RS;6>a3TPOO0lV_S]@dBb1
+I;NgiC:9IRjn07KnRMc?eQ0
 R1
 R2
-w1582779187
+R23
 8lib/nor_gate_n.v
 Flib/nor_gate_n.v
 L0 1
@@ -1086,11 +1086,11 @@ R10
 vnot_gate_n
 R0
 !i10b 1
-!s100 fzY3fnfBW<SA0@Wa2TM5c3
-IRe]S=]BaN`LBRWI9>]`M>3
+!s100 `CT`N:NJZQ5VG3S=QYUK33
+I:J_IN;BIHGBT>YH;RXl_V3
 R1
 R2
-w1582779194
+R23
 8lib/not_gate_n.v
 Flib/not_gate_n.v
 L0 1
@@ -1233,11 +1233,11 @@ R10
 vor_gate_n
 R0
 !i10b 1
-!s100 :okh7JcYMVDOANCiQKS?m0
-IL[E[L=cJ6>m:D9gKkh5mV0
+!s100 U_^lZZjU[96LPYJ2ac7P93
+IZ47YS=E4F:oVJ98@RAO<61
 R1
 R2
-w1582779201
+R23
 8lib/or_gate_n.v
 Flib/or_gate_n.v
 L0 1
@@ -1252,13 +1252,13 @@ R9
 !i113 1
 R10
 vpipeline
-R31
+R0
 !i10b 1
-!s100 M9`?hIM;=S9V0FNG_;lI52
-IKIL>LYnl?i8TRX;;;zQ]13
+!s100 ^Y0=JC8Rmgolg3Q@@3Zo53
+IHa8Pf`CzBd@8g4Ca41oc`0
 R1
 R2
-w1583709918
+w1583710548
 8C:/Users/conno/Desktop/362/pipeline/pipeline.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline.v
 L0 5
@@ -1273,7 +1273,7 @@ R9
 !i113 1
 R10
 vreg_eq_check
-R31
+R0
 !i10b 1
 !s100 IiQ?zFOdiSShA8CdSoBP83
 IQ?aKzagJYmXP>F>3T<Td30
@@ -1294,7 +1294,7 @@ R9
 !i113 1
 R10
 vreg_file
-R31
+R0
 !i10b 1
 !s100 klEOl`oG]`YMgLQEZQSDS3
 I_X5AN`TM`0`AA8RmJMnf`3
@@ -1315,7 +1315,7 @@ R9
 !i113 1
 R10
 vreg_file_pipe
-R31
+R0
 !i10b 1
 !s100 6BH17`eLIIUhZac3;H_IQ2
 I;J^c34Zg^Ec9`i:@DI12B0
@@ -1336,7 +1336,7 @@ R9
 !i113 1
 R10
 vregister_n
-R31
+R0
 !i10b 1
 !s100 P^TMjZWbMEO[;kP7l7`3D1
 IdU6dO>HZl0a5RT7]NDA7_0
@@ -1357,7 +1357,7 @@ R9
 !i113 1
 R10
 vregister_n_pipe
-R31
+R0
 !i10b 1
 !s100 MZ:LWdS?Nhnf?[_nAMn2f2
 I]E;i^JNah7h;2^DGcnhD`2
@@ -1378,7 +1378,7 @@ R9
 !i113 1
 R10
 vseq
-R31
+R0
 !i10b 1
 !s100 NcaE=V@?Vk`^UccKeJh^23
 Ick8n[9RHWWURdeOH_dDRd2
@@ -1420,7 +1420,7 @@ R14
 !i113 1
 R10
 vsge
-R31
+R0
 !i10b 1
 !s100 @Kb5k5VYAdcAz4Fdj:QTR0
 IjJVc^glSCEzV8hG?83ea72
@@ -1441,7 +1441,7 @@ R9
 !i113 1
 R10
 vsgt
-R31
+R0
 !i10b 1
 !s100 C=]8_<@;RN8X9lZE`T@Md0
 Id=0<YOBE9f?:LfGjWAD1f0
@@ -1504,7 +1504,7 @@ Z50 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/s
 !i113 1
 R10
 vsle
-R31
+R0
 !i10b 1
 !s100 lbRYR3`>D?73ld<^INi:<0
 I0R8=L4e]XAUD1ba<;JNLE3
@@ -1525,7 +1525,7 @@ R9
 !i113 1
 R10
 vsll_32
-R31
+R0
 !i10b 1
 !s100 SCHaP3^CXP>``^z1>^OfI1
 I?I;V?^A]K5F75lgMNVz=B2
@@ -1567,7 +1567,7 @@ r1
 !i113 1
 R10
 vslt
-R31
+R0
 !i10b 1
 !s100 3=d?WdSfXDYj[X7lVeQe33
 IhLGzT]U:Z8eYZ:>d`YzaM0
@@ -1651,7 +1651,7 @@ R22
 !i113 1
 R10
 vsne
-R31
+R0
 !i10b 1
 !s100 I7;ki:Cmoz0olbcIekUEW2
 Icd>0cg@zFDbT9_:hHm<3Z0
@@ -1672,7 +1672,7 @@ R9
 !i113 1
 R10
 vsra_32
-R31
+R0
 !i10b 1
 !s100 Xm<`IKnb[9oSL4CfDn5<`1
 IL^>Cnkf@3]aSV7a7fj8n90
@@ -1714,7 +1714,7 @@ R50
 !i113 1
 R10
 vsrl_32
-R31
+R0
 !i10b 1
 !s100 7b_2_3B_K48FQ^8HN9;C33
 Il2z7dPoH4?09AIhITC`h^1
@@ -1735,7 +1735,7 @@ R9
 !i113 1
 R10
 vsrl_64
-R31
+R0
 !i10b 1
 !s100 MPI7b<ZVDo8JJ]cn1TI=]0
 ITKC37dQ<_RUzB[d];Rm^J2
@@ -1756,7 +1756,7 @@ R9
 !i113 1
 R10
 vstore_filter
-R31
+R0
 !i10b 1
 !s100 dD1O6UHggU9MDcYiJ>5gI3
 Io0<6XXoWho>><E6kIAFfG3
@@ -1841,7 +1841,7 @@ R35
 R10
 n@w@b
 vwrite_back
-R31
+R0
 !i10b 1
 !s100 3OnbL9LSbMgfl^Z]P]G[c0
 I<79Be5eiW0]:<PL=YXFzi0
@@ -1904,7 +1904,7 @@ R9
 !i113 1
 R10
 vxnor_gate_6to1
-R31
+R0
 !i10b 1
 !s100 51J]@Q=G6j:SeXam9dFOk2
 ImY>bHE0XId_JPRIgYO9IQ1
@@ -2011,11 +2011,11 @@ R10
 vxor_gate_n
 R0
 !i10b 1
-!s100 ]1dm;jM_]WQ9mb6>?kYY13
-IO=[So<>5B9VmL;408DX1I1
+!s100 J[[YJ`@AD<]zhKMY=k?Rk0
+IG_Q9UBg_5ihTiNJ;z`@=31
 R1
 R2
-w1582779275
+R23
 8lib/xor_gate_n.v
 Flib/xor_gate_n.v
 L0 1
@@ -2030,7 +2030,7 @@ R9
 !i113 1
 R10
 vzero_check
-R31
+R0
 !i10b 1
 !s100 m8U98ZJYGgZoQaW?4ijf81
 I7V[86?PLXcZ^FA8;Y0n`72
