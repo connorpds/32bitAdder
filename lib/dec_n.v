@@ -1,4 +1,5 @@
 module dec_n (src , z);
+  // synopsys template
   parameter integer n = 32;
   input [n-1:0] src;
   output reg [((2**n)-1):0] z;
