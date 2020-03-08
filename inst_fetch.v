@@ -10,6 +10,7 @@ module inst_fetch(
 	input wire jmp,
 	input wire jmp_r,
 	input wire reset,
+	input wire pc_enable,
 	output reg [31:0] pc
 );
 
@@ -24,7 +25,7 @@ wire [31:0] temp_w_jump;
 wire [31:0] temp_w_branch;
 
 
-register_n PC_reg(.clk(clk), .reset(reset), .wr_en(1'b1), .d(pc_in), .q(pc_out) );
+register_n PC_reg(.clk(clk), .reset(reset), .wr_en(pc_enable), .d(pc_in), .q(pc_out) );
 
 //Adders to compute possible next addresses
 CLA_32 incr4_calc(.a(pc_out), .b(32'b100), .c_in(1'b0), .s(incr4_addr), .c_out(),.overflow());
