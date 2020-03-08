@@ -59,3 +59,4 @@
 `include "xnor_gate_6to1.v"
 `include "zero_check.v"
 `include "forwarding.v"
+`include "hazard_detect.v"

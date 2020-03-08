@@ -74,6 +74,7 @@ wire comb_branch; //combined branch_z and branch_nz with the conditions they dea
 
 wire pipe_reg_en;
 assign pipe_reg_en = 1'b1; //THIS WILL CHANGE LATER WITH STALLS
+//used to freeze entire pipeline...will need to be ANDed in later with !(hazard_detected) signal
 
 //ID AND WB COMPONENTS
 
@@ -88,11 +89,19 @@ reg_file_pipe registers(.rs(IF_to_ID[57:53]),.rs2(IF_to_ID[52:48]),.rd_wb(MEM_to
 ///////////////////////////////
 //PIPELINE REGISTERS ////
 ////////////////////
+
 //IF to ID
-register_n #(64) IF_ID(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({instruction,PC}) ,.q(IF_to_ID));
+wire hazard_detected;
+wire nohazard;
+register_n #(64) IF_ID(.clk(clk), .reset(reset), .wr_en(nohazard), .d({instruction,PC}) ,.q(IF_to_ID));
+hazard_detect detect(.id_ex_read(ID_to_EX[146]),.id_ex_rs2(ID_to_EX[52:48]), .if_id_rs(IF_to_ID[57:53]), .if_id_rs2(IF_to_ID[52:48]),.hazard(hazard_detected));
+not_gate no_hazard(hazard_detected, nohazard);
 
 //ID to EX
-register_n #(147) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ctrl_sig, func_code,busB,busA,IF_to_ID}), .q(ID_to_EX));
+//select between ctrl_sig and 13'b0
+wire ctrl_sig_in;
+mux_n #(13) squash_sig(nohazard,13'b0,ctrl_sig,ctrl_sig_in);
+register_n #(147) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ctrl_sig_in, func_code,busB,busA,IF_to_ID}), .q(ID_to_EX));
 
 //EX to MEM
 
@@ -121,7 +130,7 @@ register_n #(136) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_t
 /////////////////////////
 //Instruction Fetch ///
 /////////////////////
-inst_fetch IF(.imm16(instruction[15:0]),.jmp_imm26(instruction[25:0]),.reg_imm32(busA),.clk(clk),.branch(comb_branch),.jmp(jmp),.jmp_r(jmp_r),.reset(reset),.pc(PC));
+inst_fetch IF(.imm16(instruction[15:0]),.jmp_imm26(instruction[25:0]),.reg_imm32(busA),.clk(clk),.branch(comb_branch),.jmp(jmp),.jmp_r(jmp_r),.reset(reset),.pc(PC), .pc_enable(nohazard));
 
 /////////////////////////
 //Instruction Decode///
