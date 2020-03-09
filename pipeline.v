@@ -44,6 +44,7 @@ wire lh;
 wire lhi;
 wire [5:0] func_code; //needs to be set for imm operations
 wire ctrl_mem_wr;
+wire noStall;
 
 //SINGLE-BIT CONTROL SIGNALS MEGAWIRE (to make writing the pipeline registers less terrible)
 wire [12:0] ctrl_sig;
@@ -61,9 +62,9 @@ wire [31:0] EX_out;
 
 //pipeline register wires:
 wire [64:0] IF_to_ID;
-wire [147:0] ID_to_EX;
-wire [139:0] EX_to_MEM;
-wire [136:0] MEM_to_WB;
+wire [148:0] ID_to_EX;
+wire [140:0] EX_to_MEM;
+wire [137:0] MEM_to_WB;
 
 //INSTRUCTION DECODE WIRES
 wire busA_0; //if busB is 0, high, else, low
@@ -99,8 +100,10 @@ assign busA_probe = busA; //FOR TESTING
 wire hazard_detected;
 wire nohazard;
 wire not_reset;
+wire wr_en_in;
+and_gate enable_write(noStall, nohazard, wr_en_in);
 not_gate notrst(reset,not_reset);
-register_n #(65) IF_ID(.clk(clk), .reset(reset), .wr_en(nohazard), .d({not_reset, instruction,PC}) ,.q(IF_to_ID));
+register_n #(65) IF_ID(.clk(clk), .reset(reset), .wr_en(wr_en_in), .d({not_reset, instruction,PC}) ,.q(IF_to_ID));
 hazard_detect detect(.id_ex_read(ID_to_EX[146]),.id_ex_rs2(ID_to_EX[52:48]), .if_id_rs(IF_to_ID[57:53]), .if_id_rs2(IF_to_ID[52:48]),.hazard(hazard_detected));
 not_gate no_hazard(hazard_detected, nohazard);
 
@@ -141,7 +144,7 @@ register_n #(138) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_t
 /////////////////////////
 //Instruction Fetch ///
 /////////////////////
-inst_fetch IF(.imm16(IF_to_ID[47:32]),.jmp_imm26(IF_to_ID[57:32]),.reg_imm32(busA),.clk(clk),.branch(comb_branch),.jmp(jmp),.jmp_r(jmp_r),.reset(reset),.pc(PC), .pc_enable(nohazard));
+inst_fetch IF(.imm16(IF_to_ID[47:32]),.jmp_imm26(IF_to_ID[57:32]),.reg_imm32(busA),.clk(clk),.branch(comb_branch),.jmp(jmp),.jmp_r(jmp_r),.reset(reset),.pc(PC), .pc_enable(wr_en_in));
 
 /////////////////////////
 //Instruction Decode///
@@ -155,6 +158,15 @@ and_gate bnz(branch_nz,busA_1,bnz_comb);
 and_gate bz(branch_z, busA_0, bz_comb);
 or_gate combine_branch_signals(bz_comb, bnz_comb,comb_branch);
 
+//determine branch stall (hazard detection around branching sucks)
+//bID = ID_to_EX[148]
+//b_EX = EX_to_MEM[140]
+//b_MEM = MEM_to_WB[137]
+wire bex_bmemNAND;
+wire stall;
+nand_gate bmem_nand_bex(EX_to_MEM[140],MEM_to_WB[137],bex_bmemNAND);
+and_gate calcStall(ID_to_EX[148],bex_bmemNAND,stall);
+not_gate nostalling(stall, noStall);
 ////////////////////////////
 //Execute //////////////
 ////////////////////
