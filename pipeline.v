@@ -78,7 +78,7 @@ wire comb_branch; //combined branch_z and branch_nz with the conditions they dea
 wire pipe_reg_en;
 assign pipe_reg_en = 1'b1; //THIS WILL CHANGE LATER WITH STALLS
 //used to freeze entire pipeline...will need to be ANDed in later with !(hazard_detected) signal
-
+//freezing enire pipeline for using multi cycle mult
 //ID AND WB COMPONENTS
 
 //rs, rs2 are our ID state inputs
@@ -108,9 +108,11 @@ not_gate no_hazard(hazard_detected, nohazard);
 //select between ctrl_sig and 13'b0
 wire [12:0] ctrl_sig_in;
 wire id_ex_valid;
+wire branch_mark;
+or_gate branch_mark_find(branch_z, branch_nz, branch_mark);
 and_gate idex_valid(nohazard,IF_to_ID[64],id_ex_valid);
 mux_n #(13) squash_sig(nohazard,13'b0,ctrl_sig,ctrl_sig_in);
-register_n #(148) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({id_ex_valid,ctrl_sig_in, func_code,busB,busA,IF_to_ID[63:0]}), .q(ID_to_EX));
+register_n #(149) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({branch_mark, id_ex_valid,ctrl_sig_in, func_code,busB,busA,IF_to_ID[63:0]}), .q(ID_to_EX));
 
 //EX to MEM
 
@@ -121,12 +123,12 @@ register_n #(148) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({id_ex
 //rtype = 1, mux selects rd
 wire [4:0] rd_in;
 mux_n #(5) rdsel(ID_to_EX[145],ID_to_EX[52:48], ID_to_EX[47:43],rd_in);
-register_n #(140) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[147:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
+register_n #(141) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[148:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
 
 
 
 //MEM to WB
-register_n #(137) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[139:131], mem_read_data, EX_to_MEM[127:96], EX_to_MEM[63:0]}),.q(MEM_to_WB));
+register_n #(138) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[140:131], mem_read_data, EX_to_MEM[127:96], EX_to_MEM[63:0]}),.q(MEM_to_WB));
 
 
 
