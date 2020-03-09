@@ -162,10 +162,12 @@ or_gate combine_branch_signals(bz_comb, bnz_comb,comb_branch);
 //bID = ID_to_EX[148]
 //b_EX = EX_to_MEM[140]
 //b_MEM = MEM_to_WB[137]
-wire bex_bmemNAND;
+wire bex_bid;
+wire bex_bid_bmem;
 wire stall;
-nand_gate bmem_nand_bex(EX_to_MEM[140],MEM_to_WB[137],bex_bmemNAND);
-and_gate calcStall(ID_to_EX[148],bex_bmemNAND,stall);
+and_gate bexbid(ID_to_EX[148],EX_to_MEM[140],bex_bid);
+nand_gate bexbidbmem(bex_bid,MEM_to_WB[137],bex_bid_bmem);
+and_gate calcStall(bex_bid_bmem, branch_mark, stall);
 not_gate nostalling(stall, noStall);
 ////////////////////////////
 //Execute //////////////

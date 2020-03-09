@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/James Williams/Google Drive/Northwestern/Fall Quarter 2019/ECE 355 FPGA and ASIC Design/Lab 2/modelsim
 vadd_32
-Z0 !s110 1583796298
+Z0 !s110 1583797726
 !i10b 1
 !s100 W?c>L_Ib5<@:omZF;QXCA0
 IAZ01P@`2?o]1cEoEQa9O62
@@ -23,7 +23,7 @@ Z6 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z7 !s108 1583796298.000000
+Z7 !s108 1583797726.000000
 Z8 !s107 hazard_detect.v|forwarding.v|zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file_pipe.v|reg_file.v|register_n_pipe.v|register_n.v|reg_eq_check.v|mux_4to1_32.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 !s101 -O0
@@ -355,7 +355,7 @@ R0
 I;8Y;[Z>8Nj_Smmn`85?_a3
 R1
 R2
-w1583792347
+w1583796328
 8control.v
 Fcontrol.v
 L0 6
@@ -1254,11 +1254,11 @@ R10
 vpipeline
 R0
 !i10b 1
-!s100 `CaLE]A[0WSn5gm<zj=<]2
-I]W=hmmmSSQb[JK6bSW7ae0
+!s100 8z4=ej0X>7z@dj>O6am2>3
+Izd]jTo3G2LPKeZ>^bz8b43
 R1
 R2
-w1583796292
+w1583797715
 8C:/Users/conno/Desktop/362/pipeline/pipeline.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline.v
 L0 5
@@ -1273,7 +1273,7 @@ R9
 !i113 1
 R10
 vpipeline_tb
-Z43 !s110 1583721639
+Z43 !s110 1583797630
 !i10b 1
 !s100 m56O4VMhU?^l6goS3aHFX1
 Ij^Y2C@ocA::U;_RG;hA3V3
@@ -1287,7 +1287,7 @@ R6
 r1
 !s85 0
 31
-Z44 !s108 1583721639.000000
+Z44 !s108 1583797629.000000
 Z45 !s107 C:\Users\conno\Desktop\362\pipeline\\lib\syncram.v|C:\Users\conno\Desktop\362\pipeline\\lib\sram.v|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
 Z46 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
 !s101 -O0
