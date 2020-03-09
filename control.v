@@ -63,7 +63,7 @@ always @ *
 		default: branch_z <= 1'b0;
 	endcase
 
-//Setting branch_z
+//Setting branch_nz
 always @ *
 	case(inst[31:26])
 		6'h5: branch_nz <= 1'b1; //BNEZ
