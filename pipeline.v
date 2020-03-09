@@ -139,7 +139,7 @@ register_n #(137) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_t
 /////////////////////////
 //Instruction Fetch ///
 /////////////////////
-inst_fetch IF(.imm16(instruction[15:0]),.jmp_imm26(instruction[25:0]),.reg_imm32(busA),.clk(clk),.branch(comb_branch),.jmp(jmp),.jmp_r(jmp_r),.reset(reset),.pc(PC), .pc_enable(nohazard));
+inst_fetch IF(.imm16(IF_to_ID[47:32]),.jmp_imm26(IF_to_ID[57:32]),.reg_imm32(busA),.clk(clk),.branch(comb_branch),.jmp(jmp),.jmp_r(jmp_r),.reset(reset),.pc(PC), .pc_enable(nohazard));
 
 /////////////////////////
 //Instruction Decode///
@@ -198,7 +198,7 @@ assign mem_addr = EX_to_MEM[127:96];
 ///////////////////////
 //Write Back////////
 /////////////////
-write_back WB(.mem_out(MEM_to_WB[127:96]),.ALU_out(MEM_to_WB[95:64]),.PC(MEM_to_WB[31:0]),.imm16(MEM_to_WB[63:48]),.mem_to_reg(MEM_to_WB[135]),.lhi(MEM_to_WB[132]),.link(MEM_to_WB[131]),.lb(MEM_to_WB[128]),.lh(MEM_to_WB[129]),.load_extend(MEM_to_WB[130]),.WB_out(WB_out));
+write_back WB(.mem_out(MEM_to_WB[127:96]),.ALU_out(MEM_to_WB[95:64]),.PC(MEM_to_WB[31:0]),.imm16(MEM_to_WB[47:32]),.mem_to_reg(MEM_to_WB[135]),.lhi(MEM_to_WB[132]),.link(MEM_to_WB[131]),.lb(MEM_to_WB[128]),.lh(MEM_to_WB[129]),.load_extend(MEM_to_WB[130]),.WB_out(WB_out));
 mux_n #(5) link_rs2_pick(MEM_to_WB[131], MEM_to_WB[52:48],5'b11111,into_rs2);
 
 endmodule
