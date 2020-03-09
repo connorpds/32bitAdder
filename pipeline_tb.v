@@ -32,7 +32,7 @@ module pipeline_tb;
 	force_inst = 32'b0;
     #200
     reset = 1'b0;
-    #200
+    #8000
 
     dummy = 0;
 
