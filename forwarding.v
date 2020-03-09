@@ -54,7 +54,7 @@ wire intermemA; //mem_reg_eq_a && Nex_A_FWD
 not_gate nexA(ex_A_FWD, Nex_A_FWD);
 reg_eq_check mema_reg_eq(mem_wb_rd, id_ex_rs, mem_reg_eq_a);
 and_gate eq_a_nex_a(Nex_A_FWD, mem_reg_eq_a, intermemA);
-and_gate memAFWD(intermemA, mem_en_check, Nex_A_FWD);
+and_gate memAFWD(intermemA, mem_en_check, mem_A_FWD);
 
 //MEM_B_FWD
 wire Nex_B_FWD; //not ex_B_FWD
@@ -65,7 +65,7 @@ wire intermemB; //mem_reg_eq_b && Nex_B_FWD
 not_gate nexB(ex_B_FWD, Nex_B_FWD);
 reg_eq_check memb_reg_eq(mem_wb_rd, id_ex_rs2, mem_reg_eq_b);
 and_gate eq_b_nex_b(Nex_B_FWD, mem_reg_eq_b, intermemB);
-and_gate memBFWD(intermemB, mem_en_check, Nex_B_FWD);
+and_gate memBFWD(intermemB, mem_en_check, mem_B_FWD);
 //when true, B_sel = 01
 
 

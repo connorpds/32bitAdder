@@ -17,7 +17,7 @@ module pipeline_tb;
   wire [31:0] busA;
   reg dummy;
   reg [4:0] i;
-  wire [31:0] inst_in; //check 
+  wire [31:0] inst_in; //check
 
 	mux_32 override_mux(.sel(override_inst), .src0(instruction), .src1(force_inst), .z(inst_in));
 	pipeline cpu_undertest (.reset(reset), .clk(clk), .instruction(inst_in), .mem_read_data(mem_read_data), .mem_addr(mem_addr), .mem_write_data(mem_write_data), .PC(PC), .mem_wr(mem_wr), .busA_probe(busA), .mem_sh(sh), .mem_sb(sb));
@@ -30,7 +30,7 @@ module pipeline_tb;
     clk = 1'b1;
 	override_inst = 1'b0;
 	force_inst = 32'b0;
-    #400
+    #200
     reset = 1'b0;
     #200
 

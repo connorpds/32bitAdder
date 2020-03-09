@@ -46,6 +46,6 @@ mux_32 det_jmp_r (.sel(jmp_r), .src0(temp_w_branch), .src1(reg_imm32), .z(temp_w
 mux_32 startup_freeze(.sel(reset), .src0(temp_w_reg), .src1(32'b0), .z(pc_in));
 
 always @*
-	pc = pc_out; // continuous assign so we can have internal wire and output
+	pc <= pc_out; // continuous assign so we can have internal wire and output
 
 endmodule

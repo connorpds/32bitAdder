@@ -60,10 +60,10 @@ wire [4:0] into_rs2;
 wire [31:0] EX_out;
 
 //pipeline register wires:
-wire [63:0] IF_to_ID;
-wire [146:0] ID_to_EX;
-wire [138:0] EX_to_MEM;
-wire [135:0] MEM_to_WB;
+wire [64:0] IF_to_ID;
+wire [147:0] ID_to_EX;
+wire [139:0] EX_to_MEM;
+wire [136:0] MEM_to_WB;
 
 //INSTRUCTION DECODE WIRES
 wire busA_0; //if busB is 0, high, else, low
@@ -93,18 +93,24 @@ assign busA_probe = busA; //FOR TESTING
 //PIPELINE REGISTERS ////
 ////////////////////
 
+//valid bit is the MSB of each register other than IF_ID.
+
 //IF to ID
 wire hazard_detected;
 wire nohazard;
-register_n #(64) IF_ID(.clk(clk), .reset(reset), .wr_en(nohazard), .d({instruction,PC}) ,.q(IF_to_ID));
+wire not_reset;
+not_gate notrst(reset,not_reset);
+register_n #(65) IF_ID(.clk(clk), .reset(reset), .wr_en(nohazard), .d({not_reset, instruction,PC}) ,.q(IF_to_ID));
 hazard_detect detect(.id_ex_read(ID_to_EX[146]),.id_ex_rs2(ID_to_EX[52:48]), .if_id_rs(IF_to_ID[57:53]), .if_id_rs2(IF_to_ID[52:48]),.hazard(hazard_detected));
 not_gate no_hazard(hazard_detected, nohazard);
 
 //ID to EX
 //select between ctrl_sig and 13'b0
 wire [12:0] ctrl_sig_in;
+wire id_ex_valid;
+and_gate idex_valid(nohazard,IF_to_ID[64],id_ex_valid);
 mux_n #(13) squash_sig(nohazard,13'b0,ctrl_sig,ctrl_sig_in);
-register_n #(147) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ctrl_sig_in, func_code,busB,busA,IF_to_ID}), .q(ID_to_EX));
+register_n #(148) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({id_ex_valid,ctrl_sig_in, func_code,busB,busA,IF_to_ID[63:0]}), .q(ID_to_EX));
 
 //EX to MEM
 
@@ -115,12 +121,12 @@ register_n #(147) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ctrl_
 //rtype = 1, mux selects rd
 wire [4:0] rd_in;
 mux_n #(5) rdsel(ID_to_EX[145],ID_to_EX[52:48], ID_to_EX[47:43],rd_in);
-register_n #(139) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[146:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
+register_n #(140) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[147:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
 
 
 
 //MEM to WB
-register_n #(136) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[138:131], mem_read_data, EX_out, EX_to_MEM[63:0]}),.q(MEM_to_WB));
+register_n #(137) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[139:131], mem_read_data, EX_out, EX_to_MEM[63:0]}),.q(MEM_to_WB));
 
 
 
@@ -152,15 +158,24 @@ or_gate combine_branch_signals(bz_comb, bnz_comb,comb_branch);
 ////////////////////
 
 //Forwarding:
+wire [1:0] A_sel0;
+wire [1:0] B_sel0;
 wire [1:0] A_sel;
 wire [1:0] B_sel;
 wire [31:0] ex_busA;
 wire [31:0] ex_busB;
+wire reg_valid;
 //busA_0 = ID_to_EX[95:64]
 //busB_0 = ID_to_EX[127:96]
 //ALU_out EX_to_MEM : [127:96]
 //MEM_out MEM_to_WB : [127:96]
-forwarding forward(.ex_mem_wr(EX_to_MEM[136]),.mem_wb_wr(EX_to_MEM[136]),.id_ex_rs(ID_to_EX[57:53]),.id_ex_rs2(ID_to_EX[52:48]),.ex_mem_rd(EX_to_MEM[47:43]),.mem_wb_rd(MEM_to_WB[47:43]),.A_sel(A_sel),.B_sel(B_sel));
+forwarding forward(.ex_mem_wr(EX_to_MEM[136]),.mem_wb_wr(MEM_to_WB[133]),.id_ex_rs(ID_to_EX[57:53]),.id_ex_rs2(ID_to_EX[52:48]),.ex_mem_rd(EX_to_MEM[47:43]),.mem_wb_rd(MEM_to_WB[47:43]),.A_sel(A_sel0),.B_sel(B_sel0));
+//accounting for register validity
+and_gate regs_valid(EX_to_MEM[139],MEM_to_WB[136],reg_valid);
+
+and_gate_n #(2) aSelValid({reg_valid,reg_valid},A_sel0,A_sel);
+and_gate_n #(2) bSelValid({reg_valid,reg_valid},B_sel0,B_sel);
+
 //selecting between non forwarded and various forwarded values
 mux_4to1_32 sel_A(A_sel,ID_to_EX[95:64],MEM_to_WB[127:96],EX_to_MEM[127:96],32'hFFFFFFFF,ex_busA);
 mux_4to1_32 sel_B(B_sel,ID_to_EX[127:96],MEM_to_WB[127:96],EX_to_MEM[127:96],32'hFFFFFFFF,ex_busB);
