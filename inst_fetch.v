@@ -14,8 +14,6 @@ module inst_fetch(
 	output reg [31:0] pc
 );
 
-wire reset_not;
-wire pc_enable_full;
 wire [31:0] pc_out;
 wire [31:0] pc_in;
 wire [31:0] incr4_addr;
@@ -25,6 +23,7 @@ wire [5:0] jmp_sign_extend;
 wire [15:0] branch_sign_extend;
 wire [31:0] temp_w_jump;
 wire [31:0] temp_w_branch;
+wire [31:0] temp_w_reg;
 
 
 not_gate reset_not_gate(.x(reset), .z(reset_not));
@@ -43,7 +42,8 @@ mux_n #(16) branch_extend_mux(.sel(imm16[15]), .src0(16'b0), .src1(16'b111111111
 //Combinational logic to determine pc_in
 mux_32 det_jmp (.sel(jmp), .src0(incr4_addr), .src1(jmp_addr), .z(temp_w_jump));
 mux_32 det_branch (.sel(branch), .src0(temp_w_jump), .src1(branch_addr), .z(temp_w_branch));
-mux_32 det_jmp_r (.sel(jmp_r), .src0(temp_w_branch), .src1(reg_imm32), .z(pc_in));
+mux_32 det_jmp_r (.sel(jmp_r), .src0(temp_w_branch), .src1(reg_imm32), .z(temp_w_reg));
+mux_32 startup_freeze(.sel(reset), .src0(temp_w_reg), .src1(32'b0), .z(pc_in));
 
 always @*
 	pc = pc_out; // continuous assign so we can have internal wire and output
