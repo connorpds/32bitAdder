@@ -14,6 +14,8 @@ module inst_fetch(
 	output reg [31:0] pc
 );
 
+wire reset_not;
+wire pc_enable_full;
 wire [31:0] pc_out;
 wire [31:0] pc_in;
 wire [31:0] incr4_addr;
@@ -25,6 +27,8 @@ wire [31:0] temp_w_jump;
 wire [31:0] temp_w_branch;
 
 
+not_gate reset_not_gate(.x(reset), .z(reset_not));
+and_gate true_pc_enable(.x(pc_enable), .y(reset_not), .z(pc_enable_full));
 register_n PC_reg(.clk(clk), .reset(reset), .wr_en(pc_enable), .d(pc_in), .q(pc_out) );
 
 //Adders to compute possible next addresses
