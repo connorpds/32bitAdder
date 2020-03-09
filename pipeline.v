@@ -102,7 +102,7 @@ not_gate no_hazard(hazard_detected, nohazard);
 
 //ID to EX
 //select between ctrl_sig and 13'b0
-wire ctrl_sig_in;
+wire [12:0] ctrl_sig_in;
 mux_n #(13) squash_sig(nohazard,13'b0,ctrl_sig,ctrl_sig_in);
 register_n #(147) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ctrl_sig_in, func_code,busB,busA,IF_to_ID}), .q(ID_to_EX));
 
@@ -115,7 +115,7 @@ register_n #(147) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ctrl_
 //rtype = 1, mux selects rd
 wire [4:0] rd_in;
 mux_n #(5) rdsel(ID_to_EX[145],ID_to_EX[52:48], ID_to_EX[47:43],rd_in);
-register_n #(139) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[138:129], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
+register_n #(139) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[146:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
 
 
 
@@ -174,6 +174,7 @@ execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_
 
 assign mem_sb = EX_to_MEM[129]; //FOR TESTING!
 assign mem_sh = EX_to_MEM[130]; //FOR TESTING!
+assign mem_write_data = EX_to_MEM[95:64];
 //store_filter MEM(.busB(EX_to_MEM[95:64]),.sb(EX_to_MEM[129]),.sh(EX_to_MEM[130]),.mem_write_data(mem_write_data)); //prepares correct data size
 assign mem_wr = EX_to_MEM[128];
 assign mem_addr = EX_to_MEM[127:96];

@@ -7,7 +7,7 @@ module mux_4to1_32
 	input wire [31:0] b,
 	input wire [31:0] c,
 	input wire [31:0] d,
-	output reg [31:0] out
+	output wire [31:0] out
 );
 
 wire [31:0] a_or_b;

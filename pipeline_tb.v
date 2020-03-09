@@ -17,8 +17,9 @@ module pipeline_tb;
   wire [31:0] busA;
   reg dummy;
   reg [4:0] i;
-  
-	mux_32 override_mux(.sel(override_inst), .src0(instruction), .src1(force_inst), .z(inst_in)) 
+  wire [31:0] inst_in; //check 
+
+	mux_32 override_mux(.sel(override_inst), .src0(instruction), .src1(force_inst), .z(inst_in));
 	pipeline cpu_undertest (.reset(reset), .clk(clk), .instruction(inst_in), .mem_read_data(mem_read_data), .mem_addr(mem_addr), .mem_write_data(mem_write_data), .PC(PC), .mem_wr(mem_wr), .busA_probe(busA), .mem_sh(sh), .mem_sb(sb));
 	sram #( "btest.dat" ) inst_mem(.cs(1'b1), .oe(1'b1), .we(1'b0), .addr(PC), .din(32'b0), .dout(instruction));
 	syncram #( "addi.dat" ) data_mem(.clk(clk), .cs(1'b1), .oe(1'b1), .sh(sh), .sb(sb), .we(mem_wr), .addr(mem_addr), .din(mem_write_data), .dout(mem_read_data));
@@ -34,11 +35,11 @@ module pipeline_tb;
     #200
 
     dummy = 0;
-	
+
 	// Register dumping time
 	i = 5'b0;
 	override_inst = 1'b1;
-	force_inst = { 6'b001000, 27'b0 }
+	force_inst = { 6'b001000, 27'b0 };
 	/*
 	$monitor("reg=%d, val=%h", i, busA) //TODO
 	#200

@@ -1,7 +1,7 @@
 
 module reg_eq_check(
-	input wire[5:0] reg1,
-	input wire[5:0] reg2,
+	input wire[4:0] reg1,
+	input wire[4:0] reg2,
 	output wire eq
 );
 

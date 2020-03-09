@@ -1,4 +1,4 @@
-module syncram(clk,cs,oe,we,addr,din,dout);
+module syncram(clk,cs,oe,we,sh,sb,addr,din,dout);
 
   parameter mem_file = "";
   input clk;
@@ -143,7 +143,7 @@ module syncram(clk,cs,oe,we,addr,din,dout);
           for (c=0; c<49 ; c=c+1) begin
             if (mem[c][0] == addr) begin
               //$display ("WRITE Addr FOUND!: %h" , mem[c][0
-			  
+
               if (store_byte == 1) begin
 				mem[c][1][addr_offset+3+:4] = data[3:0];
 			  end
@@ -153,15 +153,15 @@ module syncram(clk,cs,oe,we,addr,din,dout);
 			  else begin
 				mem[c][1] = data;
 			  end
-			  
+
               addr_found = 1;
-			  
+
             end
           end
           if (addr_found==0) begin // new addition to RAM
             mem[ram_size][0] = addr;
 			addr_value = 32'b0;
-			
+
 			if (store_byte == 1) begin
 			  addr_value[addr_offset+3+:4] = data[3:0];
 			  mem[ram_size][1] = addr_value;
@@ -173,7 +173,7 @@ module syncram(clk,cs,oe,we,addr,din,dout);
 			else begin
 			  mem[ram_size][1] = data;
 			end
-			
+
             ram_size = ram_size+1;
             addr_found = 1;
           end
