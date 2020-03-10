@@ -1,10 +1,96 @@
-C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v {1 {vlog -work work -stats=none C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
+C:/Users/conno/Desktop/362/pipeline/pipeline.v {1 {vlog -work work -stats=none C:/Users/conno/Desktop/362/pipeline/pipeline.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module sram
--- Compiling module syncram
--- Compiling module pipeline_tb
+-- Compiling module and_gate
+-- Compiling module and_3
+-- Compiling module and_4
+-- Compiling module and_5
+-- Compiling module and_gate_32
+-- Compiling module and_gate_n
+-- Compiling module nand_gate
+-- Compiling module nand_gate_32
+-- Compiling module nand_gate_n
+-- Compiling module or_gate
+-- Compiling module or_3
+-- Compiling module or_4
+-- Compiling module or_5
+-- Compiling module or_gate_32
+-- Compiling module or_gate_n
+-- Compiling module nor_gate
+-- Compiling module nor_gate_32
+-- Compiling module nor_gate_n
+-- Compiling module xor_gate
+-- Compiling module xor_gate_32
+-- Compiling module xor_gate_n
+-- Compiling module xnor_gate
+-- Compiling module xnor_gate_32
+-- Compiling module xnor_gate_n
+-- Compiling module not_gate
+-- Compiling module not_gate_32
+-- Compiling module not_gate_n
+-- Compiling module mux
+-- Compiling module mux_32
+-- Compiling module mux_n
+-- Compiling module dff
+-- Compiling module dffr
+-- Compiling module full_adder
+-- Compiling module half_adder
+-- Compiling module add_32
+-- Compiling module add_6
+-- Compiling module CLA_4
+-- Compiling module CLA_32
+-- Compiling module alu_32
+-- Compiling module control
+-- Compiling module decoder_3to8
+-- Compiling module decoder_5to32
+-- Compiling module execute
+-- Compiling module extend
+-- Compiling module inst_fetch
+-- Compiling module mult
+-- Compiling module mult_control
+-- Compiling module multu
+-- Compiling module multu_control
+-- Compiling module mux4
+-- Compiling module mux8
+-- Compiling module mux16
+-- Compiling module mux_4to1_32
+-- Compiling module reg_eq_check
+-- Compiling module register_n
+-- Compiling module register_n_pipe
+-- Compiling module reg_file
+-- Compiling module reg_file_pipe
+-- Compiling module slt
+-- Compiling module seq
+-- Compiling module sne
+-- Compiling module sgt
+-- Compiling module sle
+-- Compiling module sge
+-- Compiling module sll_32
+-- Compiling module srl_32
+-- Compiling module srl_64
+-- Compiling module sra_32
+-- Compiling module store_filter
+-- Compiling module write_back
+-- Compiling module xnor_gate_6to1
+-- Compiling module zero_check
+-- Compiling module forwarding
+-- Compiling module hazard_detect
+-- Compiling module pipeline
 
 Top level modules:
-	pipeline_tb
+	nand_gate_32
+	nand_gate_n
+	or_gate_n
+	nor_gate_32
+	nor_gate_n
+	xor_gate_n
+	xnor_gate_32
+	not_gate_n
+	add_32
+	mult
+	multu
+	mux16
+	reg_file
+	store_filter
+	pipeline
 
 } {} {}}

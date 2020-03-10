@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/James Williams/Google Drive/Northwestern/Fall Quarter 2019/ECE 355 FPGA and ASIC Design/Lab 2/modelsim
 vadd_32
-Z0 !s110 1583804320
+Z0 !s110 1583805404
 !i10b 1
 !s100 W?c>L_Ib5<@:omZF;QXCA0
 IAZ01P@`2?o]1cEoEQa9O62
@@ -23,7 +23,7 @@ Z6 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z7 !s108 1583804320.000000
+Z7 !s108 1583805404.000000
 Z8 !s107 hazard_detect.v|forwarding.v|zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file_pipe.v|reg_file.v|register_n_pipe.v|register_n.v|reg_eq_check.v|mux_4to1_32.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 !s101 -O0
@@ -496,7 +496,7 @@ R9
 !i113 1
 R10
 vforwarding
-Z34 !s110 1583804321
+Z34 !s110 1583805405
 !i10b 1
 !s100 3Z6UT=<zbBZ28MA[z@jTV0
 I]=VCzIAe[dVkN2EkA6Dl23
@@ -582,11 +582,11 @@ R10
 vinst_fetch
 R0
 !i10b 1
-!s100 Hk4b[bPNeGMR5OCLc9^8]2
-I8RZD_oI1@okRG9Y5Lm:2j3
+!s100 U]_ILg0WfWTl3D_DVY?W;3
+I<kZ`?8j9M`k^5fOaZVNO`0
 R1
 R2
-w1583718871
+w1583805394
 8inst_fetch.v
 Finst_fetch.v
 L0 2
@@ -1254,11 +1254,11 @@ R10
 vpipeline
 R34
 !i10b 1
-!s100 g?z@Eh]l<[nAmY<fC`VI^2
-In?Wz]NON`UKREQlEK=N6[0
+!s100 ^Mo:OZ8c2cc9OHRca_G=U3
+I86g=K0KV0[f5ndzK6c95c1
 R1
 R2
-w1583804309
+w1583804559
 8C:/Users/conno/Desktop/362/pipeline/pipeline.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline.v
 L0 5
@@ -1275,11 +1275,11 @@ R10
 vpipeline_tb
 R34
 !i10b 1
-!s100 ?9U>ooFgOFQ2@QVXN:@mm2
-IZ1AUZFI;VP6z2zd81HFID3
+!s100 b=G]0_54h2<1g:>N>_5_B1
+IK[RTRfkYAAmeeQj2J204S1
 R1
 R2
-w1583803654
+w1583804721
 8C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
 L0 4
@@ -1287,7 +1287,7 @@ R6
 r1
 !s85 0
 31
-Z44 !s108 1583804321.000000
+Z44 !s108 1583805405.000000
 Z45 !s107 lib/syncram.v|lib/sram.v|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
 Z46 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
 !s101 -O0
@@ -1357,7 +1357,7 @@ R9
 !i113 1
 R10
 vregister_n
-R34
+R0
 !i10b 1
 !s100 P^TMjZWbMEO[;kP7l7`3D1
 IdU6dO>HZl0a5RT7]NDA7_0

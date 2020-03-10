@@ -63,8 +63,8 @@ wire [31:0] EX_out;
 //pipeline register wires:
 wire [64:0] IF_to_ID;
 wire [148:0] ID_to_EX;
-wire [146:0] EX_to_MEM;
-wire [143:0] MEM_to_WB;
+wire [145:0] EX_to_MEM;
+wire [142:0] MEM_to_WB;
 
 //INSTRUCTION DECODE WIRES
 wire busA_0; //if busB is 0, high, else, low
