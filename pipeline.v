@@ -63,8 +63,8 @@ wire [31:0] EX_out;
 //pipeline register wires:
 wire [64:0] IF_to_ID;
 wire [148:0] ID_to_EX;
-wire [140:0] EX_to_MEM;
-wire [137:0] MEM_to_WB;
+wire [146:0] EX_to_MEM;
+wire [143:0] MEM_to_WB;
 
 //INSTRUCTION DECODE WIRES
 wire busA_0; //if busB is 0, high, else, low
@@ -88,7 +88,7 @@ assign pipe_reg_en = 1'b1; //THIS WILL CHANGE LATER WITH STALLS
 //////////////////////
 //REGISTER FILE ///
 /////////////////
-reg_file_pipe registers(.rs(IF_to_ID[57:53]),.rs2(IF_to_ID[52:48]),.rd_wb(MEM_to_WB[47:43]),.rs2_wb(MEM_to_WB[52:48]),.busW(WB_out),.clk(clk),.r_type(MEM_to_WB[134]),.reg_wr(MEM_to_WB[133]) ,.reset(reset),.busA(busA),.busB(busB));
+reg_file_pipe registers(.rs(IF_to_ID[57:53]),.rs2(IF_to_ID[52:48]),.rd_wb(MEM_to_WB[142:138]),.rs2_wb(MEM_to_WB[52:48]),.busW(WB_out),.clk(clk),.r_type(MEM_to_WB[134]),.reg_wr(MEM_to_WB[133]) ,.reset(reset),.busA(busA),.busB(busB));
 assign busA_probe = busA; //FOR TESTING
 ///////////////////////////////
 //PIPELINE REGISTERS ////
@@ -126,12 +126,12 @@ register_n #(149) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({branc
 //rtype = 1, mux selects rd
 wire [4:0] rd_in;
 mux_n #(5) rdsel(ID_to_EX[145],ID_to_EX[52:48], ID_to_EX[47:43],rd_in);
-register_n #(141) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({ID_to_EX[148:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:48], rd_in, ID_to_EX[42:0]}),.q(EX_to_MEM));
+register_n #(146) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({rd_in, ID_to_EX[148:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:0]}),.q(EX_to_MEM));
 
 
 
 //MEM to WB
-register_n #(138) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[140:131], mem_read_data, EX_to_MEM[127:96], EX_to_MEM[63:0]}),.q(MEM_to_WB));
+register_n #(143) MEM_WB(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({EX_to_MEM[145:131], mem_read_data, EX_to_MEM[127:96], EX_to_MEM[63:0]}),.q(MEM_to_WB));
 
 
 

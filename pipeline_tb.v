@@ -40,16 +40,16 @@ module pipeline_tb;
 	i = 5'b0;
 	override_inst = 1'b1;
 	force_inst = { 6'b001000, 27'b0 };
-	
+
 	#200
 	//$display("reg=%d, val=%h", i, busA); //TODO
-	
+
 	for (i = 5'b00000; i < 5'b11111; i = i + 5'b00001) begin
 			force_inst = { 6'b001000, i+5'b00001, 5'b00000, 16'b0 };
 			#200
 			$display("reg=%d, val=%h", i, busA);
 	end
-	
+
 	force_inst = { 6'b001000, 5'b11111, 5'b00000, 16'b0 };
 	#200
 	$display("reg=%d, val=%h", i, busA);
