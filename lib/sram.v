@@ -21,6 +21,7 @@ module sram(cs,oe,we,addr,din,dout);
   integer initNeeded = 1;
   integer check_sram = 0;
   integer addr_found = 1;
+  integer read_found = 0;
 
   reg [3:0] slash;
   reg [31:0] addr_value;
@@ -155,6 +156,7 @@ module sram(cs,oe,we,addr,din,dout);
             if (mem[c][0] == addr) begin
               //$display ("READ Addr FOUND!: %h" , mem[c][0]);
               data = mem[c][1];
+			  read_found = 1;
             end
           end
         end
@@ -185,6 +187,12 @@ module sram(cs,oe,we,addr,din,dout);
         end
         if (oe==1) begin
           readRAM(addr , dbuf);
+		  if(read_found == 1) begin
+			read_found = 0;
+			end
+			else begin 
+			dbuf = 32'b0;
+			end
           //$display("Writing to dout: " , dbuf);
           dout = dbuf;
         end
