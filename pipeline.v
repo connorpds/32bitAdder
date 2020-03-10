@@ -88,7 +88,7 @@ assign pipe_reg_en = 1'b1; //THIS WILL CHANGE LATER WITH STALLS
 //////////////////////
 //REGISTER FILE ///
 /////////////////
-reg_file_pipe registers(.rs(IF_to_ID[57:53]),.rs2(IF_to_ID[52:48]),.rd_wb(MEM_to_WB[142:138]),.rs2_wb(MEM_to_WB[52:48]),.busW(WB_out),.clk(clk),.r_type(MEM_to_WB[134]),.reg_wr(MEM_to_WB[133]) ,.reset(reset),.busA(busA),.busB(busB));
+reg_file_pipe registers(.rs(IF_to_ID[57:53]),.rs2(IF_to_ID[52:48]),.rd_wb(MEM_to_WB[142:138]),.rs2_wb(into_rs2),.busW(WB_out),.clk(clk),.r_type(MEM_to_WB[134]),.reg_wr(MEM_to_WB[133]) ,.reset(reset),.busA(busA),.busB(busB));
 assign busA_probe = busA; //FOR TESTING
 ///////////////////////////////
 //PIPELINE REGISTERS ////

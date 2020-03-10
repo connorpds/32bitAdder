@@ -1,3 +1,6 @@
 btest -- DEFUNCT
-btest2 -- r1 = 1004, r2 = 5, r3 = 10
-btest_sensible = 
+btest2 -- r1 = 1004, r2 = 5, r3 = 10 ; tests branching
+btest_sensible = some 10s somewhere
+
+jal_solo_test -- R1 = 1, r31 = 0xC, all others 0 ; tests linking
+jr_solo_test -- r1 = 1, r3 = 0x14, all others 0 ; tests jumping to register, and hazard with said register
