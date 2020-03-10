@@ -1,0 +1,96 @@
+C:/Users/conno/Desktop/362/alu_32/mult_tb.v {1 {vlog -work work -stats=none C:/Users/conno/Desktop/362/alu_32/mult_tb.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mult_tb
+
+Top level modules:
+	mult_tb
+
+} {} {}} C:/Users/conno/Desktop/362/alu_32/mult.v {1 {vlog -work work -stats=none C:/Users/conno/Desktop/362/alu_32/mult.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mux_32
+-- Compiling module sll_32
+-- Compiling module srl_32
+-- Compiling module srl_64
+-- Compiling module sra_32
+-- Compiling module mux_n
+-- Compiling module mult
+
+Top level modules:
+	sll_32
+	srl_32
+	sra_32
+	mult
+
+} {} {}} C:/Users/conno/Desktop/362/alu_32/mult_control.v {2 {vlog -work work -stats=none C:/Users/conno/Desktop/362/alu_32/mult_control.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mux
+-- Compiling module and_gate
+-- Compiling module and_3
+-- Compiling module and_4
+-- Compiling module and_5
+-- Compiling module or_gate
+-- Compiling module or_3
+-- Compiling module or_4
+-- Compiling module or_5
+-- Compiling module not_gate
+-- Compiling module nor_gate
+-- Compiling module dffr
+-- Compiling module register_n
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(1)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\and_gate.v(1): (vlog-2275) 'and_gate' already exists and will be overwritten.
+
+-- Compiling module and_gate
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(1)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\and_gate.v(11): (vlog-2275) 'and_3' already exists and will be overwritten.
+
+-- Compiling module and_3
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(1)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\and_gate.v(20): (vlog-2275) 'and_4' already exists and will be overwritten.
+
+-- Compiling module and_4
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(1)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\and_gate.v(30): (vlog-2275) 'and_5' already exists and will be overwritten.
+
+-- Compiling module and_5
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(2)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\or_gate.v(1): (vlog-2275) 'or_gate' already exists and will be overwritten.
+
+-- Compiling module or_gate
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(2)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\or_gate.v(13): (vlog-2275) 'or_3' already exists and will be overwritten.
+
+-- Compiling module or_3
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(2)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\or_gate.v(22): (vlog-2275) 'or_4' already exists and will be overwritten.
+
+-- Compiling module or_4
+** Warning: ** while parsing file included at C:/Users/conno/Desktop/362/alu_32/mult_control.v(8)
+** while parsing file included at C:\Users\conno\Desktop\362\alu_32\\add_32.v(2)
+** at C:\Users\conno\Desktop\362\alu_32\\\lib\or_gate.v(32): (vlog-2275) 'or_5' already exists and will be overwritten.
+
+-- Compiling module or_5
+-- Compiling module xor_gate
+-- Compiling module full_adder
+-- Compiling module half_adder
+-- Compiling module add_32
+-- Compiling module add_6
+-- Compiling module mult_control
+
+Top level modules:
+	and_3
+	and_4
+	and_5
+	or_3
+	or_4
+	or_5
+	add_32
+	mult_control
+
+} {} {}}

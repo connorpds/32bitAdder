@@ -1,0 +1,11 @@
+C:/Users/conno/Desktop/362/32bitAdder/CLA_4_tb.v {0 {vlog -work work -stats=none C:/Users/conno/Desktop/362/32bitAdder/CLA_4_tb.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+** Error: (vlog-66) Execution of vlib failed. Please check the error log for more details.
+
+
+} {3.0 4.0} {}} C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v {0 {vlog -work work -stats=none C:/Users/conno/Desktop/362/32bitAdder/add_32_lookahead.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+** Error: (vlog-66) Execution of vlib failed. Please check the error log for more details.
+
+
+} {3.0 4.0} {}}

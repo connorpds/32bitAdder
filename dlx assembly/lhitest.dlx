@@ -1,0 +1,3 @@
+XOR R1, R1, R1
+ADDI R1, R1, 1
+LHI R1, 40
