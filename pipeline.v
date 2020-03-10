@@ -193,8 +193,8 @@ and_gate_n #(2) aSelValid({reg_valid,reg_valid},A_sel0,A_sel);
 and_gate_n #(2) bSelValid({reg_valid,reg_valid},B_sel0,B_sel);
 
 //selecting between non forwarded and various forwarded values
-mux_4to1_32 sel_A(A_sel,ID_to_EX[95:64],MEM_to_WB[127:96],EX_to_MEM[127:96],32'hFFFFFFFF,ex_busA);
-mux_4to1_32 sel_B(B_sel,ID_to_EX[127:96],MEM_to_WB[127:96],EX_to_MEM[127:96],32'hFFFFFFFF,ex_busB);
+mux_4to1_32 sel_A(A_sel,ID_to_EX[95:64],WB_out,EX_to_MEM[127:96],32'hFFFFFFFF,ex_busA);
+mux_4to1_32 sel_B(B_sel,ID_to_EX[127:96],WB_out,EX_to_MEM[127:96],32'hFFFFFFFF,ex_busB);
 execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]),.imm16(ID_to_EX[47:32]),.out(EX_out));
 
 

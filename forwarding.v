@@ -17,9 +17,11 @@ module forwarding(
 //for both ex_a_fwd and ex_b_fwd
 //ex_en_check = ex_mem_wr AND (ex_mem_rd != 0)
 wire ex_rd_0;
+wire ex_rd_not_0;
 wire ex_en_check;
 zero_check #(5) rd_ex_0(ex_mem_rd, ex_rd_0);
-and_gate ex_en(ex_mem_wr, ex_rd_0, ex_en_check);
+not_gate rd_ex_not_0(ex_rd_0, ex_rd_not_0);
+and_gate ex_en(ex_mem_wr, ex_rd_not_0, ex_en_check);
 
 //EX_A_FWD
 wire ex_reg_eq_a;
@@ -40,9 +42,11 @@ and_gate ex_b_fwd_det(ex_en_check, ex_reg_eq_b, ex_B_FWD);
 /////////////////
 
 wire mem_rd_0;
+wire mem_rd_not_0;
 wire mem_en_check;
 zero_check #(5) rd_mem_0(mem_wb_rd, mem_rd_0);
-and_gate mem_en(mem_wb_wr, mem_rd_0, mem_en_check);
+not_gate rd_mem_not_0(mem_rd_0, mem_rd_not_0);
+and_gate mem_en(mem_wb_wr, mem_rd_not_0, mem_en_check);
 
 
 //MEM_A_FWD
