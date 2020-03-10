@@ -32,28 +32,44 @@ module forwarding_tb;
 		#4
 		
 		id_ex_rs = 5'b11;
+		id_ex_rs2 = 5'b1;
 		
 		#4
 		
-		ex_mem_rd = 5'b11;
+		id_ex_rs2 = 5'b11;
+		
+		#4
+		
+		ex_mem_rd = 5'b111;
 		
 		#4
 		
 		ex_mem_wr = 1'b0;
 		mem_wb_wr = 1'b1;
+		id_ex_rs2 = 1'b1;
+		id_ex_rs = 1'b1;
+		
+		#4
+		
+		id_ex_rs2 = 5'b11;
 		
 		#4
 		
 		id_ex_rs2 = 5'b1;
+		id_ex_rs = 5'b11;
 		
 		#4
 		
-		ex_mem_rd = 5'b1;
+		mem_wb_rd = 5'b111;
 		
 		#4
 		
+		ex_mem_wr = 1'b1;
+		mem_wb_wr = 1'b1;
 		id_ex_rs = 5'b1;
-		
+		id_ex_rs2 = 5'b1;
+		ex_mem_rd = 5'b1;
+		mem_wb_rd = 5'b1;
 		
 		
 	end
