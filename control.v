@@ -42,6 +42,7 @@ always @ *
 		//5'h3: reg_wr<=1'b0; //JAL -- pretty sure the "link" part requires writing to reg
 		6'h4: reg_wr <= 1'b0; //BEQZ
 		6'h5: reg_wr <= 1'b0; //BNEZ
+		5'h12: reg_wr<=1'b0; //JR
 		6'h28: reg_wr <= 1'b0; //SB
 		6'h29: reg_wr <= 1'b0; //SH
 		6'h2b: reg_wr <= 1'b0; //SW
