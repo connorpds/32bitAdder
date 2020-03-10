@@ -1,1 +1,10 @@
+C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v {1 {vlog -work work -stats=none C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module sram
+-- Compiling module syncram
+-- Compiling module pipeline_tb
 
+Top level modules:
+	pipeline_tb
+
+} {} {}}

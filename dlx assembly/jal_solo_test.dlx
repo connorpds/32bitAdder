@@ -1,0 +1,5 @@
+ADDI R1, R0, 4
+JAL ruddy_gun
+ADDI R2, R2, 0
+ADDI R1, R1, 4
+ruddy_gun: SUBI R1, R1, 3
