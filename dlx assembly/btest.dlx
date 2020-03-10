@@ -5,4 +5,5 @@ loop: ADD R3, R3, R2
 ADDI R2, R2, 1
 SLE R4, R2, R1
 BNEZ R4, loop
+ADDI R2, R2, 0
 ADDI R1, R1, 1000
