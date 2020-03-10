@@ -9,7 +9,7 @@ module sram(cs,oe,we,addr,din,dout);
   output reg [31:0] dout;
 
 
-  integer check_hex = 1;
+  integer check_hex = 1'b1;
   integer file;
   integer ram_size = 0; // to keep track of elements in the ram
 
@@ -39,29 +39,29 @@ module sram(cs,oe,we,addr,din,dout);
     i = 0;
     while (i<8) begin
       case (bits[i])
-        1'h0 : hex = 1;
-        1'h1 : hex = 1;
-        1'h2 : hex = 1;
-        1'h3 : hex = 1;
-        1'h4 : hex = 1;
-        1'h5 : hex = 1;
-        1'h6 : hex = 1;
-        1'h7 : hex = 1;
-        1'h8 : hex = 1;
-        1'h9 : hex = 1;
-        1'ha : hex = 1;
-        1'hb : hex = 1;
-        1'hc : hex = 1;
-        1'hd : hex = 1;
-        1'he : hex = 1;
-        1'hf : hex = 1;
-        1'hA : hex = 1;
-        1'hB : hex = 1;
-        1'hC : hex = 1;
-        1'hD : hex = 1;
-        1'hE : hex = 1;
-        1'hF : hex = 1;
-        default : hex = 0;
+        1'h0 : hex = 1'b1;
+        1'h1 : hex = 1'b1;
+        1'h2 : hex = 1'b1;
+        1'h3 : hex = 1'b1;
+        1'h4 : hex = 1'b1;
+        1'h5 : hex = 1'b1;
+        1'h6 : hex = 1'b1;
+        1'h7 : hex = 1'b1;
+        1'h8 : hex = 1'b1;
+        1'h9 : hex = 1'b1;
+        1'ha : hex = 1'b1;
+        1'hb : hex = 1'b1;
+        1'hc : hex = 1'b1;
+        1'hd : hex = 1'b1;
+        1'he : hex = 1'b1;
+        1'hf : hex = 1'b1;
+        1'hA : hex = 1'b1;
+        1'hB : hex = 1'b1;
+        1'hC : hex = 1'b1;
+        1'hD : hex = 1'b1;
+        1'hE : hex = 1'b1;
+        1'hF : hex = 1'b1;
+        default : hex = 1'b0;
     endcase
     if (hex==0) begin
       $display("ERROR: Data %h is not in hex format: " , bits);
@@ -97,8 +97,8 @@ module sram(cs,oe,we,addr,din,dout);
           if (r==3) begin
             mem[c][0] = addr_value;
             mem[c][1] = data_value;
-            $display ("Addr is written: %h" , mem[c][0]);
-            $display ("Data is written: %h" , mem[c][1]);
+            //$display ("Addr is written: %h" , mem[c][0]);
+            //$display ("Data is written: %h" , mem[c][1]);
             c = c+1;
             ram_size = ram_size+1;
           end
@@ -118,8 +118,8 @@ module sram(cs,oe,we,addr,din,dout);
       task checkRAM;
         begin
           for (c=0; c<49 ; c=c+1) begin
-            $display ("Addr is checking: %h" , mem[c][0]);
-            $display ("Data is checking: %h" , mem[c][1]);
+			//$display ("Addr is checking: %h" , mem[c][0]);
+            //$display ("Data is checking: %h" , mem[c][1]);
           end
         end
       endtask
@@ -153,7 +153,7 @@ module sram(cs,oe,we,addr,din,dout);
         begin
           for (c=0; c<49 ; c=c+1) begin
             if (mem[c][0] == addr) begin
-              $display ("READ Addr FOUND!: %h" , mem[c][0]);
+              //$display ("READ Addr FOUND!: %h" , mem[c][0]);
               data = mem[c][1];
             end
           end
@@ -185,7 +185,7 @@ module sram(cs,oe,we,addr,din,dout);
         end
         if (oe==1) begin
           readRAM(addr , dbuf);
-          $display("Writing to dout: " , dbuf);
+          //$display("Writing to dout: " , dbuf);
           dout = dbuf;
         end
      end

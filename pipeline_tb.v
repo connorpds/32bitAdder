@@ -1,5 +1,5 @@
-`include "/lib/sram.v"
-`include "/lib/syncram.v"
+`include "lib/sram.v"
+`include "lib/syncram.v"
 
 module pipeline_tb;
   reg reset;
@@ -21,8 +21,8 @@ module pipeline_tb;
 
 	mux_32 override_mux(.sel(override_inst), .src0(instruction), .src1(force_inst), .z(inst_in));
 	pipeline cpu_undertest (.reset(reset), .clk(clk), .instruction(inst_in), .mem_read_data(mem_read_data), .mem_addr(mem_addr), .mem_write_data(mem_write_data), .PC(PC), .mem_wr(mem_wr), .busA_probe(busA), .mem_sh(sh), .mem_sb(sb));
-	sram #( "btest.dat" ) inst_mem(.cs(1'b1), .oe(1'b1), .we(1'b0), .addr(PC), .din(32'b0), .dout(instruction));
-	syncram #( "addi.dat" ) data_mem(.clk(clk), .cs(1'b1), .oe(1'b1), .sh(sh), .sb(sb), .we(mem_wr), .addr(mem_addr), .din(mem_write_data), .dout(mem_read_data));
+	sram #( "dlx binary/lhitest.dat" ) inst_mem(.cs(1'b1), .oe(1'b1), .we(1'b0), .addr(PC), .din(32'b0), .dout(instruction));
+	syncram #( "dlx binary/btest.dat" ) data_mem(.clk(clk), .cs(1'b1), .oe(1'b1), .sh(sh), .sb(sb), .we(mem_wr), .addr(mem_addr), .din(mem_write_data), .dout(mem_read_data));
 
 	initial begin
 		//$monitor("imm16=%h, jmp_imm26=%h, clk=%b, branch=%b, jmp=%b, reset=%b -> pc=%h", imm16, jmp_imm26, clk, branch, jmp, reset, pc);
@@ -32,7 +32,7 @@ module pipeline_tb;
 	force_inst = 32'b0;
     #200
     reset = 1'b0;
-    #8000
+    #16200
 
     dummy = 0;
 
@@ -40,16 +40,20 @@ module pipeline_tb;
 	i = 5'b0;
 	override_inst = 1'b1;
 	force_inst = { 6'b001000, 27'b0 };
-	/*
-	$monitor("reg=%d, val=%h", i, busA) //TODO
+	
 	#200
+	//$display("reg=%d, val=%h", i, busA); //TODO
+	
 	for (i = 5'b00000; i < 5'b11111; i = i + 5'b00001) begin
+			force_inst = { 6'b001000, i+5'b00001, 5'b00000, 16'b0 };
 			#200
-			force_inst = { 6'b001000, 5'b00000, i+1, 16'b0 }
+			$display("reg=%d, val=%h", i, busA);
 	end
+	
+	force_inst = { 6'b001000, 5'b11111, 5'b00000, 16'b0 };
 	#200
-	force_inst = { 6'b001000, 5'b00000, 5'b11111, 16'b0 }
-	*/
+	$display("reg=%d, val=%h", i, busA);
+	$finish(1);
 
 	end
 

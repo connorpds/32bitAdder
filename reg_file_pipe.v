@@ -30,7 +30,7 @@ mux_n #(5) det_dest(.sel(r_type), .src0(rs2_wb), .src1(rd_wb), .z(rw));
 //decoder_5to32 decode_src1(.in(rs), .out(source1));
 //decoder_5to32 decode_src2(.in(rs2), .out(source2));
 decoder_5to32 decode_dest(.in(rw), .out(dest));
-and_gate_32 check_wr_en(.x({1'b0, {31{reg_wr}}}), .y(dest), .z(dest_wr_en));
+and_gate_32 check_wr_en(.x({{31{reg_wr}}, 1'b0 }), .y(dest), .z(dest_wr_en));
 
 //Instantiation of registers
 genvar i;
