@@ -32,8 +32,10 @@ register_n PC_reg(.clk(clk), .reset(reset), .wr_en(pc_enable), .d(pc_in), .q(pc_
 
 //Adders to compute possible next addresses
 CLA_32 incr4_calc(.a(pc_out), .b(32'b100), .c_in(1'b0), .s(incr4_addr), .c_out(),.overflow());
-CLA_32 branch_calc(.a(incr4_addr), .b({branch_sign_extend, imm16}), .c_in(1'b0), .s(branch_addr), .c_out(),.overflow());
-CLA_32 jmp_calc(.a(incr4_addr), .b({jmp_sign_extend, jmp_imm26}), .c_in(1'b0), .s(jmp_addr), .c_out(),.overflow());
+
+//Deprecated as of pipeline -- this addition happens as a natural result of pipelinings
+CLA_32 branch_calc(.a(pc_out), .b({branch_sign_extend, imm16}), .c_in(1'b0), .s(branch_addr), .c_out(),.overflow());
+CLA_32 jmp_calc(.a(pc_out), .b({jmp_sign_extend, jmp_imm26}), .c_in(1'b0), .s(jmp_addr), .c_out(),.overflow());
 
 //Sign extenders for immediate and jump addresses
 mux_n #(6) jmp_extend_mux(.sel(jmp_imm26[25]), .src0(6'b000000), .src1(6'b111111), .z(jmp_sign_extend));
