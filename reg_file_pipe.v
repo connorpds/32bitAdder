@@ -15,8 +15,8 @@ module reg_file_pipe(
 );
 
 wire [1023:0] reg_out;
-wire [31:0] source1;
-wire [31:0] source2;
+//wire [31:0] source1;
+//wire [31:0] source2;
 wire [31:0] dest;
 wire [31:0] dest_wr_en;
 wire [4:0] rw;
