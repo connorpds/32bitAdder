@@ -185,7 +185,7 @@ wire reg_valid;
 //busB_0 = ID_to_EX[127:96]
 //ALU_out EX_to_MEM : [127:96]
 //MEM_out MEM_to_WB : [127:96]
-forwarding forward(.ex_mem_wr(EX_to_MEM[136]),.mem_wb_wr(MEM_to_WB[133]),.id_ex_rs(ID_to_EX[57:53]),.id_ex_rs2(ID_to_EX[52:48]),.ex_mem_rd(EX_to_MEM[47:43]),.mem_wb_rd(MEM_to_WB[47:43]),.A_sel(A_sel0),.B_sel(B_sel0));
+forwarding forward(.ex_mem_wr(EX_to_MEM[136]),.mem_wb_wr(MEM_to_WB[133]),.id_ex_rs(ID_to_EX[57:53]),.id_ex_rs2(ID_to_EX[52:48]),.ex_mem_rd(EX_to_MEM[145:141]),.mem_wb_rd(MEM_to_WB[142:138]),.A_sel(A_sel0),.B_sel(B_sel0));
 //accounting for register validity
 and_gate regs_valid(EX_to_MEM[139],MEM_to_WB[136],reg_valid);
 
