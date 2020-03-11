@@ -11,6 +11,8 @@ module pipeline_tb;
   wire mem_wr;
   wire sh;
   wire sb;
+  wire lh;
+  wire lb;
   wire [31:0] mem_addr;
   wire [31:0] mem_write_data;
   wire [31:0] PC;
@@ -20,9 +22,9 @@ module pipeline_tb;
   wire [31:0] inst_in; //check
 
 	mux_32 override_mux(.sel(override_inst), .src0(instruction), .src1(force_inst), .z(inst_in));
-	pipeline cpu_undertest (.reset(reset), .clk(clk), .instruction(inst_in), .mem_read_data(mem_read_data), .mem_addr(mem_addr), .mem_write_data(mem_write_data), .PC(PC), .mem_wr(mem_wr), .busA_probe(busA), .mem_sh(sh), .mem_sb(sb));
-	sram #( "dlx binary/jal_solo_test.dat" ) inst_mem(.cs(1'b1), .oe(1'b1), .we(1'b0), .addr(PC), .din(32'b0), .dout(instruction));
-	syncram #( "dlx binary/btest.dat" ) data_mem(.clk(clk), .cs(1'b1), .oe(1'b1), .sh(sh), .sb(sb), .we(mem_wr), .addr(mem_addr), .din(mem_write_data), .dout(mem_read_data));
+	pipeline cpu_undertest (.reset(reset), .clk(clk), .instruction(inst_in), .mem_read_data(mem_read_data), .mem_addr(mem_addr), .mem_write_data(mem_write_data), .PC(PC), .mem_wr(mem_wr), .busA_probe(busA), .mem_sh(sh), .mem_sb(sb), .mem_lh(lh), .mem_lb(lb));
+	sram #( "dlx binary/load_test.dat" ) inst_mem(.cs(1'b1), .oe(1'b1), .we(1'b0), .addr(PC), .din(32'b0), .dout(instruction));
+	syncram #( "dlx binary/load_ram.dat" ) data_mem(.clk(clk), .cs(1'b1), .oe(1'b1), .sh(sh), .sb(sb), .lh(lh), .lb(lb), .we(mem_wr), .addr(mem_addr), .din(mem_write_data), .dout(mem_read_data));
 
 	initial begin
 		//$monitor("imm16=%h, jmp_imm26=%h, clk=%b, branch=%b, jmp=%b, reset=%b -> pc=%h", imm16, jmp_imm26, clk, branch, jmp, reset, pc);
