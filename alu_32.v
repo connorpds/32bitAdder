@@ -26,14 +26,19 @@ wire c_in;
 wire zero_flag;
 wire not_zero_flag;
 wire add_opcode;
+wire addi_opcode;
+wire doing_add;
 wire overflow;
 
 //Determine inputs to the adder
 xnor_gate_6to1 determine_add(.x(opcode), .y(6'b100000), .z(add_opcode));
+xnor_gate_6to1 determine_addi(.x(opcode), .y(6'b100001), .z(addi_opcode));
+or_gate det_add(.x(add_opcode), .y(addi_opcode), .z(doing_add));
+
 
 not_gate_32 b_inverter(.x(B), .z(B_inv));
-mux_32 b_mux(.sel(add_opcode), .src0(B_inv), .src1(B), .z(B_adder));
-mux c_in_mux(.sel(add_opcode), .src0(1'b1), .src1(1'b0), .z(c_in));
+mux_32 b_mux(.sel(doing_add), .src0(B_inv), .src1(B), .z(B_adder));
+mux c_in_mux(.sel(doing_add), .src0(1'b1), .src1(1'b0), .z(c_in));
 
 //Perform add/subtract
 CLA_32 adder(.a(A), .b(B_adder), .c_in(c_in), .s(adder_out), .c_out(c_out), .overflow(overflow));
@@ -65,6 +70,7 @@ always @*
 		6'b000110 : out = srl_out; //SRL, 0x6
 		6'b000111 : out = sra_out; //SRA, 0x7
 		6'b100000 : out = adder_out; //ADD 0x20
+		6'b100001 : out = adder_out; //ADDI 0x21
 		6'b100010 : out = adder_out; //SUB 0x22
 		6'b100100 : out = and_out; //AND 0x24
 		6'b100101 : out = or_out; //OR 0x25
