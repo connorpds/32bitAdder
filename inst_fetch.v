@@ -14,6 +14,8 @@ module inst_fetch(
 	output reg [31:0] pc
 );
 
+wire reset_not;
+wire pc_enable_full;
 wire [31:0] pc_out;
 wire [31:0] pc_in;
 wire [31:0] incr4_addr;

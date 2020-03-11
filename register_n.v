@@ -1,16 +1,14 @@
 
 //n-bit register with write enable and synchronous reset
-module register_n
-#(
-	parameter n = 32
-)
-(
-	input wire clk,
-	input wire reset,//synchronous
-	input wire wr_en,
-	input wire [n-1:0] d,
-	output wire [n-1:0] q
-);
+module register_n(clk, reset, wr_en, d, q);
+// synopsys template
+	parameter n = 32;
+
+	input wire clk;
+	input wire reset;//synchronous
+	input wire wr_en;
+	input wire [n-1:0] d;
+	output wire [n-1:0] q;
 
 //wire for gating d with reset
 wire [n-1:0] data_in;
