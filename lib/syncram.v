@@ -1,4 +1,4 @@
-module syncram(clk,cs,oe,we,sh,sb,addr,din,dout);
+module syncram(clk,cs,oe,we,sh,sb,lh,lb,addr,din,dout);
 
   parameter mem_file = "";
   input clk;
@@ -7,6 +7,8 @@ module syncram(clk,cs,oe,we,sh,sb,addr,din,dout);
   input we; //write enable
   input sh;
   input sb;
+  input lh;
+  input lb;
   input [31:0] addr;
   input [31:0] din;
   output reg [31:0] dout;
@@ -145,7 +147,7 @@ module syncram(clk,cs,oe,we,sh,sb,addr,din,dout);
               //$display ("WRITE Addr FOUND (syncram)!: %h" , mem[c][0
 
               if (store_byte == 1) begin
-				mem[c][1][addr_offset+3+:4] = data[3:0];
+				mem[c][1][addr_offset+7+:8] = data[7:0];
 			  end
 			  else if (store_half == 1) begin
 				mem[c][1][addr_offset+15+:16] = data[15:0];
@@ -184,11 +186,30 @@ module syncram(clk,cs,oe,we,sh,sb,addr,din,dout);
       task readRAM;
         input [31:0] addr;
         output [31:0] data;
+		input load_byte;
+		input load_half;
+		
         begin
+		if ((load_byte == 1) || (load_half ==1)) begin
+		    addr_offset = addr % 32;
+			addr = addr - addr_offset;
+		  end
           for (c=0; c<49 ; c=c+1) begin
             if (mem[c][0] == addr) begin
-              //$display ("READ Addr FOUND!: %h" , mem[c][0]);
-              data = mem[c][1];
+              //$display ("WRITE Addr FOUND (syncram)!: %h" , mem[c][0
+
+              if (load_byte == 1) begin
+				 data = {24'b0, mem[c][1][addr_offset+7+:7]};
+			  end
+			  else if (load_half == 1) begin
+				 data = {16'b0, mem[c][1][addr_offset+15+:16]};
+			  end
+			  else begin
+				data = mem[c][1] ;
+			  end
+
+              addr_found = 1;
+
             end
           end
         end
@@ -219,7 +240,7 @@ module syncram(clk,cs,oe,we,sh,sb,addr,din,dout);
           writeRAM(addr , din, sb, sh);
         end
         if (oe==1) begin
-          readRAM(addr , dbuf);
+          readRAM(addr , dbuf, lb, lh);
           //$display("Writing to dout: " , dbuf);
           dout = dbuf;
         end

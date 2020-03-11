@@ -14,6 +14,8 @@ module pipeline
   output wire [31:0] busA_probe, //for testing, comes from register file
   output wire mem_sb,
   output wire mem_sh,
+  output wire mem_lb,
+  output wire mem_lh,
   output wire mem_wr
   );
 
@@ -209,6 +211,8 @@ execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_
 
 assign mem_sb = EX_to_MEM[129]; //FOR TESTING!
 assign mem_sh = EX_to_MEM[130]; //FOR TESTING!
+assign mem_lb = EX_to_MEM[131];
+assign mem_lh = EX_to_MEM[132];
 assign mem_write_data = EX_to_MEM[95:64];
 //store_filter MEM(.busB(EX_to_MEM[95:64]),.sb(EX_to_MEM[129]),.sh(EX_to_MEM[130]),.mem_write_data(mem_write_data)); //prepares correct data size
 assign mem_wr = EX_to_MEM[128];

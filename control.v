@@ -142,6 +142,14 @@ always @ *
 		6'h1b: func_code <= 6'h2b; //SGTI
 		6'h1c: func_code <= 6'h2c; //SLEI
 		6'h1d: func_code <= 6'h2d; //SGEI
+		6'h20: func_code <= 6'h20; //LB
+		6'h21: func_code <= 6'h20; //LH
+		6'h23: func_code <= 6'h20; //LW
+		6'h24: func_code <= 6'h20; //LBU
+		6'h25: func_code <= 6'h20; //LHU
+		6'h28: func_code <= 6'h20; //SB
+		6'h29: func_code <= 6'h20; //SH
+		6'h2b: func_code <= 6'h20; //SW
 		default: func_code <= inst[5:0];
 	endcase
 
