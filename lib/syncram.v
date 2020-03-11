@@ -139,7 +139,7 @@ module syncram(clk,cs,oe,we,sh,sb,lh,lb,addr,din,dout);
 
         begin
 		  if ((store_byte == 1) || (store_half ==1)) begin
-		    addr_offset = addr % 32;
+		    addr_offset = addr % 4;
 			addr = addr - addr_offset;
 		  end
           for (c=0; c<49 ; c=c+1) begin
@@ -147,10 +147,11 @@ module syncram(clk,cs,oe,we,sh,sb,lh,lb,addr,din,dout);
               //$display ("WRITE Addr FOUND (syncram)!: %h" , mem[c][0
 
               if (store_byte == 1) begin
-				mem[c][1][addr_offset+7+:8] = data[7:0];
+				mem[c][1][(31-(4*addr_offset))-:8] = data[7:0];
+				$display("Store byte to addr=%h, offset=%h, data=%h", addr, addr_offset, data);
 			  end
 			  else if (store_half == 1) begin
-				mem[c][1][addr_offset+15+:16] = data[15:0];
+				mem[c][1][(31-(4*addr_offset))-:16] = data[15:0];
 			  end
 			  else begin
 				mem[c][1] = data;
@@ -191,7 +192,7 @@ module syncram(clk,cs,oe,we,sh,sb,lh,lb,addr,din,dout);
 		
         begin
 		if ((load_byte == 1) || (load_half ==1)) begin
-		    addr_offset = addr % 32;
+		    addr_offset = addr % 4;
 			addr = addr - addr_offset;
 		  end
           for (c=0; c<49 ; c=c+1) begin
@@ -199,10 +200,10 @@ module syncram(clk,cs,oe,we,sh,sb,lh,lb,addr,din,dout);
               //$display ("WRITE Addr FOUND (syncram)!: %h" , mem[c][0
 
               if (load_byte == 1) begin
-				 data = {24'b0, mem[c][1][addr_offset+7+:7]};
+				 data = {24'b0, mem[c][1][(31-(4*addr_offset))-:8]};
 			  end
 			  else if (load_half == 1) begin
-				 data = {16'b0, mem[c][1][addr_offset+15+:16]};
+				 data = {16'b0, mem[c][1][(31-(4*addr_offset))-:16]};
 			  end
 			  else begin
 				data = mem[c][1] ;

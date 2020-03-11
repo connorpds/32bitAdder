@@ -130,9 +130,10 @@ register_n #(149) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({branc
 //rtype = 1, mux selects rd
 wire [4:0] rs2_if_link;
 wire [4:0] rd_in;
+wire [31:0] ex_busB; //Very early
 mux_n #(5) rs2sel_link(.sel(ID_to_EX[142]), .src0(ID_to_EX[52:48]), .src1(5'b11111), .z(rs2_if_link));
 mux_n #(5) rdsel(ID_to_EX[145], rs2_if_link , ID_to_EX[47:43],rd_in);
-register_n #(146) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({rd_in, ID_to_EX[148:136], EX_out, ID_to_EX[127:96],ID_to_EX[63:0]}),.q(EX_to_MEM));
+register_n #(146) EX_MEM(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({rd_in, ID_to_EX[148:136], EX_out, ex_busB, ID_to_EX[63:0]}),.q(EX_to_MEM));
 
 
 
@@ -185,7 +186,7 @@ wire [1:0] B_sel0;
 wire [1:0] A_sel;
 wire [1:0] B_sel;
 wire [31:0] ex_busA;
-wire [31:0] ex_busB;
+//wire [31:0] ex_busB; -- declared earlier
 wire reg_valid;
 //busA_0 = ID_to_EX[95:64]
 //busB_0 = ID_to_EX[127:96]
