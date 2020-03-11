@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/James Williams/Google Drive/Northwestern/Fall Quarter 2019/ECE 355 FPGA and ASIC Design/Lab 2/modelsim
 vadd_32
-Z0 !s110 1583857414
+Z0 !s110 1583877655
 !i10b 1
 !s100 W?c>L_Ib5<@:omZF;QXCA0
 IAZ01P@`2?o]1cEoEQa9O62
@@ -23,9 +23,9 @@ Z6 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z7 !s108 1583857413.000000
-Z8 !s107 hazard_detect.v|forwarding.v|zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file_pipe.v|reg_file.v|register_n_pipe.v|register_n.v|reg_eq_check.v|mux_4to1_32.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
-Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
+Z7 !s108 1583877655.000000
+Z8 !s107 hazard_detect.v|forwarding.v|zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file_pipe.v|reg_file.v|register_n_pipe.v|register_n.v|reg_eq_check.v|mux_4to1_32.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/pipeline/forwarding_tb.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/forwarding_tb.v|
 !s101 -O0
 !i113 1
 Z10 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
@@ -114,15 +114,15 @@ Z14 !s108 1580353151.000000
 !i113 1
 R10
 vand_3
-Z15 !s110 1583857413
+R0
 !i10b 1
 !s100 `j<cOE]X6joHUoJaX_XAD0
 I_ibGZ45^9YnPZIjBa:S070
 R1
 R2
-Z16 w1579753652
-Z17 8lib/and_gate.v
-Z18 Flib/and_gate.v
+Z15 w1579753652
+Z16 8lib/and_gate.v
+Z17 Flib/and_gate.v
 L0 11
 R6
 r1
@@ -135,12 +135,12 @@ R9
 !i113 1
 R10
 vand_32
-Z19 !s110 1572496984
+Z18 !s110 1572496984
 !i10b 1
 !s100 2]LA@I`Z]a7J@>8b2fiZg3
 I8F9UZh;Uk9of9:4F9P5me0
 R1
-Z20 dC:/Users/conno/Desktop/ECE 360 Project 1
+Z19 dC:/Users/conno/Desktop/ECE 360 Project 1
 w1572472659
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v
@@ -149,22 +149,22 @@ R6
 r1
 !s85 0
 31
-Z21 !s108 1572496984.000000
-Z22 !s107 C:\Users\conno\Desktop\ECE 360 Project 1\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\srl_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux_n.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sll_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\alu_32.v|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
-Z23 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
+Z20 !s108 1572496984.000000
+Z21 !s107 C:\Users\conno\Desktop\ECE 360 Project 1\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\srl_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux_n.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\mux.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sll_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\not_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\zero_check.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\sub_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\and_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\xor_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\or_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\\lib\and_gate.v|C:\Users\conno\Desktop\ECE 360 Project 1\\\add_32.v|C:\Users\conno\Desktop\ECE 360 Project 1\\alu_32.v|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
+Z22 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/ECE 360 Project 1/alu_32_tb.v|
 !s101 -O0
 !i113 1
 R10
 vand_4
-R15
+R0
 !i10b 1
 !s100 YL]Q9dOE5X_HV;zL?bgi00
 IhF@>:<T^g4znVGdU<eTJ=2
 R1
 R2
+R15
 R16
 R17
-R18
 L0 20
 R6
 r1
@@ -177,15 +177,15 @@ R9
 !i113 1
 R10
 vand_5
-R15
+R0
 !i10b 1
 !s100 DWC0F@kP0k9UBk3S;bV^k1
 ICVNiad?PPK]GI_6jOEj;U0
 R1
 R2
+R15
 R16
 R17
-R18
 L0 30
 R6
 r1
@@ -198,15 +198,15 @@ R9
 !i113 1
 R10
 vand_gate
-R15
+R0
 !i10b 1
 !s100 NLZe9@@iT^HHj]<Q3`I=H2
 I<eE4Na47Q7;6`Ja1;HGAl2
 R1
 R2
+R15
 R16
 R17
-R18
 L0 1
 R6
 r1
@@ -219,13 +219,13 @@ R9
 !i113 1
 R10
 vand_gate_32
-R15
+R0
 !i10b 1
 !s100 @b``jmKZ0[7jJ`ZWbYKGQ2
 I:OYKLiFD306<0@QX6oI_72
 R1
 R2
-R16
+R15
 8lib/and_gate_32.v
 Flib/and_gate_32.v
 L0 1
@@ -240,13 +240,13 @@ R9
 !i113 1
 R10
 vand_gate_n
-R15
+R0
 !i10b 1
 !s100 Hal8khdRz1LO_e<MjFCh90
 Ii?GR1=eD9KT=m9HieZUGn3
 R1
 R2
-Z24 w1583710028
+Z23 w1583710028
 8lib/and_gate_n.v
 Flib/and_gate_n.v
 L0 1
@@ -267,9 +267,9 @@ R0
 IaB8SMhOPFHjh;Y5TgZ12d0
 R1
 R2
-Z25 w1583112816
-Z26 8add_32_lookahead.v
-Z27 Fadd_32_lookahead.v
+Z24 w1583112816
+Z25 8add_32_lookahead.v
+Z26 Fadd_32_lookahead.v
 L0 98
 R6
 r1
@@ -290,16 +290,16 @@ IB0CZG;b5@YBban5>JgC=n0
 R1
 R11
 w1580945551
-Z28 8C:/Users/conno/Desktop/362/alu_32/multu_tb.v
-Z29 FC:/Users/conno/Desktop/362/alu_32/multu_tb.v
+Z27 8C:/Users/conno/Desktop/362/alu_32/multu_tb.v
+Z28 FC:/Users/conno/Desktop/362/alu_32/multu_tb.v
 L0 1
 R6
 r1
 !s85 0
 31
 !s108 1580945727.000000
-Z30 !s107 C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
-Z31 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
+Z29 !s107 C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
+Z30 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/alu_32/multu_tb.v|
 !s101 -O0
 !i113 1
 R10
@@ -311,9 +311,9 @@ R0
 IV2kPX1Um:4E1Rh_WL<zQG1
 R1
 R2
+R24
 R25
 R26
-R27
 L0 2
 R6
 r1
@@ -351,11 +351,11 @@ n@c@l@a_4_tb
 vcontrol
 R0
 !i10b 1
-!s100 X1?F]Gi<jSNFzCoC=fnIU2
-I;8Y;[Z>8Nj_Smmn`85?_a3
+!s100 c^Ze]MbJ8o1aFgX48G0hP1
+I0OUkninDW4[H9==?AWZno1
 R1
 R2
-w1583796328
+Z31 w1583874093
 8control.v
 Fcontrol.v
 L0 6
@@ -412,7 +412,7 @@ R9
 !i113 1
 R10
 vdff
-R15
+R0
 !i10b 1
 !s100 [Q1Gk^UEHoFSid<1lPzU62
 IBm35MggEkMbQ04SW6;Hg31
@@ -433,7 +433,7 @@ R9
 !i113 1
 R10
 vdffr
-R15
+R0
 !i10b 1
 !s100 VF]XPbOgUHJ?B@>WWIboa2
 I8C4KH@nLUoKaAzmET^Bj81
@@ -498,14 +498,35 @@ R10
 vforwarding
 R0
 !i10b 1
-!s100 3Z6UT=<zbBZ28MA[z@jTV0
-I]=VCzIAe[dVkN2EkA6Dl23
+!s100 A=nPbdXflEd^:S8kaR;5F0
+IgW?OAac4<z]NSdJk[c5LB0
 R1
 R2
-w1583714550
+w1583873462
 8forwarding.v
 Fforwarding.v
 L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vforwarding_tb
+R0
+!i10b 1
+!s100 5RWLd`gRRQgJz3VBVDR[G1
+IfmDSCIf==T5;gn0JoDBE^0
+R1
+R2
+R31
+8C:/Users/conno/Desktop/362/pipeline/forwarding_tb.v
+FC:/Users/conno/Desktop/362/pipeline/forwarding_tb.v
+L0 3
 R6
 r1
 !s85 0
@@ -755,27 +776,27 @@ I;3VHe@WzFn`TUN`@MgHW53
 R1
 R11
 w1580950485
+R27
 R28
-R29
 L0 1
 R6
 r1
 !s85 0
 31
 !s108 1580950490.000000
+R29
 R30
-R31
 !s101 -O0
 !i113 1
 R10
 vmux
-R15
+R0
 !i10b 1
 !s100 0f3Tg3e9AC4j0zgA[7E[]2
 IEl4abLdGC=[T?alZhmDS00
 R1
 R2
-R16
+R15
 8lib/mux.v
 Flib/mux.v
 L0 1
@@ -853,7 +874,7 @@ R9
 !i113 1
 R10
 vmux_32
-R15
+R0
 !i10b 1
 !s100 ?693lSfA]TCg`<oO]K;CA1
 Ie<F:>=STd092F_4Re4ggW3
@@ -895,7 +916,7 @@ R9
 !i113 1
 R10
 vmux_n
-R15
+R0
 !i10b 1
 !s100 1jbNzklME@KBgnGDONnb@2
 IL`naJI<6gjC<OLAaR7`2`3
@@ -916,13 +937,13 @@ R9
 !i113 1
 R10
 vnand_gate
-R15
+R0
 !i10b 1
 !s100 f@BWiSY4Yj3:fVTRJBF<J3
 Imb`c?l9b4miIC2^RC]Zj<2
 R1
 R2
-R16
+R15
 8lib/nand_gate.v
 Flib/nand_gate.v
 L0 1
@@ -937,13 +958,13 @@ R9
 !i113 1
 R10
 vnand_gate_32
-R15
+R0
 !i10b 1
 !s100 5FMRPEi?BHDjU_YFWoNV^2
 I`E55SYcG7iC6Ie5>KaH;e1
 R1
 R2
-R16
+R15
 8lib/nand_gate_32.v
 Flib/nand_gate_32.v
 L0 1
@@ -958,13 +979,13 @@ R9
 !i113 1
 R10
 vnand_gate_n
-R15
+R0
 !i10b 1
 !s100 ?Dj=zZ_]9Q]7J?LILzSlz0
 Ia=SjFW<mOzUBFZaHmX_o?3
 R1
 R2
-R24
+R23
 8lib/nand_gate_n.v
 Flib/nand_gate_n.v
 L0 1
@@ -979,13 +1000,13 @@ R9
 !i113 1
 R10
 vnor_gate
-R15
+R0
 !i10b 1
 !s100 Gh=JFWmI5OX<XebUfz0?n1
 II<7DhFRT:UU;`C4]BO1bo0
 R1
 R2
-R16
+R15
 8lib/nor_gate.v
 Flib/nor_gate.v
 L0 1
@@ -1000,13 +1021,13 @@ R9
 !i113 1
 R10
 vnor_gate_32
-R15
+R0
 !i10b 1
 !s100 `=c`R:mhUBD1WJWTLJ=eK2
 I0MakP^[JS]9z@`=FMhX1G1
 R1
 R2
-R16
+R15
 8lib/nor_gate_32.v
 Flib/nor_gate_32.v
 L0 1
@@ -1021,13 +1042,13 @@ R9
 !i113 1
 R10
 vnor_gate_n
-R15
+R0
 !i10b 1
 !s100 RS;6>a3TPOO0lV_S]@dBb1
 I;NgiC:9IRjn07KnRMc?eQ0
 R1
 R2
-R24
+R23
 8lib/nor_gate_n.v
 Flib/nor_gate_n.v
 L0 1
@@ -1042,13 +1063,13 @@ R9
 !i113 1
 R10
 vnot_gate
-R15
+R0
 !i10b 1
 !s100 @FX]SQ9[SLV5C@AHXzLLB1
 IGoZPXNG9C@MaO2[2JHKCf1
 R1
 R2
-R16
+R15
 8lib/not_gate.v
 Flib/not_gate.v
 L0 1
@@ -1063,13 +1084,13 @@ R9
 !i113 1
 R10
 vnot_gate_32
-R15
+R0
 !i10b 1
 !s100 f<;0OK5OGnD61<kJ[1fIO0
 ID3?VMNk7mKBP3jC5Q4aOn0
 R1
 R2
-R16
+R15
 8lib/not_gate_32.v
 Flib/not_gate_32.v
 L0 1
@@ -1084,13 +1105,13 @@ R9
 !i113 1
 R10
 vnot_gate_n
-R15
+R0
 !i10b 1
 !s100 `CT`N:NJZQ5VG3S=QYUK33
 I:J_IN;BIHGBT>YH;RXl_V3
 R1
 R2
-R24
+R23
 8lib/not_gate_n.v
 Flib/not_gate_n.v
 L0 1
@@ -1105,13 +1126,13 @@ R9
 !i113 1
 R10
 vor_3
-R15
+R0
 !i10b 1
 !s100 P5kK1PKBnbii3S1nfJPY43
 I]bz1X:FQl9lW:?1;>zXa=3
 R1
 R2
-R16
+R15
 Z41 8lib/or_gate.v
 Z42 Flib/or_gate.v
 Z43 L0 13
@@ -1126,12 +1147,12 @@ R9
 !i113 1
 R10
 vor_32
-R19
+R18
 !i10b 1
 !s100 dck]cZPBD?WC;cY92]kkJ0
 IG`kZ9bQCm1bD=3O?@O75G1
 R1
-R20
+R19
 w1572472684
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\or_32.v
@@ -1140,20 +1161,20 @@ R6
 r1
 !s85 0
 31
+R20
 R21
 R22
-R23
 !s101 -O0
 !i113 1
 R10
 vor_4
-R15
+R0
 !i10b 1
 !s100 zNb@DEF4nTFN01d3=@44M3
 Ib`bT]bdmFZ01Oz0g:P=SB0
 R1
 R2
-R16
+R15
 R41
 R42
 L0 22
@@ -1168,13 +1189,13 @@ R9
 !i113 1
 R10
 vor_5
-R15
+R0
 !i10b 1
 !s100 HlUOmc2Ad6D>C9M`Ym7EP2
 ID[momE63]a@:aAK^7=kGS2
 R1
 R2
-R16
+R15
 R41
 R42
 R40
@@ -1189,13 +1210,13 @@ R9
 !i113 1
 R10
 vor_gate
-R15
+R0
 !i10b 1
 !s100 =m;HIk4P2jzbSRL^Rba_90
 I0e8h>KadAnDKV68Vk?P3:0
 R1
 R2
-R16
+R15
 R41
 R42
 L0 1
@@ -1210,13 +1231,13 @@ R9
 !i113 1
 R10
 vor_gate_32
-R15
+R0
 !i10b 1
 !s100 O;5RWJ2ceGSb^1m9T3S_a0
 IA>Y=EJlMBo0Am9^dT>8W32
 R1
 R2
-R16
+R15
 8lib/or_gate_32.v
 Flib/or_gate_32.v
 L0 1
@@ -1231,13 +1252,13 @@ R9
 !i113 1
 R10
 vor_gate_n
-R15
+R0
 !i10b 1
 !s100 U_^lZZjU[96LPYJ2ac7P93
 IZ47YS=E4F:oVJ98@RAO<61
 R1
 R2
-R24
+R23
 8lib/or_gate_n.v
 Flib/or_gate_n.v
 L0 1
@@ -1254,11 +1275,11 @@ R10
 vpipeline
 R0
 !i10b 1
-!s100 3VP<`jC1^dC_DR_S[f;eA3
-IR?<?`Tg>]3f9NZOl@OCMU0
+!s100 n`8bPUm77=Ga3PYh^[87A1
+I44cDeg<e]88SNN?S4ACc?2
 R1
 R2
-w1583857375
+w1583877647
 8C:/Users/conno/Desktop/362/pipeline/pipeline.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline.v
 L0 5
@@ -1266,20 +1287,20 @@ R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+!s108 1583877654.000000
+!s107 hazard_detect.v|forwarding.v|zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file_pipe.v|reg_file.v|register_n_pipe.v|register_n.v|reg_eq_check.v|mux_4to1_32.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 !s101 -O0
 !i113 1
 R10
 vpipeline_tb
-Z44 !s110 1583805405
+R0
 !i10b 1
-!s100 b=G]0_54h2<1g:>N>_5_B1
-IK[RTRfkYAAmeeQj2J204S1
+!s100 f1Tz@BO6Xb3CmjIlojFFf1
+IMAZA>73VmJ<MCzG9LR;3j1
 R1
 R2
-w1583804721
+w1583876827
 8C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
 L0 4
@@ -1287,9 +1308,9 @@ R6
 r1
 !s85 0
 31
-Z45 !s108 1583805405.000000
-Z46 !s107 lib/syncram.v|lib/sram.v|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
-Z47 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
+R7
+Z44 !s107 lib/syncram.v|lib/sram.v|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
+Z45 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v|
 !s101 -O0
 !i113 1
 R10
@@ -1321,7 +1342,7 @@ R0
 IR6B[37[HgKb8;mh3:]XgP0
 R1
 R2
-Z48 w1583802650
+Z46 w1583802650
 8reg_file.v
 Freg_file.v
 L0 2
@@ -1342,7 +1363,7 @@ R0
 IOHZefC0AK4_@<1QnA72871
 R1
 R2
-R48
+R46
 8reg_file_pipe.v
 Freg_file_pipe.v
 L0 2
@@ -1405,9 +1426,9 @@ R0
 Ick8n[9RHWWURdeOH_dDRd2
 R1
 R2
-Z49 w1582779743
-Z50 8sets.v
-Z51 Fsets.v
+Z47 w1582779743
+Z48 8sets.v
+Z49 Fsets.v
 L0 14
 R6
 r1
@@ -1447,9 +1468,9 @@ R0
 IjJVc^glSCEzV8hG?83ea72
 R1
 R2
+R47
+R48
 R49
-R50
-R51
 L0 66
 R6
 r1
@@ -1468,9 +1489,9 @@ R0
 Id=0<YOBE9f?:LfGjWAD1f0
 R1
 R2
+R47
+R48
 R49
-R50
-R51
 L0 35
 R6
 r1
@@ -1497,7 +1518,7 @@ R6
 r1
 !s85 0
 31
-Z52 !s108 1583114046.000000
+Z50 !s108 1583114046.000000
 !s107 zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file.v|register_n.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/single_cycle/single_cycle.v|
 R36
 !s101 -O0
@@ -1518,7 +1539,7 @@ R6
 r1
 !s85 0
 31
-R52
+R50
 !s107 C:\Users\conno\Desktop\362\single_cycle\\lib\syncram.v|C:\Users\conno\Desktop\362\single_cycle\\lib\sram.v|C:/Users/conno/Desktop/362/single_cycle/single_cycle_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/single_cycle/single_cycle_tb.v|
 !s101 -O0
@@ -1531,9 +1552,9 @@ R0
 I0R8=L4e]XAUD1ba<;JNLE3
 R1
 R2
+R47
+R48
 R49
-R50
-R51
 L0 51
 R6
 r1
@@ -1553,8 +1574,8 @@ I?I;V?^A]K5F75lgMNVz=B2
 R1
 R2
 R33
-Z53 8shift_ops.v
-Z54 Fshift_ops.v
+Z51 8shift_ops.v
+Z52 Fshift_ops.v
 L0 1
 R6
 r1
@@ -1594,9 +1615,9 @@ R0
 IhLGzT]U:Z8eYZ:>d`YzaM0
 R1
 R2
+R47
+R48
 R49
-R50
-R51
 L0 4
 R6
 r1
@@ -1609,12 +1630,12 @@ R9
 !i113 1
 R10
 vslt_32
-R19
+R18
 !i10b 1
 !s100 AcV5fPYUTC;S@Ag3BIS<k3
 Ioj<g39eK5N3_Ag1K0j`mV2
 R1
-R20
+R19
 w1572495172
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\slt_32.v
@@ -1623,9 +1644,9 @@ R6
 r1
 !s85 0
 31
+R20
 R21
 R22
-R23
 !s101 -O0
 !i113 1
 R10
@@ -1651,12 +1672,12 @@ r1
 !i113 1
 R10
 vsltu_32
-R19
+R18
 !i10b 1
 !s100 kgZO5hgB4J>Gh?^<IYVE<0
 ILKBBS`R`Mf;`HOJMTS7gk1
 R1
-R20
+R19
 w1572496408
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\sltu_32.v
@@ -1665,9 +1686,9 @@ R6
 r1
 !s85 0
 31
+R20
 R21
 R22
-R23
 !s101 -O0
 !i113 1
 R10
@@ -1678,10 +1699,10 @@ R0
 Icd>0cg@zFDbT9_:hHm<3Z0
 R1
 R2
+R47
+R48
 R49
-R50
-R51
-Z55 L0 25
+Z53 L0 25
 R6
 r1
 !s85 0
@@ -1700,8 +1721,8 @@ IL^>Cnkf@3]aSV7a7fj8n90
 R1
 R2
 R33
-R53
-R54
+R51
+R52
 L0 37
 R6
 r1
@@ -1714,13 +1735,13 @@ R9
 !i113 1
 R10
 vsram
-R44
+R0
 !i10b 1
-!s100 >YRim_h>T[Vl;6M:2ZAHD0
-If@RGAcBA4_k79jD?2`EFM3
+!s100 YoD`D8Xd7TCXQ[>EAT;ZF2
+IS6=jF]b5M`AJ>2S_bU0;f3
 R1
 R2
-R48
+R31
 8lib/sram.v
 Flib/sram.v
 L0 1
@@ -1728,9 +1749,9 @@ R6
 r1
 !s85 0
 31
+R7
+R44
 R45
-R46
-R47
 !s101 -O0
 !i113 1
 R10
@@ -1742,8 +1763,8 @@ Il2z7dPoH4?09AIhITC`h^1
 R1
 R2
 R33
-R53
-R54
+R51
+R52
 R43
 R6
 r1
@@ -1763,9 +1784,9 @@ ITKC37dQ<_RUzB[d];Rm^J2
 R1
 R2
 R33
+R51
+R52
 R53
-R54
-R55
 R6
 r1
 !s85 0
@@ -1798,12 +1819,12 @@ R9
 !i113 1
 R10
 vsub_32
-R19
+R18
 !i10b 1
 !s100 hhiIQ<OHOJUO16YUz[Hzb0
 If4_9AORiT;=MlCTE1X3Pe2
 R1
-R20
+R19
 w1572472844
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\\sub_32.v
@@ -1812,20 +1833,20 @@ R6
 r1
 !s85 0
 31
+R20
 R21
 R22
-R23
 !s101 -O0
 !i113 1
 R10
 vsyncram
-R44
+R0
 !i10b 1
 !s100 5]c2Y[Xg7nn3im@]JHOEL1
 Injl]VQQG4kFn;R9@3^3oo1
 R1
 R2
-R48
+R46
 8lib/syncram.v
 Flib/syncram.v
 L0 1
@@ -1833,9 +1854,9 @@ R6
 r1
 !s85 0
 31
+R7
+R44
 R45
-R46
-R47
 !s101 -O0
 !i113 1
 R10
@@ -1883,13 +1904,13 @@ R9
 !i113 1
 R10
 vxnor_gate
-R15
+R0
 !i10b 1
 !s100 eAXgDW6UIj`mIUOcm?Q]z1
 I>QD@IF6S5hnacImmZKS@b1
 R1
 R2
-R16
+R15
 8lib/xnor_gate.v
 Flib/xnor_gate.v
 L0 1
@@ -1904,13 +1925,13 @@ R9
 !i113 1
 R10
 vxnor_gate_32
-R15
+R0
 !i10b 1
 !s100 o8hHoVc]AG0;4BC<W8e^T0
 If5M]MG:<_[DaLhB9@4ebj0
 R1
 R2
-R16
+R15
 8lib/xnor_gate_32.v
 Flib/xnor_gate_32.v
 L0 1
@@ -1946,7 +1967,7 @@ R9
 !i113 1
 R10
 vxnor_gate_n
-R15
+R0
 !i10b 1
 !s100 blGY8DoX^:BBjh6N^1]Pj1
 Ii=<[o37MOfalA4eFYfX=93
@@ -1967,12 +1988,12 @@ R9
 !i113 1
 R10
 vxor_32
-R19
+R18
 !i10b 1
 !s100 4C;P<]bVkZhT07h7;;9_41
 I?VkSnbbhc_gl>_h@=]=DO1
 R1
-R20
+R19
 w1572472671
 8C:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v
 FC:\Users\conno\Desktop\ECE 360 Project 1\\\xor_32.v
@@ -1981,20 +2002,20 @@ R6
 r1
 !s85 0
 31
+R20
 R21
 R22
-R23
 !s101 -O0
 !i113 1
 R10
 vxor_gate
-R15
+R0
 !i10b 1
 !s100 lc]@oT^8<6TG2DYGjjPFd1
 IzPz^NmGf5cJ]_JZF5?Ldj0
 R1
 R2
-R16
+R15
 8lib/xor_gate.v
 Flib/xor_gate.v
 L0 1
@@ -2009,13 +2030,13 @@ R9
 !i113 1
 R10
 vxor_gate_32
-R15
+R0
 !i10b 1
 !s100 a5:^1Um:En_4^74O>Sk>a0
 I8i:;L<KmMNKeG]<8YJCVY1
 R1
 R2
-R16
+R15
 8lib/xor_gate_32.v
 Flib/xor_gate_32.v
 L0 1
@@ -2030,13 +2051,13 @@ R9
 !i113 1
 R10
 vxor_gate_n
-R15
+R0
 !i10b 1
 !s100 J[[YJ`@AD<]zhKMY=k?Rk0
 IG_Q9UBg_5ihTiNJ;z`@=31
 R1
 R2
-R24
+R23
 8lib/xor_gate_n.v
 Flib/xor_gate_n.v
 L0 1
