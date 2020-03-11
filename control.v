@@ -98,8 +98,8 @@ always @ *
 //Setting imm_extend
 always @ *
 	case(inst[31:26])
-		6'h9: func_code <= 6'h21; //ADDUI
-		6'hb: func_code <= 6'h23; //SUBUI
+		6'h9: imm_extend <= 1'b0; //ADDUI
+		6'hb: imm_extend <= 1'b0; //SUBUI
 		6'hc: imm_extend<=1'b0; //ANDI
 		6'hd: imm_extend<=1'b0; //ORI
 		6'he: imm_extend<=1'b0; //XORI
