@@ -232,7 +232,7 @@ and_gate_n #(2) bSelValid({reg_valid,reg_valid},B_sel0,B_sel);
 //selecting between non forwarded and various forwarded values
 mux_4to1_32 sel_A(A_sel,ID_to_EX[95:64],WB_out,EX_to_MEM[127:96],32'hFFFFFFFF,ex_busA);
 mux_4to1_32 sel_B(B_sel,ID_to_EX[127:96],WB_out,EX_to_MEM[127:96],32'hFFFFFFFF,ex_busB);
-execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]), .doMult(doMult), .imm16(ID_to_EX[47:32]), .clk(clk), .mult_done(mult_done), .out(EX_out));
+execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]), .doMult(doMult), .imm16(ID_to_EX[47:32]), .clk(clk), .mult_done(mult_done), .reset(reset), .out(EX_out));
 
 
 /////////////////////////////
