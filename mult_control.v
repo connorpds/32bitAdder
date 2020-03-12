@@ -42,7 +42,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   wire next_op;
   wire a_s0; //a_s for internal use
   wire add_c_out;
-  wire mult_inter;
+
   wire mult_done_temp;
 
   //memory to keep track of which op to perform
@@ -66,7 +66,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   wire prev_LSB;
   wire prev_LSB_en;
   and_gate plsb_doing(next_op,doing_mult,prev_LSB_en);
-  register_n #(1) prev_LSB_(.clk(mClk), .reset(combined_reset),.wr_en(doing_mult),.d(prod_LSB),.q(prev_LSB));
+  register_n #(1) prev_LSB_(.clk(mClk), .reset(combined_reset),.wr_en(prev_LSB_en),.d(prod_LSB),.q(prev_LSB));
 
 
   wire mult_finish;
