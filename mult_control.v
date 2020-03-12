@@ -70,7 +70,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
 
 wire mult_finish;
-wire not_mult_finish
+wire not_mult_finish;
 register_n #(1) stagger_done(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done_temp),.q(mult_finish));
 not_gate nmf(mult_finish, not_mult_finish);
 
