@@ -60,7 +60,7 @@ module execute(
   //unsigned mult
   multu unsigned_mult(.a(busA),.b(busB),.clk(clk),.doMult(doMult),.reset(reset),.out(multu_res),.mult_done(mult_unsigned_done));
 
-  or_gate mlt_Done(mult_signed_done,mult_signed_done,mult_done);
+  or_gate mlt_Done(mult_signed_done,mult_unsigned_done,mult_done);
   //select between ALU result and mult results
   mux_4to1_32 sel_mult_or_alu(.sel(out_sel),.a(inter_alu_res),.b(mult_res),.c(multu_res),.d(inter_alu_res), .out(out));
 
