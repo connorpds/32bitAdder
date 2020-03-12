@@ -9,12 +9,12 @@ module mult_tb;
 	wire [31:0] Out;
 	reg dummy;
 
-	multu mult_undertest (.a(A), .b(B), .clk(clk), .doMult(doMult), .reset(reset),.out(Out), .mult_done(mult_done));
+	mult mult_undertest (.a(A), .b(B), .clk(clk), .doMult(doMult), .reset(reset),.out(Out), .mult_done(mult_done));
 
 	initial begin
 		$monitor("A=%b B=%b, clk=%b -> doMult=%b, reset=%b, Out=%b, mult_done=%b", A, B, clk, doMult, reset, Out, mult_done);
-		A = 32'b10;
-		B = 32'b101;
+		A = 32'b0100;
+		B = 32'b010;
 		reset=1'b1;
 		clk=1'b1;
 		#4
