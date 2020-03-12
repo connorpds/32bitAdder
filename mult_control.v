@@ -65,7 +65,9 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
   wire prev_LSB;
   wire prev_LSB_en;
-  and_gate plsb_doing(next_op,doing_mult,prev_LSB_en);
+  wire prev_LSB_en0;
+  and_gate plsb_doing(next_op,doing_mult,prev_LSB_en0);
+  not_gate voodoo(prev_LSB_en0, prev_LSB_en);
   register_n #(1) prev_LSB_(.clk(mClk), .reset(combined_reset),.wr_en(prev_LSB_en),.d(prod_LSB),.q(prev_LSB));
 
 
@@ -84,7 +86,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   //-ADD/SUBTRACT OUTPUT (doSub, 0 for add, 1 for sub)
 
   //add0 and doSub truth table
-  nor_gate add0_(prev_LSB,prod_LSB,add0);
+  xnor_gate add0_(prev_LSB,prod_LSB,add0);
   wire n_prev;
   not_gate nprev(prev_LSB,n_prev);
   and_gate doSub_(prod_LSB,n_prev,doSub);
