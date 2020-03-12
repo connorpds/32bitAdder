@@ -197,14 +197,14 @@ wire mult_not_freezing;
 wire mult_op_potential;
 
 xnor_gate_6to1 det_mult_signed(.x(ID_to_EX[37:32]), .y(6'h0e), .z(mult_signed_op));
-xnor_gate_6to1 det_multu(.x(ID_to_EX[37:32]), .y(6'16), .z(mult_u_op));
+xnor_gate_6to1 det_multu(.x(ID_to_EX[37:32]), .y(6'h16), .z(mult_u_op));
 xnor_gate_6to1 det_func_code(.x(ID_to_EX[63:58]), .y(6'h01), .z(func_code_01));
 or_gate det_mult_op_potential(.x(mult_signed_op), .y(mult_u_op), .z(mult_op_potential));
 and_gate det_mult_op(.x(mult_op_potential), .y(func_code_01), .z(mult_op));
 
-not_gate mult_done_not(.x(mult_done), .z(mult_done_not));
+not_gate det_mult_done_not(.x(mult_done), .z(mult_done_not));
 and_gate mult_freeze_det(.x(mult_done_not), .y(mult_op), .z(mult_freeze));
-not_gate (.x(mult_freeze), .z(pipe_reg_en);
+not_gate det_big_freeze(.x(mult_freeze), .z(pipe_reg_en));
 
 register_n #(1) stalling_status(.clk(clk), .reset(reset), .wr_en(1'b1), .d(mult_freeze), .q(mult_freezing));
 not_gate det_mult_not_freezing(.x(mult_freezing), .z(mult_not_freezing));
@@ -232,7 +232,7 @@ and_gate_n #(2) bSelValid({reg_valid,reg_valid},B_sel0,B_sel);
 //selecting between non forwarded and various forwarded values
 mux_4to1_32 sel_A(A_sel,ID_to_EX[95:64],WB_out,EX_to_MEM[127:96],32'hFFFFFFFF,ex_busA);
 mux_4to1_32 sel_B(B_sel,ID_to_EX[127:96],WB_out,EX_to_MEM[127:96],32'hFFFFFFFF,ex_busB);
-execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]),.imm16(ID_to_EX[47:32]),.out(EX_out));
+execute EX(.busA(ex_busA),.busB(ex_busB),.ALU_ctr(ID_to_EX[133:128]),.ext_op(ID_to_EX[134]),.ALUsrc(ID_to_EX[135]), .doMult(doMult), .imm16(ID_to_EX[47:32]), .clk(clk), .mult_done(mult_done), .out(EX_out));
 
 
 /////////////////////////////

@@ -7,7 +7,7 @@ module execute(
   input wire [5:0] ALU_ctr,
   input wire ext_op,
   input wire ALUsrc,
-  input wire doMult
+  input wire doMult,
   input wire [15:0] imm16,
   input wire clk,
   input wire reset,
@@ -62,6 +62,6 @@ module execute(
 
   or_gate mlt_Done(mult_signed_done,mult_signed_done,mult_done);
   //select between ALU result and mult results
-  mux_4to1_32 sel_mult_or_alu(.sel(out_sel),.a(inter_alu_res),.b(mult_res),.c(multu_res),.d(inter_alu_res), .z(out));
+  mux_4to1_32 sel_mult_or_alu(.sel(out_sel),.a(inter_alu_res),.b(mult_res),.c(multu_res),.d(inter_alu_res), .out(out));
 
   endmodule
