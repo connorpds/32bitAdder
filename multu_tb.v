@@ -13,8 +13,8 @@ module multu_tb;
 
 	initial begin
 		$monitor("A=%b B=%b, clk=%b -> doMult=%b, reset=%b, Out=%b, mult_done=%b", A, B, clk, doMult, reset, Out, mult_done);
-		A = 32'b10;
-		B = 32'b101;
+		A = 32'h17;
+		B = 32'h3;
 		reset=1'b1;
 		clk=1'b1;
 		#4

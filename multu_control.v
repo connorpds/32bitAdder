@@ -17,8 +17,8 @@ module multu_control
   //-need memory to count how many shifts have occurred ---basically done
   //-need memory to remember what last thing was
 wire doing_mult;
-wire ctrl_reset;
-assign ctrl_reset = doMult;
+reg ctrl_reset;
+//assign ctrl_reset = doMult;
 
 //add0 is just !LSB
 not_gate notLSB(prod_LSB,add0);
@@ -28,7 +28,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
 //initialization: when doMult goes high, we decide to initialize. We will
 //probably do some resetting here, too.
-/*  always@ (posedge doMult or negedge doMult)
+  always@ (posedge doMult)
     begin
       ctrl_reset = 1;
     end
@@ -36,7 +36,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   always@ (negedge doMult)
     begin
       ctrl_reset = 0;
-    end*/
+    end
 
 //6 bit register and counter, adds 0 when add_count is 0, adds 1 when add_count is 1
   wire [5:0] reg6out;
@@ -71,7 +71,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   register_n #(1) stagger_done(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done_temp),.q(mult_finish));
   not_gate nmf(mult_finish, not_mult_finish);
   and_gate muld_done_find(not_mult_finish, mult_done_temp, mult_done0);
-  register_n #(1) stagger_md(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done0),.q(mult_done));
+  register_n #(1) stagger_md(.clk(mClk), .reset(reset),.wr_en(1'b1),.d(mult_done0),.q(mult_done));
 
 
 
