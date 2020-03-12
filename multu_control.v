@@ -44,7 +44,7 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   wire next_op;
   wire a_s0; //a_s for internal use
   wire add_c_out;
-  wire mult_inter;
+
   wire mult_done_temp;
   //memory to keep track of which op to perform
   not_gate not_a_s(a_s0,next_op); //e
@@ -61,15 +61,18 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
 
 
-  not_gate stop_doing(mult_done, doing_mult); //turns doing_mult off
-  mux mltdone_add_only(mult_done,a_s0,1'b0,a_s);
+  not_gate stop_doing(mult_done_temp, doing_mult); //turns doing_mult off
+  mux mltdone_add_only(mult_done_temp,a_s0,1'b0,a_s);
+
 
   wire mult_finish;
   wire not_mult_finish;
+  wire mult_done0;
   register_n #(1) stagger_done(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done_temp),.q(mult_finish));
   not_gate nmf(mult_finish, not_mult_finish);
+  and_gate muld_done_find(not_mult_finish, mult_done_temp, mult_done0);
+  register_n #(1) stagger_md(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done0),.q(mult_done));
 
-  and_gate muld_done_find(not_mult_finish, mult_done_temp, mult_done);
 
 
 endmodule

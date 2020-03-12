@@ -69,12 +69,13 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
   register_n #(1) prev_LSB_(.clk(mClk), .reset(combined_reset),.wr_en(doing_mult),.d(prod_LSB),.q(prev_LSB));
 
 
-wire mult_finish;
-wire not_mult_finish;
-register_n #(1) stagger_done(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done_temp),.q(mult_finish));
-not_gate nmf(mult_finish, not_mult_finish);
-
-and_gate muld_done_find(not_mult_finish, mult_done_temp, mult_done);
+  wire mult_finish;
+  wire not_mult_finish;
+  wire mult_done0;
+  register_n #(1) stagger_done(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done_temp),.q(mult_finish));
+  not_gate nmf(mult_finish, not_mult_finish);
+  and_gate muld_done_find(not_mult_finish, mult_done_temp, mult_done0);
+  register_n #(1) stagger_md(.clk(mClk), .reset(combined_reset),.wr_en(1'b1),.d(mult_done0),.q(mult_done));
 
 
   //T0D0 LIST:
