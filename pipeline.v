@@ -58,6 +58,9 @@ wire [31:0] busB;
 wire [31:0] WB_out;
 wire [4:0] into_rs2;
 
+//MULT WIRES
+wire mult_freeze;
+wire doMult;
 
 //ALU OUTPUT
 wire [31:0] EX_out;
@@ -79,7 +82,7 @@ wire comb_branch; //combined branch_z and branch_nz with the conditions they dea
 
 
 wire pipe_reg_en;
-assign pipe_reg_en = 1'b1; //THIS WILL CHANGE LATER WITH STALLS
+
 //used to freeze entire pipeline...will need to be ANDed in later with !(hazard_detected) signal
 //freezing enire pipeline for using multi cycle mult
 //ID AND WB COMPONENTS
@@ -102,8 +105,10 @@ assign busA_probe = busA; //FOR TESTING
 wire hazard_detected;
 wire nohazard;
 wire not_reset;
+wire wr_en_in0;
 wire wr_en_in;
-and_gate enable_write(noStall, nohazard, wr_en_in);
+and_gate enable_write(noStall, nohazard, wr_en_in0);
+and_gate check_for_freeze(wr_en_in0, pipe_reg_en, wr_en_in);
 not_gate notrst(reset,not_reset);
 register_n #(65) IF_ID(.clk(clk), .reset(reset), .wr_en(wr_en_in), .d({not_reset, instruction,PC}) ,.q(IF_to_ID));
 hazard_detect detect(.id_ex_read(ID_to_EX[146]),.id_ex_rs2(ID_to_EX[52:48]), .if_id_rs(IF_to_ID[57:53]), .if_id_rs2(IF_to_ID[52:48]),.hazard(hazard_detected));
@@ -179,6 +184,31 @@ not_gate nostalling(stall, noStall);
 ////////////////////////////
 //Execute //////////////
 ////////////////////
+
+
+//Mult determining
+wire mult_done_not;
+wire mult_signed_op;
+wire mult_u_op;
+wire func_code_01;
+wire mult_op;
+wire mult_freezing;
+wire mult_not_freezing;
+wire mult_op_potential;
+
+xnor_gate_6to1 det_mult_signed(.x(ID_to_EX[37:32]), .y(6'h0e), .z(mult_signed_op));
+xnor_gate_6to1 det_multu(.x(ID_to_EX[37:32]), .y(6'16), .z(mult_u_op));
+xnor_gate_6to1 det_func_code(.x(ID_to_EX[63:58]), .y(6'h01), .z(func_code_01));
+or_gate det_mult_op_potential(.x(mult_signed_op), .y(mult_u_op), .z(mult_op_potential));
+and_gate det_mult_op(.x(mult_op_potential), .y(func_code_01), .z(mult_op));
+
+not_gate mult_done_not(.x(mult_done), .z(mult_done_not));
+and_gate mult_freeze_det(.x(mult_done_not), .y(mult_op), .z(mult_freeze));
+not_gate (.x(mult_freeze), .z(pipe_reg_en);
+
+register_n #(1) stalling_status(.clk(clk), .reset(reset), .wr_en(1'b1), .d(mult_freeze), .q(mult_freezing));
+not_gate det_mult_not_freezing(.x(mult_freezing), .z(mult_not_freezing));
+and_gate det_doMult(.x(mult_freeze), .y(mult_not_freezing), .z(doMult));
 
 //Forwarding:
 wire [1:0] A_sel0;
