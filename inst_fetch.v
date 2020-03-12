@@ -32,6 +32,10 @@ not_gate reset_not_gate(.x(reset), .z(reset_not));
 and_gate true_pc_enable(.x(pc_enable), .y(reset_not), .z(pc_enable_full));
 register_n PC_reg(.clk(clk), .reset(reset), .wr_en(pc_enable), .d(pc_in), .q(pc_out) );
 
+//Manual PC enable
+wire [31:0] pc_in_temp;
+mux_32 det_pc_in(.sel(pc_enable), .src0(pc_out), .src1(pc_in_temp), .z(pc_in));
+
 //Adders to compute possible next addresses
 CLA_32 incr4_calc(.a(pc_out), .b(32'b100), .c_in(1'b0), .s(incr4_addr), .c_out(),.overflow());
 
@@ -47,7 +51,9 @@ mux_n #(16) branch_extend_mux(.sel(imm16[15]), .src0(16'b0), .src1(16'b111111111
 mux_32 det_jmp (.sel(jmp), .src0(incr4_addr), .src1(jmp_addr), .z(temp_w_jump));
 mux_32 det_branch (.sel(branch), .src0(temp_w_jump), .src1(branch_addr), .z(temp_w_branch));
 mux_32 det_jmp_r (.sel(jmp_r), .src0(temp_w_branch), .src1(reg_imm32), .z(temp_w_reg));
-mux_32 startup_freeze(.sel(reset), .src0(temp_w_reg), .src1(32'b0), .z(pc_in));
+mux_32 startup_freeze(.sel(reset), .src0(temp_w_reg), .src1(32'b0), .z(pc_in_temp));
+
+
 
 always @*
 	pc <= pc_out; // continuous assign so we can have internal wire and output

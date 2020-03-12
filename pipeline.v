@@ -122,7 +122,8 @@ wire branch_mark0;
 wire branch_mark;
 or_gate branch_mark_find(branch_z, branch_nz, branch_mark0);
 or_gate branch_mark_jr(branch_mark0, jmp_r, branch_mark);
-and_gate idex_valid(nohazard,IF_to_ID[64],id_ex_valid);
+and_gate idex_valid(1'b1,IF_to_ID[64],id_ex_valid);
+//and_gate idex_valid(nohazard,IF_to_ID[64],id_ex_valid);
 mux_n #(13) squash_sig(nohazard,13'b0,ctrl_sig,ctrl_sig_in);
 register_n #(149) ID_EX(.clk(clk), .reset(reset), .wr_en(pipe_reg_en), .d({branch_mark, id_ex_valid,ctrl_sig_in, func_code,busB,busA,IF_to_ID[63:0]}), .q(ID_to_EX));
 
