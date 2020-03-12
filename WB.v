@@ -35,8 +35,8 @@ mux_32 det_lh(.sel(lh), .src0(det_lb_out), .src1(mem_out_lh), .z(det_lh_out));
 
 //Decide if using mem_out, ALU_out, PC, or extended imm16
 mux_32 det_ALU(.sel(mem_to_reg), .src0(ALU_out), .src1(det_lh_out), .z(det_ALU_out));
-mux_32 det_PC(.sel(link), .src0(det_ALU_out), .src1(PC_plus_8), .z(det_PC_out));
-mux_32 det_imm16(.sel(lhi), .src0(det_PC_out), .src1( { imm16, 16'b0} ), .z(WB_out_temp));
+mux_32 det_PC(.sel(link), .src0(det_ALU_out), .src1(PC_plus_8), .z(WB_out_temp));
+//mux_32 det_imm16(.sel(lhi), .src0(det_PC_out), .src1( { imm16, 16'b0} ), .z(WB_out_temp));
 
 always @ *
 	WB_out = WB_out_temp;

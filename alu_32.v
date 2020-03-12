@@ -20,6 +20,7 @@ wire[31:0] slt_out;
 wire[31:0] sgt_out;
 wire[31:0] sle_out;
 wire[31:0] sge_out;
+wire[31:0] lhi_out;
 
 wire c_out;
 wire c_in;
@@ -63,6 +64,9 @@ sgt sgt_op(.nz(not_zero_flag),.a(adder_out), .sgt(sgt_out));
 sle	sle_op(.zf(zero_flag), .a(adder_out), .sle(sle_out));
 sge sge_op(.a(adder_out), .sge(sge_out));
 
+//lhi
+assign lhi_out = {B[15:0], lhi_out};
+
 //MUX at the end for op selection, based off of DLX ALU func codes
 always @*
 	case (opcode)
@@ -81,6 +85,7 @@ always @*
 		6'b101011 : out = sgt_out; //SGT 0x2b
 		6'b101100 : out = sle_out; //SLE 0x2c
 		6'b101101 : out = sge_out; //SGE 0x2d
+		6'b101110 : out = lhi_out; //LHI 0x2e
 		default		: out = adder_out;
 		//6'b001110 : out = //MUL 0x0e
 	endcase

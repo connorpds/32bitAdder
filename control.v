@@ -137,6 +137,7 @@ always @ *
 		6'hc: func_code <= 6'h24; //ANDI
 		6'hd: func_code <= 6'h25; //ORI
 		6'he: func_code <= 6'h26; //XORI
+		6'hf: func_code <= 6'h2e; //LHI
 		6'h14: func_code <= 6'h4; //SLLI
 		6'h16: func_code <= 6'h6; //SRLI
 		6'h17: func_code <= 6'h7; //SRAI
