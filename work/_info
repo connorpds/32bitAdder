@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/James Williams/Google Drive/Northwestern/Fall Quarter 2019/ECE 355 FPGA and ASIC Design/Lab 2/modelsim
 vadd_32
-Z0 !s110 1584022712
+Z0 !s110 1584024740
 !i10b 1
 !s100 W?c>L_Ib5<@:omZF;QXCA0
 IAZ01P@`2?o]1cEoEQa9O62
@@ -23,7 +23,7 @@ Z6 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z7 !s108 1584022712.000000
+Z7 !s108 1584024740.000000
 Z8 !s107 hazard_detect.v|forwarding.v|zero_check.v|xnor_gate_6to1.v|WB.v|store_filter.v|shift_ops.v|sets.v|reg_file_pipe.v|reg_file.v|register_n_pipe.v|register_n.v|reg_eq_check.v|mux_4to1_32.v|mux16.v|multu_control.v|multu.v|mult_control.v|mult.v|inst_fetch.v|extend.v|execute.v|decoder_5to32.v|decoder_3to8.v|control.v|alu_32.v|add_32_lookahead.v|add_32.v|lib/dffr.v|lib/dff.v|lib/mux_n.v|lib/mux_32.v|lib/mux.v|lib/not_gate_n.v|lib/not_gate_32.v|lib/not_gate.v|lib/xnor_gate_n.v|lib/xnor_gate_32.v|lib/xnor_gate.v|lib/xor_gate_n.v|lib/xor_gate_32.v|lib/xor_gate.v|lib/nor_gate_n.v|lib/nor_gate_32.v|lib/nor_gate.v|lib/or_gate_n.v|lib/or_gate_32.v|lib/or_gate.v|lib/nand_gate_n.v|lib/nand_gate_32.v|lib/nand_gate.v|lib/and_gate_n.v|lib/and_gate_32.v|lib/and_gate.v|dependencies.v|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/pipeline.v|
 !s101 -O0
@@ -706,7 +706,7 @@ R9
 !i113 1
 R10
 vmult_tb
-Z35 !s110 1584022713
+Z35 !s110 1584024741
 !i10b 1
 !s100 Ma9=jciIFRn3NbIG?S<7[2
 In7_<LMeAlb=;W82M:V4^S1
@@ -720,7 +720,7 @@ R6
 r1
 !s85 0
 31
-Z36 !s108 1584022713.000000
+Z36 !s108 1584024741.000000
 !s107 C:/Users/conno/Desktop/362/pipeline/mult_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/conno/Desktop/362/pipeline/mult_tb.v|
 !s101 -O0
@@ -1275,11 +1275,11 @@ R10
 vpipeline
 R0
 !i10b 1
-!s100 I`9SmlZDZilWL>@TJSfk[2
-IlFg>jB3DgXE]0[@COhJ493
+!s100 Y4IOcK1_@H[d>3m8eBn8R1
+I`3m?R4Z3hh?Bhz3SXI86m1
 R1
 R2
-w1584021888
+w1584024707
 8C:/Users/conno/Desktop/362/pipeline/pipeline.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline.v
 L0 5
@@ -1296,11 +1296,11 @@ R10
 vpipeline_tb
 R35
 !i10b 1
-!s100 4a1a:FYih2hAo5kWQjZQo1
-IG_M>9?^8mT8niN5^N;C_a1
+!s100 <f<h1YCEIVLJh1F>^KB2m1
+IeIgm4?m[c=mH40QH[ki3@1
 R1
 R2
-w1584020548
+w1584023197
 8C:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
 FC:/Users/conno/Desktop/362/pipeline/pipeline_tb.v
 L0 4

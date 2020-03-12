@@ -110,7 +110,10 @@ wire wr_en_in;
 and_gate enable_write(noStall, nohazard, wr_en_in0);
 and_gate check_for_freeze(wr_en_in0, pipe_reg_en, wr_en_in);
 not_gate notrst(reset,not_reset);
-register_n #(65) IF_ID(.clk(clk), .reset(reset), .wr_en(wr_en_in), .d({not_reset, instruction,PC}) ,.q(IF_to_ID));
+
+wire [64:0] IF_ID_in;
+mux_n #(65) fix_if_id(.sel(wr_en_in), .src0(IF_to_ID), .src1({not_reset, instruction,PC}), .z(IF_ID_in));
+register_n #(65) IF_ID(.clk(clk), .reset(reset), .wr_en(wr_en_in), .d(IF_ID_in) ,.q(IF_to_ID));
 hazard_detect detect(.id_ex_read(ID_to_EX[146]),.id_ex_rs2(ID_to_EX[52:48]), .if_id_rs(IF_to_ID[57:53]), .if_id_rs2(IF_to_ID[52:48]),.hazard(hazard_detected));
 not_gate no_hazard(hazard_detected, nohazard);
 
@@ -179,6 +182,7 @@ wire bex_bid;
 wire bex_bid_bmem;
 wire stall;
 and_gate bexbid(ID_to_EX[148],EX_to_MEM[140],bex_bid);
+//not_gate witchCraft(bex_bid, bex_bid_bmem);
 nand_gate bexbidbmem(bex_bid,MEM_to_WB[137],bex_bid_bmem);
 and_gate calcStall(bex_bid_bmem, branch_mark, stall);
 not_gate nostalling(stall, noStall);
