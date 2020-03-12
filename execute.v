@@ -7,23 +7,27 @@ module execute(
   input wire [5:0] ALU_ctr,
   input wire ext_op,
   input wire ALUsrc,
+  input wire doMult
   input wire [15:0] imm16,
+  input wire clk,
+  input wire reset,
+  output wire mult_done,
   output wire [31:0] out
   );
 
-  //assume 6'b111111 is mult
-  reg out_sel;
-  reg doMult;
+
+  reg [1:0] out_sel;
   //determine if multiplying
   always @*
     case (ALU_ctr)
       6'h0e : begin
-                  out_sel = 1;
-                  doMult = 1;
+                  out_sel = 01; //01 for signed mult
+                  end
+      6'h16 : begin
+                  out_sel = 10; //10 for unsigned mult
                   end
       default: begin
-                  out_sel = 0;
-                  doMult = 0;
+                  out_sel = 00;
                   end
     endcase
 
@@ -42,11 +46,22 @@ module execute(
   alu_32 exec_alu(.A(busA),.B(input_B),.opcode(ALU_ctr),.out(inter_alu_res));
 
   //get mult result
-  reg [31:0] inter_mult_result;
-  always @*
-    inter_mult_result = busA * input_B;
+//  reg [31:0] inter_mult_result;
+//  always @*
+//    inter_mult_result = busA * input_B;
+  wire [31:0] mult_res;
+  wire [31:0] multu_res;
+  wire mult_signed_done;
+  wire mult_unsigned_done;
 
-  //select between ALU result and mult result
-  mux_32 sel_mult_or_alu(.sel(out_sel),.src0(inter_alu_res),.src1(inter_mult_result),.z(out));
+  //signed mult
+  mult signed_mult(.a(busA),.b(busB),.clk(clk),.doMult(doMult),.reset(reset),.out(mult_res),.mult_done(mult_signed_done));
+
+  //unsigned mult
+  multu unsigned_mult(.a(busA),.b(busB),.clk(clk),.doMult(doMult),.reset(reset),.out(multu_res),.mult_done(mult_unsigned_done));
+
+  or_gate mlt_Done(mult_signed_done,mult_signed_done,mult_done);
+  //select between ALU result and mult results
+  mux_4to1_32 sel_mult_or_alu(.sel(out_sel),.a(inter_alu_res),.b(mult_res),.c(multu_res),.d(inter_alu_res), .z(out));
 
   endmodule
