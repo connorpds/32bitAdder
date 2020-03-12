@@ -65,7 +65,7 @@ sle	sle_op(.zf(zero_flag), .a(adder_out), .sle(sle_out));
 sge sge_op(.a(adder_out), .sge(sge_out));
 
 //lhi
-assign lhi_out = {B[15:0], lhi_out};
+assign lhi_out = {B[15:0], 16'b0};
 
 //MUX at the end for op selection, based off of DLX ALU func codes
 always @*
