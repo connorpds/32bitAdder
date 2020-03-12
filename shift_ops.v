@@ -45,3 +45,15 @@ always @ * begin
 end
 
 endmodule
+
+module sra_64(
+	input wire signed [63:0] A,
+	input wire [63:0] B,
+	output reg [63:0] out
+);
+
+always @ * begin
+	out = A >>> B;
+end
+
+endmodule

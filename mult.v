@@ -38,7 +38,7 @@ mux det_cin(.sel(doSub), .src0(1'b0), .src1(1'b1), .z(cin));
 CLA_32 adder(.a(adder_in), .b(prod_out[63:32]), .c_in(cin), .s(adder_out), .c_out(), .overflow());
 
 // Determine input to product reg
-srl_64 shifted_prod0(.A(prod_out), .B(64'b1), .out(shifted_prod));
+sra_64 shifted_prod0(.A(prod_out), .B(64'b1), .out(shifted_prod));
 mux_n #(64) shift_mux(.sel(a_s), .src0( {adder_out, prod_out[31:0]} ), .src1( shifted_prod ), .z( add_shift_out ));
 mux_n #(64) load_mux(.sel(prod_en), .src0(add_shift_out), .src1({32'b0, b}), .z(prod_in));
 
