@@ -23,7 +23,7 @@ module pipeline_tb;
 
 	mux_32 override_mux(.sel(override_inst), .src0(instruction), .src1(force_inst), .z(inst_in));
 	pipeline cpu_undertest (.reset(reset), .clk(clk), .instruction(inst_in), .mem_read_data(mem_read_data), .mem_addr(mem_addr), .mem_write_data(mem_write_data), .PC(PC), .mem_wr(mem_wr), .busA_probe(busA), .mem_sh(sh), .mem_sb(sb), .mem_lh(lh), .mem_lb(lb));
-	sram #( "dlx binary/store_test.dat" ) inst_mem(.cs(1'b1), .oe(1'b1), .we(1'b0), .addr(PC), .din(32'b0), .dout(instruction));
+	sram #( "dlx binary/mult_test.dat" ) inst_mem(.cs(1'b1), .oe(1'b1), .we(1'b0), .addr(PC), .din(32'b0), .dout(instruction));
 	syncram #( "dlx binary/store_ram.dat" ) data_mem(.clk(clk), .cs(1'b1), .oe(1'b1), .sh(sh), .sb(sb), .lh(lh), .lb(lb), .we(mem_wr), .addr(mem_addr), .din(mem_write_data), .dout(mem_read_data));
 
 	initial begin
