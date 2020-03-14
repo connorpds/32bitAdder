@@ -28,15 +28,11 @@ or_gate comb_rst(ctrl_reset,reset,combined_reset);
 
 //initialization: when doMult goes high, we decide to initialize. We will
 //probably do some resetting here, too.
-  always@ (posedge doMult)
+  always@ doMult
     begin
-      ctrl_reset = 1;
+      ctrl_reset = doMult;
     end
 
-  always@ (negedge doMult)
-    begin
-      ctrl_reset = 0;
-    end
 
 //6 bit register and counter, adds 0 when add_count is 0, adds 1 when add_count is 1
   wire [5:0] reg6out;
